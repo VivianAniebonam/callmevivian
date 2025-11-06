@@ -11,16 +11,21 @@
   Building purposeful technology, showcasing innovation, and connecting with global partners.  
 </p>
 
-<div style="display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 25px; flex-wrap: wrap;">
+<p align="center">
   <a href="mailto:aniebonamvivian1@gmail.com" target="_blank">
     <img src="https://img.shields.io/badge/Email-Vivian-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Vivian">
   </a>
-<a href="https://github.com/VivianAniebonam" target="_blank"><img src="https://img.shields.io/badge/GitHub-VivianAniebonam-7E57C2?style=for-the-badge&logo=github&logoColor=white" alt="Vivian's GitHub">
-</a>
-  <a href="https://www.linkedin.com/in/vivian-aniebonam-136065282/" target="_blank">
-    <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" alt="Vivian's LinkedIn">
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://github.com/VivianAniebonam" target="_blank">
+    <img src="https://img.shields.io/badge/GitHub-VivianAniebonam-7E57C2?style=for-the-badge&logo=github&logoColor=white" alt="Vivian's GitHub">
   </a>
-</div>
+  &nbsp;&nbsp;&nbsp;
+  <a href="https://www.linkedin.com/in/vivian-aniebonam-136065282/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin&logoColor=white" alt="Vivian's LinkedIn">
+  </a>
+</p>
+
+
 
 ---
 
