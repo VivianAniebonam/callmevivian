@@ -1,0 +1,479 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Poojy Documentation</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,600,700" rel="stylesheet">
+    <link rel="stylesheet" href="assets/css/scribbler-global.css">
+    <link rel="stylesheet" href="assets/css/scribbler-doc.css">
+    <link rel="author" href="humans.txt">
+  </head>
+  <body>
+    <div class="doc__bg"></div>
+    <nav class="header">
+      <h1 class="logo">Poojy <span class="logo__thin">Doc</span></h1>
+      <ul class="menu">
+        <div class="menu__item toggle"><span></span></div>
+        <li class="menu__item"><a href="index.html" class="link link--dark"><i class="fa fa-home"></i> Home</a></li>
+      </ul>
+    </nav>
+    
+    <div class="wrapper">
+      
+      <aside class="doc__nav">
+        <ul>
+          <li class="js-btn selected">Get Started</li>
+          <li class="js-btn">Page Structure</li>
+          <li class="js-btn">Editing Skin</li>
+          <li class="js-btn">Favicon</li>
+          <li class="js-btn">Logo</li>
+          <li class="js-btn">Navigation Menu</li>
+          <li class="js-btn">Main section</li>
+          <li class="js-btn">Portfolio Showcase</li>
+          <li class="js-btn">Reveal effect</li>
+          <li class="js-btn">Fonts</li>
+          <li class="js-btn">Credits</li>
+        </ul>
+      </aside>
+
+      <article class="doc__content">
+       
+        <section class="js-section">
+          <h3 class="section__title">Get Started</h3>
+          
+          <p class="lead">Thank you so much for purchasing our item. If you have any questions that are beyond the scope of this help file, please feel free to contact us via the support tab at Themeforest. Thanks so much!</p>
+
+          <h3>Installation</h3>
+
+          <p>After you unzip the package received from themeforest you will have the following in the extracted folder.</p>
+
+          <img src="images/01.jpg" />
+
+          <p>If you'd like to work on localhost/local server first before upload it to your live server, you can copy the <code>poojy</code> folder into your local server directory. Or simply upload all files into your hosting if you feel confident enough to edit the files directly in your live/online server.</p>
+        </section>
+
+        <section class="js-section">
+          
+          <h3 class="section__title">Page Structure</h3>
+
+          <p>Poojy designed for simple personal one page template, please always follow the page structure below</p>
+
+<div class="code-br">
+  <pre>
+    <code class="html">
+      &lt;!-- ATTENTION : For complete code, please open "poojy/index.html", do not directly copy the code below -->
+      &lt;body>
+        
+        &lt;!-- The preloader -->
+        &lt;div id="poojy-site-preloader">&lt;/div>
+
+        &lt;!-- The main wrapper -->
+        &lt;div id="site" class="page">
+
+          &lt;!-- ============================= ** INTRO ** ============================= -->
+          &lt;div id="intro">&lt;/div>
+
+          &lt;!-- ============================= ** HEADER ** ============================= -->
+          &lt;header id="main-header" class="default-header">&lt;/header>
+
+          &lt;!-- ============================= ** CONTENT ** ============================= -->
+          &lt;main id="main" class="main">
+            &lt;!-- The important inner wrapper to hold your one page content -->
+            &lt;div class="inner-pages-wrap">
+              
+              &lt;!-- ================= 01. INDEX SECTION ================ -->
+              &lt;section id="home" class="page-section site-hero">&lt;/section>
+
+              &lt;!-- ================= 02 SECTION ================ -->
+              &lt;section id="about" class="page-section">&lt;/section>
+
+              &lt;!-- ================= 03 SECTION ================ -->
+              &lt;section id="service" class="page-section">&lt;/section>
+
+              &lt;!--
+                - Each section is wrapped with &lt;section> with class 'page-section'
+                - For complete code please open "poojy/index.html"
+              -->
+              ...
+
+            &lt;/div>
+          &lt;/main>
+
+          &lt;!-- =========================== ** FOOTER ** =========================== -->
+          &lt;footer id="site-footer">&lt;/footer>
+
+        &lt;/div>
+
+      &lt;/body>
+
+    </code>
+  </pre>
+</div>
+
+          <p>
+            You can copy anything you want from the premade template into your new template, just make sure to pay attention when copying the markup, check carefully the opening tag and the closing tag - so you're layout will not break. 
+          </p>
+
+
+          <h3>Required Styles &amp; Scripts</h3>
+          <p>Make sure the lines below are not dissapear from the <code>&lt;head&gt;</code> tag</p>
+
+<div class="code-br">
+  <pre>
+    <code class="html">
+      &lt;!-- Google font(s) -->
+      &lt;link rel="dns-prefetch" href="//fonts.googleapis.com" />
+      &lt;link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|IBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
+      
+      &lt;!-- Stylesheet (CSS) files -->
+      &lt;link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+      &lt;link rel="stylesheet" href="assets/css/plugins.css">
+      &lt;link rel="stylesheet" href="assets/css/site.css">
+      &lt;link rel="stylesheet" href="assets/css/skin.css">
+    </code>
+  </pre>
+</div>
+
+          <p>And make sure these lines below are still exists before the closing <code>&lt;/body&gt;</code> tag</p>
+<div class="code-br">
+  <pre>
+    <code class="html">
+      &lt;script type='text/javascript'>
+      /* &lt;![CDATA[ */
+      var poojyOptions = {
+        "imgParticle" : "assets/images/rose-small.png", // particle image, for intro text animation
+        "audio": "", // audio file
+        "volume": 17, // 0 - 100, define the volume here
+        "map": {
+          "lat" : -37.8173277, // Define the latitude here
+          "lon" : 144.9537353, // Define the longitude here
+          "marker" : 'assets/images/pin.svg' // Define the map marker icon
+        }
+      };
+      /* ]]> */
+      &lt;/script>
+      &lt;!-- Scripts -->
+      &lt;script src="assets/js/jquery.min.js">&lt;/script>
+      &lt;script src="assets/js/plugins.js">&lt;/script>
+      &lt;script src="assets/js/app.js">&lt;/script>
+    </code>
+  </pre>
+</div>
+         <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Editing Skin</h3>
+          <p>We have make separate CSS for skin. You can create a new CSS file and copy all code from <code>assets/css/skin.css</code> into your CSS file and start making the changes.<br/> Or you can simply edit the <code>assets/css/skin.css</code> file directly to change the template skin</p>
+
+          <p>If you're good with Sass, we also include the SCSS file in <code>assets/scss/</code> folder.</p>
+          <hr />
+        </section>
+
+
+        <section class="js-section">
+          <h3 class="section__title">Favicon</h3>
+
+          <p>To set your own favicon. Please replace the "faviconIcon.png" inside <code>/assets/images/</code> folder.</p>
+
+        <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Changing the logo</h3>
+
+          <p>For logo, please change the image of this line on each html file</p>
+<div class="code-br">
+  <pre>
+    <code class="html">
+    &lt;header id="main-header" class="default-header">
+      &lt;div class="header-ui">
+        &lt;nav class="navbar">
+          &lt;a class="navbar-brand" href="index.html" rel="home">
+            &lt;img src="assets/images/vivian.png" srcset="assets/images/vivian.png 2x" alt="Poojy logo" />
+          &lt;/a>
+
+          ...
+
+    </code>
+  </pre>
+</div>
+
+        <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Main Navigation Menu</h3>
+
+          <p>Please follow the current markup of main navigation menu. As the purpose of this template is for personal cv/portfolio, currently the menu do not support the dropdowns menu.</p>
+
+<div class="code-br">
+  <pre>
+    <code class="html">
+        &lt;!-- MENU / NAVIGATION -->
+        &lt;div class="main-nav-wrap">
+          &lt;div class="main-nav-ui">
+
+            &lt;ul class="main-nav nav">
+              &lt;li class="nav-item">
+                &lt;a class="nav-link" href="index.html#home">Home&lt;/a>
+              &lt;/li>
+
+              &lt;li class="nav-item">
+                &lt;a class="nav-link" href="index.html#about">About me&lt;/a>
+              &lt;/li>
+
+              &lt;li class="nav-item">
+                &lt;a class="nav-link" href="index.html#services">Services&lt;/a>
+              &lt;/li>
+
+              &lt;li class="nav-item">
+                &lt;a class="nav-link" href="index.html#contact">Contact&lt;/a>
+              &lt;/li>
+            &lt;/ul>
+
+            &lt;!-- close button for small device -->
+            &lt;button type="button" id="mobile-menu-close">&lt;i class="icon ion-ios-close">&lt;/i>&lt;/button>
+          &lt;/div>
+        &lt;/div>
+    </code>
+  </pre>
+</div>
+
+        <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">The main section</h3>
+
+          <p>The main section will hold all your one page content sections.</p>
+<div class="code-br">
+  <pre>
+    <code class="html">
+
+          &lt;!-- ============================= ** CONTENT ** ============================= -->
+          &lt;main id="main" class="main">
+            &lt;!-- The important inner wrapper to hold your one page content -->
+            &lt;div class="inner-pages-wrap">
+              
+              &lt;!-- ================= 01. INDEX SECTION ================ -->
+              &lt;section id="home" class="page-section site-hero">&lt;/section>
+
+              &lt;!-- ================= 02 SECTION ================ -->
+              &lt;section id="about" class="page-section">&lt;/section>
+
+              &lt;!-- ================= 03 SECTION ================ -->
+              &lt;section id="service" class="page-section">&lt;/section>
+
+              &lt;!--
+                - Each section is wrapped with &lt;section> with class 'page-section'
+                - For complete code please open "poojy/index.html"
+              -->
+              ...
+
+            &lt;/div>
+          &lt;/main>
+    </code>
+  </pre>
+</div>
+        <p>The single portfolio template which will be opened using Ajax, have slightly different markup in the main section.</p>
+<div class="code-br">
+  <pre>
+    <code class="html">
+
+          &lt;!-- ============================= ** CONTENT ** ============================= -->
+          &lt;main id="main" class="main">
+            &lt;!--
+              * @since Poojy 1.0.0
+              * make sure to wrap your single portfolio content with &lt;article class="single-portfolio">
+              * Need this to make sure Ajax working on the site index
+            -->
+            &lt;article class="single-portfolio">
+
+              ...
+
+            &lt;/article>
+          &lt;/main>
+    </code>
+  </pre>
+</div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Portfolio Showcase</h3>
+
+          <p>This template using a custom fullscreen slide to showcase portfolio, please follow the mark up below</p>
+<div class="code-br">
+  <pre>
+    <code class="html">
+
+      &lt;section id="home" class="page-section site-hero">
+        
+        &lt;div id="project-gallery">
+          &lt;ul class="project-items">
+
+            &lt!-- portfolio item -->
+            &lt;li class="project-item hero-slide-item">
+              &lt!-- portfolio image -->
+              &lt;img src="media-placeholder/hero-image.jpg" alt="" />
+
+              &lt!-- The content (Title, portfolio category and button) -->
+              &lt;div class="gallery-content d-flex align-items-center">
+                &lt;div class="container d-block">
+                  &lt!-- portfolio title -->
+                  &lt;h2 class="entry-title">&lt;strong>Fighting&lt;/strong> Fish&lt;/h2>
+                  &lt!-- portfolio category -->
+                  &lt;span class="project-cat">Experimental&lt;/span>
+
+                  &lt!-- 
+                    - link to your single portfolio template
+                    - make sure to use the class "to-single-project"
+                  -->
+                  &lt;a class="btn btn-outline-light btn-lg to-single-project" href="single-portfolio.html">View project&lt;/a>
+                &lt;/div>
+              &lt;/div>
+            &lt;/li>
+
+            ....
+
+          &lt;/ul>
+
+          &lt;!-- Prev / Next slide buttons -->
+          &lt;a id="project-gallery-next" href="#">
+            &lt;i class="icon ion-ios-arrow-forward">&lt;/i>
+          &lt;/a>
+          &lt;a id="project-gallery-prev" href="#">
+            &lt;i class="icon ion-ios-arrow-back">&lt;/i>
+          &lt;/a>
+        &lt;/div>
+
+      &lt;/section>
+
+    </code>
+  </pre>
+</div>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Reveal effect</h3>
+
+          <p>You can apply the reveal effect (a.k.a animation when section is in viewport) on almost all elements, such as paragraph <code>&lt;p></code>, heading <code>h1 - h6</code>, <code>&lt;div></code> tag, etc. You just need to add <code>has-reveal-effect</code> class attribute and <code>data-effect=""</code> attribute to the markup.</p>
+
+          <p>Note: you can't apply directly the effect to an image, you need to wrap the image with <code>&lt;div></code> or <code>&lt;figure></code>, and add the class name and <code>data-effect=""</code> attribute to it.</p>
+
+<div class="code-br">
+  <pre>
+    <code class="html">
+      &lt;div class="has-reveal-effect" data-effect="fadeInTop">
+        This div will fade in from bottom to the original position
+      &lt;/div>
+
+      &lt;!-- Image below will reveal from left to right -->
+      &lt;figure class="has-reveal-effect" data-effect="revealRight">
+        &lt;img src="awesome.jpg" alt="" />
+      &lt;/figure>
+    </code>
+  </pre>
+</div>
+          <p>Complete list of <code>data-effect</code> attribute</p>
+          <table>
+            <tbody>
+              <tr>
+                <td></td>
+                <td>fadeIn</td>
+                <td>fadeInTop</td>
+                <td>fadeInBottom</td>
+                <td>fadeInLeft</td>
+                <td>fadeInRight</td>
+              </tr>
+              <tr>
+                <td></td>
+                <td colspan="2">revealTop</td>
+                <td>revealBottom</td>
+                <td>revealLeft</td>
+                <td>revealRight</td>
+              </tr>
+            </tbody>
+          </table>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Changing Font(s)</h3>
+
+          <p>This template use Poppins and IBM Plex Sans font.</p>
+          <p>To change the font you can edit the line inside <code>&lt;head></code> tag</p>
+
+<div class="code-br">
+  <pre>
+    <code class="html">
+&lt;link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700|IBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
+    </code>
+  </pre>
+</div>
+          <p>Go to <a href="https://fonts.google.com/" target="_blank">https://fonts.google.com/</a> to define which font you want to use. After that, please edit <code>/assets/css/skin.css</code> and change any "font-family" value with the new font name.</p>
+          <hr />
+        </section>
+
+        <section class="js-section">
+          <h3 class="section__title">Credits</h3>
+
+          <table>
+
+            <tbody>
+              <tr>
+                <td>Images</td>
+                <td><a href="https://www.pexels.com/">Pexels.com</a></td>
+                <td><a href="https://unsplash.com/">Unsplash.com</a></td>
+              </tr>
+              <tr>
+                <td>Audio (Demo)</td>
+                <td colspan="2"><a href="http://freemusicarchive.org/music/Drake_Stafford/~/Puzzle_1357">Puzzle by Drake Stafford</a></td>
+              </tr>
+              <tr>
+                <td>Icon</td>
+                <td colspan="2"><a href="https://ionicons.com">Ion Icons</a> &rarr; <a href="https://ionicons.com/usage/">How to use</a></td>
+              </tr>
+              <tr>
+                <td>Scripts</td>
+                <td><a href="http://creativelive.github.io/appear/">Appear Js</a></td>
+                <td><a href="https://animejs.com/">Anime js</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><a href="http://www.pixijs.com/">Pixi js</a></td>
+                <td><a href="http://www.idangero.us/swiper/">Swiper</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><a href="https://masonry.desandro.com">Masonry</a></td>
+                <td><a href="https://dimsemenov.com/plugins/magnific-popup/">Magnific Popup</a></td>
+              </tr>
+              <tr>
+                <td></td>
+                <td><a href="https://getbootstrap.com/">Bootstrap</a></td>
+                <td></td>
+              </tr>
+            </tbody>
+          </table>
+
+          <hr />
+        </section>
+
+      </article>
+    </div>
+
+    <footer class="footer">
+      Once again, thank you so much for purchasing this item.<br/>
+      As we said at the beginning, we'd be glad to help you if you have any questions relating to this item. We'll do our best to assist.
+      <br/>Don't forget to <a href="https://themeforest.net/user/wip-themes/follow" target="_blank" class="link link--light">Follow us</a>.</footer>
+    <script src="assets/js/highlight.pack.js"></script>
+    <script>hljs.initHighlightingOnLoad();</script>
+    <script src="assets/js/scribbler.js"></script>
+  </body>
+</html>
