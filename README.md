@@ -1,9 +1,9 @@
 <!-- Banner Section -->
 <p align="center">
-  <img src="https://raw.githubusercontent.com/VivianAniebonam/callmevivian/main/banner.png" alt="CallMeVivian Banner" width="100%">
+  <img src="https://raw.githubusercontent.com/VivianAniebonam/callmevivian/main/banner.png" alt="CallMeVivian Banner" width="50%">
 </p>
 
-<h1 align="center">✨ CallMeVivian — Professional Portfolio ✨</h1>
+<h2 align="center">✨ CallMeVivian — Professional Portfolio ✨</h2>
 
 <p align="center">
   <b>Personal website and digital portfolio by Vivian Aniebonam</b>  
@@ -11,17 +11,16 @@
   Building purposeful technology, showcasing innovation, and connecting with global partners.  
 </p>
 
-<p align="center">
-  <a href="mailto:aniebonamvivian1@gmail.com">
-    <img src="https://img.shields.io/badge/Contact-Email-red?style=flat-square&logo=gmail">
+<div style="display: flex; justify-content: center; align-items: center; gap: 18px; margin-top: 25px; flex-wrap: wrap;">
+  <a href="mailto:aniebonamvivian1@gmail.com" target="_blank">
+    <img src="https://img.shields.io/badge/Email-Vivian-red?style=for-the-badge&logo=gmail&logoColor=white" alt="Email Vivian">
   </a>
-  <a href="https://github.com/VivianAniebonam">
-    <img src="https://img.shields.io/badge/GitHub-VivianAniebonam-black?style=flat-square&logo=github">
+<a href="https://github.com/VivianAniebonam" target="_blank"><img src="https://img.shields.io/badge/GitHub-VivianAniebonam-7E57C2?style=for-the-badge&logo=github&logoColor=white" alt="Vivian's GitHub">
+</a>
+  <a href="https://www.linkedin.com/in/vivian-aniebonam-136065282/" target="_blank">
+    <img src="https://img.shields.io/badge/LinkedIn-Connect-blue?style=for-the-badge&logo=linkedin" alt="Vivian's LinkedIn">
   </a>
-  <a href="https://www.linkedin.com/in/viviananiebonam">
-    <img src="https://img.shields.io/badge/Connect-LinkedIn-blue?style=flat-square&logo=linkedin">
-  </a>
-</p>
+</div>
 
 ---
 
@@ -34,14 +33,14 @@ The website presents an authentic view of my experience, impact projects, and on
 ---
 
 ##  Purpose
-- 🌍 Establish a professional online presence for grants and investment outreach.  
-- 💡 Present ongoing and completed projects across technology and innovation sectors.  
-- 🤝 Create a verified channel for partnerships and collaborations.  
-- 📈 Demonstrate transparency, creativity, and continuous growth.
+- Establish a professional online presence for grants and investment outreach.  
+- Present ongoing and completed projects across technology and innovation sectors.  
+- Create a verified channel for partnerships and collaborations.  
+- Demonstrate transparency, creativity, and continuous growth.
 
 ---
 
-## 🪄 Current Focus
+##  Current Focus
 I am currently enhancing:
 - The **user interface and design elements** for stronger visual appeal.  
 - Integration of **media, video, and interactive content**.  
@@ -49,8 +48,8 @@ I am currently enhancing:
 
 ---
 
-## 💬 Message to Reviewers
-> “Technology is the most powerful equalizer when driven by empathy, purpose, and vision.”  
+##  Message to Reviewers
+> “Every idea starts small — but with courage, consistency, and vision, it becomes innovation that changes lives.”  
 > — *Vivian Aniebonam*
 
 ---
@@ -67,5 +66,5 @@ If you are an investor, partner, or collaborator interested in learning more or 
 <p align="center">
   © 2025 <b>Vivian Aniebonam</b> — All rights reserved.  
   <br/>
-  <i>Empowering ideas. Inspiring change.</i> 🌱
+  <i>🪄 Empowering ideas. Inspiring change.</i> 🌱
 </p>
