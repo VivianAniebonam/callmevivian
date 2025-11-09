@@ -1702,12 +1702,68 @@ section.site-hero {
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+  overflow: hidden;
+  cursor: pointer;
+  border: 0;
+}
+
+/* Animated border effect - before pseudo-element */
+#project-gallery #project-gallery-next:before,
+#project-gallery #project-gallery-prev:before {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 7px;
+  border: 3px solid rgba(255, 255, 255, 0.3);
+  transition:
+    opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+/* Animated border effect - after pseudo-element */
+#project-gallery #project-gallery-next:after,
+#project-gallery #project-gallery-prev:after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  inset: 7px;
+  border: 4px solid #961313;
+  transform: scale(1.3);
+  transition:
+    opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  opacity: 0;
+}
+
+/* Hover effects for borders */
+#project-gallery #project-gallery-next:hover:before,
+#project-gallery #project-gallery-next:focus:before,
+#project-gallery #project-gallery-prev:hover:before,
+#project-gallery #project-gallery-prev:focus:before {
+  opacity: 0;
+  transform: scale(0.7);
+  transition:
+    opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
+    transform 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+
+#project-gallery #project-gallery-next:hover:after,
+#project-gallery #project-gallery-next:focus:after,
+#project-gallery #project-gallery-prev:hover:after,
+#project-gallery #project-gallery-prev:focus:after {
+  opacity: 1;
+  transform: scale(1);
+  transition:
+    opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
+    transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
 }
 
 #project-gallery #project-gallery-next .icon,
 #project-gallery #project-gallery-prev .icon {
   font-size: 26px;
   transition: transform 0.3s ease;
+  position: relative;
+  z-index: 1;
 }
 
 #project-gallery #project-gallery-next:hover .icon {
