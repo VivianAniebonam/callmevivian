@@ -1727,7 +1727,7 @@ section.site-hero {
   position: absolute;
   border-radius: 50%;
   inset: 7px;
-  border: 4px solid #961313;
+  border: 4px solid white;
   transform: scale(1.3);
   transition:
     opacity 0.4s cubic-bezier(0.165, 0.84, 0.44, 1),
@@ -1756,6 +1756,62 @@ section.site-hero {
   transition:
     opacity 0.4s cubic-bezier(0.77, 0, 0.175, 1) 80ms,
     transform 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) 80ms;
+}
+
+/* View Project Button Styling */
+.to-single-project {
+  width: 10em;
+  position: relative;
+  height: 3.5em;
+  border: 3px ridge #149CEA !important;
+  outline: none;
+  background-color: transparent !important;
+  color: white !important;
+  transition: 1s;
+  border-radius: 0.3em !important;
+  font-size: 16px !important;
+  font-weight: bold;
+  cursor: pointer;
+  display: inline-block;
+  text-align: center;
+  line-height: 3.5em;
+  text-decoration: none;
+  padding: 0 !important;
+}
+
+.to-single-project::after {
+  content: "";
+  position: absolute;
+  top: -10px;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #212121;
+  transition: 0.5s;
+  transform-origin: center;
+}
+
+.to-single-project::before {
+  content: "";
+  transform-origin: center;
+  position: absolute;
+  top: 80%;
+  left: 3%;
+  width: 95%;
+  height: 40%;
+  background-color: #212121;
+  transition: 0.5s;
+}
+
+.to-single-project:hover::before,
+.to-single-project:hover::after {
+  transform: scale(0);
+}
+
+.to-single-project:hover {
+  box-shadow: inset 0px 0px 25px #1479EA !important;
+  color: white !important;
+  background-color: transparent !important;
 }
 
 #project-gallery #project-gallery-next .icon,

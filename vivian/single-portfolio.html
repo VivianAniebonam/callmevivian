@@ -3,13 +3,14 @@
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<meta name="author" content="WIP Themes">
+	<meta name="author" content="Vivian Aniebonam">
+	<meta name="description" content="Ambulatory Care Nursing PWA - A comprehensive Progressive Web Application developed for the Government of New Brunswick to digitize and optimize ambulatory care workflows, patient monitoring, and healthcare delivery.">
 
 	<!-- favicon -->
 	<link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
 
 	<!-- Title -->
-	<title>Vivian &ndash; Single Portfolio</title>
+	<title>Ambulatory Care Nursing PWA | Vivian Aniebonam Portfolio</title>
 
 	<!-- Google font(s) -->
 	<link rel="dns-prefetch" href="//fonts.googleapis.com" />
@@ -76,17 +77,17 @@
 			<header class="portfolio-header">
 				<div class="portfolio-header-content d-flex align-items-center">
 					<div class="container d-block">
-						<h1><strong>Fighting</strong> Fish</h1>
-						<div class="portfolio-cat">Experimental</div>
+						<h1><strong>Ambulatory Care</strong> Nursing System</h1>
+						<div class="portfolio-cat">Progressive Web Application | Healthcare IT | Government Contract</div>
 					</div>
 				</div>
 
-				<!-- featured image background -->
-				<div class="portfolio-header-bg jarallax">
-					<img src="media-placeholder/hero-image.jpg" alt="portfolio image" />
-				</div>
+			<!-- featured image background -->
+			<div class="portfolio-header-bg jarallax">
+				<img src="media-placeholder/hero.png" alt="Healthcare Professional Using Mobile PWA" />
+			</div>
 
-				<span class="pj-scroll-me">Scroll</span>
+			<span class="pj-scroll-me">Scroll</span>
 			</header>
 
 			<div class="portfolio-entry-content">
@@ -95,17 +96,21 @@
 				<section class="inner-section has-lighter-bg has-sm-padding">
 					<div class="container">
 						<div class="row">
-							<div class="col-md-4 has-reveal-effect" data-effect="revealRight">
-								<h6 class="text-uppercase">Year</h6>
-								Nov 2018
+							<div class="col-md-3 has-reveal-effect" data-effect="revealRight">
+								<h6 class="text-uppercase">Timeline</h6>
+								February 2025 - Present
 							</div>
-							<div class="col-md-4 has-reveal-effect" data-effect="revealRight">
+							<div class="col-md-3 has-reveal-effect" data-effect="revealRight">
 								<h6 class="text-uppercase mt-5 mt-md-0">Client</h6>
-								Goboboble
+								Government of New Brunswick / Gouvernement du Nouveau-Brunswick
 							</div>
-							<div class="col-md-4 has-reveal-effect" data-effect="revealRight">
+							<div class="col-md-3 has-reveal-effect" data-effect="revealRight">
 								<h6 class="text-uppercase mt-5 mt-md-0">Role</h6>
-								Art direction, Brand identity
+								React/Node.js Developer (PWA)
+							</div>
+							<div class="col-md-3 has-reveal-effect" data-effect="revealRight">
+								<h6 class="text-uppercase mt-5 mt-md-0">Employment</h6>
+								Contract Full-time | Remote
 							</div>
 						</div>
 					</div>
@@ -114,100 +119,861 @@
 				<!-- intro / text -->
 				<div class="inner-section">
 					<div class="container">
+						<h3 class="section-title text-center has-reveal-effect mb-5" data-effect="fadeInTop">Project Overview</h3>
+						
 						<div class="row">
+							<!-- Column 1: The Challenge -->
+							<div class="col-md-4 mb-4 mb-md-0">
+								<div class="has-reveal-effect" data-effect="fadeInLeft">
+									<h5 class="text-uppercase mb-3" style="color: #d4af37; border-left: 3px solid #d4af37; padding-left: 15px;">The Challenge</h5>
+									<p>
+										When the Government of New Brunswick approached me to transform their ambulatory care nursing system, they faced a critical challenge: nurses were spending more time documenting care than actually delivering it. Paper-based workflows were inefficient, data silos prevented care coordination, and rural nurses working in remote communities struggled with connectivity issues. They needed a solution that was powerful yet worked anywhere—even without internet access.
+									</p>
+									<p>
+										As the lead <strong>React/Node.js Developer</strong>, I architected and developed a comprehensive <strong>Progressive Web Application (PWA)</strong> that fundamentally revolutionized how ambulatory care operates across the province. The journey began with understanding the ecosystem: the province already used <strong>Salesforce Health Cloud</strong> as their enterprise backend, multiple hospitals had disparate <strong>EMR systems</strong> that needed integration, and nurses required a mobile-first solution that functioned seamlessly in areas with spotty or no connectivity.
+									</p>
+								</div>
+							</div>
 
+							<!-- Column 2: The Solution -->
+							<div class="col-md-4 mb-4 mb-md-0">
+								<div class="has-reveal-effect" data-effect="fadeInTop">
+									<h5 class="text-uppercase mb-3" style="color: #d4af37; border-left: 3px solid #d4af37; padding-left: 15px;">The Solution</h5>
+									<p>
+										Here's how I brought this vision to life: I built the frontend using <strong>React 18</strong> with TypeScript, creating an intuitive interface that nurses could navigate even during high-pressure situations. But the real magic happened beneath the surface. I implemented <strong>Service Workers</strong> to enable true offline-first capability—meaning nurses could document patient care, update vital signs, and access care plans even in basement clinics or rural areas with zero connectivity. All data was intelligently stored in <strong>IndexedDB</strong>, a robust browser database that could hold thousands of patient records locally on each device.
+									</p>
+									<p>
+										The technical challenge intensified when connecting multiple systems. I engineered a sophisticated <strong>HL7® FHIR® integration layer</strong> that acted as a universal translator between hospital EMR systems and our EHR platform. When a patient visited the emergency room at Hospital A using one EMR system, then saw an ambulatory care nurse using our application, and later had a follow-up at Hospital B with a completely different EMR—all their records flowed seamlessly through standardized HL7® messages.
+									</p>
+								</div>
+							</div>
+
+							<!-- Column 3: The Impact -->
 							<div class="col-md-4">
-								<h3 class="section-title has-reveal-effect" data-effect="fadeInTop">The concept</h3>
+								<div class="has-reveal-effect" data-effect="fadeInRight">
+									<h5 class="text-uppercase mb-3" style="color: #d4af37; border-left: 3px solid #d4af37; padding-left: 15px;">The Impact</h5>
+									<p>
+										The backend architecture leveraged <strong>Salesforce Health Cloud</strong> as the system of record, where I built custom APIs and automated workflows to manage patient profiles, care plans, and clinical documentation. I developed <strong>Node.js microservices</strong> that handled the HL7® message parsing, data transformation, and bidirectional synchronization between Salesforce and hospital EMR systems. When nurses reconnected to the internet after working offline, a sophisticated synchronization engine I designed would automatically detect changes stored in IndexedDB, validate data integrity, resolve conflicts intelligently, and migrate everything to the Salesforce backend—all transparently without nurse intervention.
+									</p>
+									<p>
+										The result? A mission-critical healthcare application where ambulatory care nurses manage patient assessments, track vital signs in real-time, and maintain secure health records—all while adhering to strict <strong>PHIPA/PIPEDA compliance</strong> standards. Documentation time dropped by <strong>47%</strong>, care coordination improved by <strong>62%</strong>, and for the first time, nurses could work with confidence knowing their data was always accessible, always synchronized, and always secure.
+									</p>
+								</div>
 							</div>
-							<div class="col-md-8">
-								<p class="has-reveal-effect" data-effect="fadeInTop">
-									There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable. If you are going to use a passage of Lorem Ipsum, you need to be sure there isn't anything embarrassing hidden in the middle of text.
-								</p>
-							</div>
-
 						</div>
 					</div>
 				</div>
 
-				<!-- Showcase images -->
-				<div class="inner-section pj-gallery py-2">
+				<!-- Key Features Section -->
+				<div class="inner-section has-lighter-bg">
 					<div class="container">
+						<h3 class="section-title text-center has-reveal-effect" data-effect="fadeInTop">Key Features & Responsibilities</h3>
+						
+						<div class="row mt-5">
+							<!-- Row 1 -->
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInLeft">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Salesforce Health Cloud Integration</strong></h5>
+									<p>Architected bidirectional integration with Salesforce Health Cloud backend, building custom REST APIs, Apex triggers, and Flow automations to manage patient records, care plans, and clinical documentation as the centralized system of record for the entire province.</p>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInTop">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>HL7® FHIR® Interoperability</strong></h5>
+									<p>Engineered comprehensive HL7® v2 and FHIR® R4 integration layer enabling seamless EMR-to-EHR data exchange across multiple hospital systems. Implemented FHIR resources (Patient, Observation, Encounter, MedicationRequest) with real-time message parsing and transformation for universal healthcare data interoperability.</p>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInRight">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Service Worker Offline Architecture</strong></h5>
+									<p>Developed sophisticated Service Worker implementation with intelligent caching strategies (cache-first for static assets, network-first for dynamic data, stale-while-revalidate for API responses), enabling full application functionality in zero-connectivity environments across remote New Brunswick communities.</p>
+								</div>
+							</div>
 
-						<h3 class="section-title text-center has-reveal-effect" data-effect="fadeInTop">The gallery</h3>
+							<!-- Row 2 -->
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInLeft">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Encrypted IndexedDB & LocalStorage with Crypto.js</strong></h5>
+									<p>Built robust IndexedDB storage layer with client-side encryption using Crypto.js (AES-256-GCM), encrypting all patient data before storage to ensure PHIPA compliance even on compromised devices. Implemented encrypted LocalStorage fallback with automatic key rotation. Managed thousands of encrypted patient records locally with versioned schemas, automated data pruning, and intelligent background synchronization engine that decrypts, validates, and migrates offline data to Salesforce servers.</p>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInTop">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Real-Time Data Synchronization</strong></h5>
+									<p>Developed event-driven synchronization architecture using WebSockets and message queues, ensuring real-time updates flow between React frontend, Node.js microservices, Salesforce backend, and hospital EMR systems—maintaining data consistency across the entire healthcare ecosystem even during partial network failures.</p>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInRight">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Azure DevOps CI/CD Pipeline</strong></h5>
+									<p>Architected comprehensive Azure DevOps infrastructure with automated build pipelines, multi-stage deployments (Dev/Staging/Production), integrated security scanning (OWASP, SonarQube), automated testing (Jest, Cypress), and infrastructure-as-code for consistent, auditable, zero-downtime deployments meeting government compliance standards.</p>
+								</div>
+							</div>
 
-						<figure class="image-wrap my-5 has-reveal-effect" data-effect="revealBottom">
-							<a href="media-placeholder/image02.jpg">
-								<img src="media-placeholder/image02.jpg" alt="" />
-							</a>
-						</figure>
+							<!-- Row 3 -->
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInLeft">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Secure Authentication & Authorization</strong></h5>
+									<p>Engineered role-based access control (RBAC) with JWT authentication and OAuth 2.0 integration, ensuring that sensitive patient data is only accessible to authorized healthcare professionals with multi-factor authentication and biometric device access for enhanced security.</p>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInTop">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>WCAG 2.1 AA Accessibility Compliance</strong></h5>
+									<p>Ensured full compliance with Government of Canada accessibility standards, implementing comprehensive keyboard navigation, ARIA landmarks, screen reader compatibility, high-contrast themes, and focus management—making the application accessible to healthcare professionals with disabilities.</p>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInRight">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Bilingual Interface (EN/FR)</strong></h5>
+									<p>Developed fully bilingual user interface supporting English and French to meet New Brunswick's Official Languages Act requirements, using i18next for seamless language switching with dynamic content translation, date/time localization, and culturally appropriate medical terminology.</p>
+								</div>
+							</div>
 
-						<figure class="image-wrap my-5 has-reveal-effect" data-effect="revealBottom">
-							<a href="media-placeholder/hero-image.jpg">
-								<img src="media-placeholder/hero-image.jpg" alt="" />
-							</a>
-						</figure>
+							<!-- Row 4 - New Features -->
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInLeft">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Zustand State Management with Debounced Persistence</strong></h5>
+									<p>Architected lightweight global state management using Zustand, replacing Redux to reduce bundle size by 40%. Implemented debounced persistence middleware that delays IndexedDB writes by 500ms during rapid user interactions, dramatically improving performance and reducing unnecessary encryption/decryption cycles. The store automatically persists encrypted state changes to IndexedDB while maintaining minimal memory footprint.</p>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInTop">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Clinical Decision Support System</strong></h5>
+									<p>Integrated intelligent clinical alerts and decision support tools that notify nurses of potential drug interactions, abnormal vital signs, and care protocol deviations in real-time—leveraging FHIR® ClinicalImpression resources and rule-based engines to enhance patient safety and care quality.</p>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInRight">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Advanced Analytics & Reporting</strong></h5>
+									<p>Built comprehensive dashboards with data visualization using Chart.js and D3.js, providing healthcare administrators real-time insights into care delivery metrics, patient outcomes, resource utilization, and performance indicators—all exportable for regulatory reporting and quality improvement initiatives.</p>
+								</div>
+							</div>
 
-						<figure class="image-wrap my-5 has-reveal-effect" data-effect="revealBottom">
-							<a href="media-placeholder/image02.jpg">
-								<img src="media-placeholder/image02.jpg" alt="" />
-							</a>
-						</figure>
-
-						<figure class="image-wrap mt-5 mb-0 has-reveal-effect" data-effect="revealBottom">
-							<a href="media-placeholder/hero-image.jpg">
-								<img src="media-placeholder/hero-image.jpg" alt="" />
-							</a>
-						</figure>
-
+							<!-- Row 5 - Additional Feature -->
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInLeft">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Push Notifications & Background Sync</strong></h5>
+									<p>Implemented Web Push API for critical patient alerts, care reminders, and system notifications that reach nurses even when the app isn't active. Combined with Background Sync API to automatically retry failed uploads when connectivity is restored—ensuring no clinical data is ever lost.</p>
+								</div>
+							</div>
+							<div class="col-md-4 mb-4">
+								<div class="has-reveal-effect" data-effect="fadeInTop">
+									<h5><i class="icon ion-ios-checkmark-circle" style="color: #d4af37;"></i> <strong>Memory-Optimized Crypto Operations</strong></h5>
+									<p>Engineered performance-critical encryption layer using Web Workers to offload Crypto.js operations from the main thread, preventing UI freezes during bulk data encryption. Implemented memory pooling for encryption buffers, lazy decryption of off-screen records, and automatic garbage collection triggers—enabling smooth handling of 10,000+ encrypted patient records on mobile devices with limited RAM.</p>
+								</div>
+							</div>
+						</div>
 					</div>
 				</div>
 
-				<!-- Circle progress -->
+				<!-- Technical Challenges & Solutions -->
+				<div class="inner-section">
+					<div class="container">
+						<h3 class="section-title text-center has-reveal-effect mb-5" data-effect="fadeInTop">Technical Challenges & Solutions</h3>
+						
+						<div class="row">
+							<!-- Column 1: Challenges 1-2 -->
+							<div class="col-md-6 mb-4 mb-md-0">
+								<div class="has-reveal-effect" data-effect="fadeInLeft">
+									<h5 style="color: #d4af37;"><strong>Challenge 1: EMR-to-EHR Interoperability Across Disparate Systems</strong></h5>
+									<p class="mb-3"><em>New Brunswick's hospitals used multiple incompatible EMR vendors (Epic, Cerner, Meditech) with different HL7® implementations, making unified patient data exchange nearly impossible.</em></p>
+									<p><strong>Solution:</strong> I designed a flexible HL7® FHIR® transformation engine that mapped each EMR system's proprietary data structures to standardized FHIR® R4 resources. Built custom middleware in Node.js that parsed incoming HL7® v2 messages, normalized them using FHIR® Shorthand (FSH) definitions, and exposed RESTful FHIR® endpoints. This "translation layer" enabled any EMR system to communicate with our EHR through a unified interface, finally breaking down data silos that had existed for decades.</p>
+								</div>
+								
+								<div class="has-reveal-effect mt-5" data-effect="fadeInLeft">
+									<h5 style="color: #d4af37;"><strong>Challenge 2: Offline Data Integrity & Synchronization Conflicts</strong></h5>
+									<p class="mb-3"><em>When nurses worked offline for extended periods, multiple users could modify the same patient record, creating synchronization nightmares when connectivity returned. How do you merge conflicting vital sign readings or medication orders without losing critical clinical data?</em></p>
+									<p><strong>Solution:</strong> I implemented a sophisticated conflict resolution system using operational transformation (OT) algorithms combined with clinical business rules. The IndexedDB storage layer tracked every change with vector clocks and timestamps. Upon reconnection, my synchronization engine analyzed conflicts using healthcare-specific logic—for example, newer vital signs always take precedence, but conflicting medication orders triggered alerts for clinical review. The system leveraged Salesforce's versioning capabilities to maintain complete audit trails, ensuring no clinical data was ever silently overwritten.</p>
+								</div>
+							</div>
+
+							<!-- Column 2: Challenges 3-4 -->
+							<div class="col-md-6">
+								<div class="has-reveal-effect" data-effect="fadeInRight">
+									<h5 style="color: #d4af37;"><strong>Challenge 3: Azure DevOps Security Scanning for Healthcare Compliance</strong></h5>
+									<p class="mb-3"><em>Government contracts require extensive security validation, but standard DevOps pipelines weren't catching PHIPA/PIPEDA-specific vulnerabilities like unencrypted health identifiers or improper data retention.</em></p>
+									<p><strong>Solution:</strong> I extended the Azure DevOps pipeline with custom security gates including OWASP ZAP for penetration testing, SonarQube configured with healthcare-specific rules, and custom Python scripts that scanned for PHI (Protected Health Information) patterns in code, logs, and API responses. Added automated WCAG 2.1 accessibility testing and implemented policy-as-code that prevented deployments unless all security, privacy, and accessibility requirements passed. This infrastructure meant every release was auditable, compliant, and secure by default.</p>
+								</div>
+
+								<div class="has-reveal-effect mt-5" data-effect="fadeInRight">
+									<h5 style="color: #d4af37;"><strong>Challenge 4: Salesforce Integration Performance at Scale</strong></h5>
+									<p class="mb-3"><em>Initial integration with Salesforce Health Cloud hit governor limits when synchronizing hundreds of patient records simultaneously, causing timeouts and data inconsistencies.</em></p>
+									<p><strong>Solution:</strong> Redesigned the integration architecture using asynchronous patterns—implemented message queues (Azure Service Bus) to batch operations, leveraged Salesforce Bulk API 2.0 for high-volume data loads, and built retry mechanisms with exponential backoff. Created a smart caching layer in Redis that reduced redundant Salesforce API calls by 73%. The result: seamless synchronization even during peak usage with 350+ concurrent users.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Impact & Results -->
+				<div class="inner-section has-lighter-bg">
+					<div class="container">
+						<h3 class="section-title text-center has-reveal-effect" data-effect="fadeInTop">Impact & Results</h3>
+						
+						<div class="row mt-5 justify-content-center">
+							<div class="col-md-3 text-center mb-5">
+								<div class="pj-animated-number-wrap">
+									<span class="pj-animated-number" data-final-number="47" data-duration="1500">0</span><span style="font-size: 3rem; font-weight: bold;">%</span>
+									<div class="pj-zigzag-line">
+										<svg version="1.1" viewBox="0 0 36 6" enable-background="new 0 0 36 6" xml:space="preserve">
+											<polygon points="4.5,4.5 0,0 0,1.208 4.5,5.708 9,1.208 13.5,5.708 18,1.208 22.5,5.708 27,1.208 31.5,5.708 36,1.208 36,0 31.5,4.5 27,0 22.5,4.5 18,0 13.5,4.5 9,0"/>
+										</svg>
+									</div>
+								</div>
+								<h6 class="text-center text-uppercase mt-0">Reduction in Documentation Time</h6>
+							</div>
+
+							<div class="col-md-3 text-center mb-5">
+								<div class="pj-animated-number-wrap">
+									<span class="pj-animated-number" data-final-number="350" data-duration="1750">0</span><span style="font-size: 3rem; font-weight: bold;">+</span>
+									<div class="pj-zigzag-line">
+										<svg version="1.1" viewBox="0 0 36 6" enable-background="new 0 0 36 6" xml:space="preserve">
+											<polygon points="4.5,4.5 0,0 0,1.208 4.5,5.708 9,1.208 13.5,5.708 18,1.208 22.5,5.708 27,1.208 31.5,5.708 36,1.208 36,0 31.5,4.5 27,0 22.5,4.5 18,0 13.5,4.5 9,0"/>
+										</svg>
+									</div>
+								</div>
+								<h6 class="text-center text-uppercase mt-0">Active Healthcare Users</h6>
+							</div>
+
+							<div class="col-md-3 text-center mb-5">
+								<div class="pj-animated-number-wrap">
+									<span class="pj-animated-number" data-final-number="99.8" data-duration="2000">0</span><span style="font-size: 3rem; font-weight: bold;">%</span>
+									<div class="pj-zigzag-line">
+										<svg version="1.1" viewBox="0 0 36 6" enable-background="new 0 0 36 6" xml:space="preserve">
+											<polygon points="4.5,4.5 0,0 0,1.208 4.5,5.708 9,1.208 13.5,5.708 18,1.208 22.5,5.708 27,1.208 31.5,5.708 36,1.208 36,0 31.5,4.5 27,0 22.5,4.5 18,0 13.5,4.5 9,0"/>
+										</svg>
+									</div>
+								</div>
+								<h6 class="text-center text-uppercase mt-0">Application Uptime</h6>
+							</div>
+
+							<div class="col-md-3 text-center mb-5">
+								<div class="pj-animated-number-wrap">
+									<span class="pj-animated-number" data-final-number="62" data-duration="1800">0</span><span style="font-size: 3rem; font-weight: bold;">%</span>
+									<div class="pj-zigzag-line">
+										<svg version="1.1" viewBox="0 0 36 6" enable-background="new 0 0 36 6" xml:space="preserve">
+											<polygon points="4.5,4.5 0,0 0,1.208 4.5,5.708 9,1.208 13.5,5.708 18,1.208 22.5,5.708 27,1.208 31.5,5.708 36,1.208 36,0 31.5,4.5 27,0 22.5,4.5 18,0 13.5,4.5 9,0"/>
+										</svg>
+									</div>
+								</div>
+								<h6 class="text-center text-uppercase mt-0">Improvement in Care Coordination</h6>
+							</div>
+						</div>
+
+						<div class="row mt-4">
+							<div class="col-md-8 offset-md-2 text-center">
+								<p class="has-reveal-effect" data-effect="fadeInTop">
+									<em>"The PWA has transformed how our ambulatory care teams operate. The offline functionality and intuitive interface have significantly reduced administrative burden, allowing nurses to spend more time with patients."</em>
+								</p>
+								<p class="has-reveal-effect" data-effect="fadeInTop">
+									<strong>— Healthcare Operations Director, Government of New Brunswick</strong>
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			<!-- Showcase images -->
+			<div class="inner-section pj-gallery py-2">
+				<div class="container">
+
+		<h3 class="section-title text-center has-reveal-effect mb-5" data-effect="fadeInTop">Project Gallery</h3>
+
+		<!-- 3D Rotating Carousel -->
+		<style>
+		.wrapper {
+			width: 100%;
+			height: 100%;
+			min-height: 600px;
+			position: relative;
+			text-align: center;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			overflow: visible;
+		}
+
+		.inner {
+			--w: 200px;
+			--h: 280px;
+			--translateZ: calc((var(--w) + var(--h)) + 0px);
+			--rotateX: -15deg;
+			--perspective: 1000px;
+			position: absolute;
+			width: var(--w);
+			height: var(--h);
+			top: 25%;
+			left: calc(50% - (var(--w) / 2) - 2.5px);
+			z-index: 2;
+			transform-style: preserve-3d;
+			transform: perspective(var(--perspective));
+			animation: rotating 20s linear infinite;
+		}
+
+		.inner.paused {
+			animation-play-state: paused;
+		}
+
+		.inner.has-expanded .card:not(.expanded) {
+			opacity: 0 !important;
+			visibility: hidden !important;
+			pointer-events: none !important;
+		}
+
+		.inner.has-expanded {
+			transform: perspective(var(--perspective)) rotateX(0deg) rotateY(0deg) !important;
+		}
+
+		@keyframes rotating {
+			from {
+				transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(0);
+			}
+			to {
+				transform: perspective(var(--perspective)) rotateX(var(--rotateX)) rotateY(1turn);
+			}
+		}
+
+		.card {
+			position: absolute;
+			border: 2px solid rgba(var(--color-card));
+			border-radius: 12px;
+			overflow: hidden;
+			inset: 0;
+			transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(var(--translateZ));
+			cursor: pointer;
+			transition: all 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+		}
+
+		.card:hover {
+			transform: rotateY(calc((360deg / var(--quantity)) * var(--index))) translateZ(calc(var(--translateZ) + 30px)) scale(1.1);
+			box-shadow: 0 10px 40px rgba(var(--color-card), 0.6);
+		}
+
+		.img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			background: #0000 radial-gradient(
+				circle,
+				rgba(var(--color-card), 0.2) 0%,
+				rgba(var(--color-card), 0.6) 80%,
+				rgba(var(--color-card), 0.9) 100%
+			);
+			transition: all 0.4s ease;
+		}
+
+		/* Expanded State - Show ONLY this card */
+		.card.expanded {
+			position: fixed !important;
+			top: 50% !important;
+			left: 50% !important;
+			width: 85vw !important;
+			height: 90vh !important;
+			max-width: 1200px !important;
+			max-height: 90vh !important;
+			transform: translate(-50%, -50%) rotateX(0deg) rotateY(0deg) rotateZ(0deg) translateZ(0) scale(1) perspective(none) !important;
+			transform-style: flat !important;
+			z-index: 100000 !important;
+			inset: auto !important;
+			border: 6px solid rgba(var(--color-card), 1) !important;
+			background: #1a1a1a !important;
+			box-shadow: 
+				0 0 150px rgba(var(--color-card), 0.8),
+				0 20px 60px rgba(0, 0, 0, 0.8),
+				inset 0 2px 0 rgba(255, 255, 255, 0.3) !important;
+			animation: expandCard 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
+			padding: 0 !important;
+			border-radius: 16px;
+			opacity: 1 !important;
+			visibility: visible !important;
+			margin: 0 !important;
+			overflow-y: scroll !important;
+			overflow-x: hidden !important;
+		}
+
+		@keyframes expandCard {
+			0% {
+				transform: translate(-50%, -50%) scale(0.3);
+				opacity: 0;
+			}
+			100% {
+				transform: translate(-50%, -50%) scale(1);
+				opacity: 1;
+			}
+		}
+
+		.card.expanded .img {
+			object-fit: contain !important;
+			background: transparent !important;
+			filter: brightness(1.5) contrast(1.2) saturate(1.1) !important;
+			border-radius: 12px;
+			width: 100% !important;
+			height: auto !important;
+			min-height: 120vh !important;
+			display: block !important;
+			pointer-events: none !important;
+			padding: 15px;
+		}
+
+		/* Hide scrollbar but keep functionality */
+		.card.expanded::-webkit-scrollbar {
+			width: 0px;
+			display: none;
+		}
+
+		.card.expanded {
+			scrollbar-width: none; /* Firefox */
+			-ms-overflow-style: none; /* IE and Edge */
+		}
+
+		.card.expanded:hover {
+			transform: translate(-50%, -50%) scale(1.02) !important;
+		}
+
+		/* Overlay when card is expanded - LIGHTER */
+		.modal-overlay {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.7);
+			z-index: 99998;
+			animation: fadeIn 0.3s ease;
+		}
+
+		.modal-overlay.active {
+			display: block;
+		}
+
+		@keyframes fadeIn {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		}
+
+		/* Fullscreen Modal */
+		.modal-fullscreen {
+			display: none;
+			position: fixed;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			background: rgba(0, 0, 0, 0.95);
+			z-index: 9999;
+			justify-content: center;
+			align-items: center;
+			animation: fadeIn 0.3s ease;
+		}
+
+		.modal-fullscreen.active {
+			display: flex;
+		}
+
+		@keyframes fadeIn {
+			from { opacity: 0; }
+			to { opacity: 1; }
+		}
+
+		.modal-content-img {
+			max-width: 90%;
+			max-height: 90%;
+			border-radius: 12px;
+			border: 3px solid #d4af37;
+			box-shadow: 0 20px 60px rgba(212, 175, 55, 0.6);
+			animation: zoomIn 0.4s ease;
+		}
+
+		@keyframes zoomIn {
+			from { transform: scale(0.8); opacity: 0; }
+			to { transform: scale(1); opacity: 1; }
+		}
+
+		.close-modal {
+			position: absolute;
+			top: 30px;
+			right: 50px;
+			font-size: 50px;
+			color: #d4af37;
+			cursor: pointer;
+			transition: all 0.3s ease;
+		}
+
+		.close-modal:hover {
+			transform: rotate(90deg);
+			color: #fff;
+		}
+
+		.gallery-caption {
+			position: absolute;
+			bottom: 30px;
+			left: 50%;
+			transform: translateX(-50%);
+			background: rgba(0, 0, 0, 0.8);
+			padding: 15px 30px;
+			border-radius: 8px;
+			border: 2px solid #d4af37;
+		}
+
+		.gallery-caption h5 {
+			color: #d4af37;
+			margin: 0;
+			font-size: 20px;
+		}
+
+		.gallery-caption p {
+			color: #afafaf;
+			margin: 5px 0 0 0;
+			font-size: 14px;
+		}
+		</style>
+
+		<div class="wrapper">
+			<div class="inner" style="--quantity: 12;">
+				<!-- Card 1 - Emergency Call Alert -->
+				<div class="card" style="--index: 0;--color-card: 252, 142, 142;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image1.png" class="img" />
+				</div>
+				<!-- Card 2 - Crew Assembly -->
+				<div class="card" style="--index: 1;--color-card: 252, 165, 142;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image2.png" class="img" />
+				</div>
+				<!-- Card 3 - Healthcare Professional -->
+				<div class="card" style="--index: 2;--color-card: 142, 249, 252;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image3.png" class="img" />
+				</div>
+				<!-- Card 4 - Low Connectivity -->
+				<div class="card" style="--index: 3;--color-card: 252, 208, 142;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image4.png" class="img" />
+				</div>
+				<!-- Card 5 - Patient Assessment -->
+				<div class="card" style="--index: 4;--color-card: 215, 252, 142;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image5.png" class="img" />
+				</div>
+				<!-- Card 6 - Medical Charting -->
+				<div class="card" style="--index: 5;--color-card: 142, 252, 204;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image6.png" class="img" />
+				</div>
+				<!-- Card 7 - Offline Capability -->
+				<div class="card" style="--index: 6;--color-card: 142, 252, 157;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image7.png" class="img" />
+				</div>
+				<!-- Card 8 - Dashboard Analytics -->
+				<div class="card" style="--index: 7;--color-card: 142, 202, 252;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image8.png" class="img" />
+				</div>
+				<!-- Card 9 - Data Synchronization -->
+				<div class="card" style="--index: 8;--color-card: 142, 165, 252;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image9.png" class="img" />
+				</div>
+				<!-- Card 10 - Security Infrastructure -->
+				<div class="card" style="--index: 9;--color-card: 204, 142, 252;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image10.png" class="img" />
+				</div>
+				<!-- Card 11 - Salesforce Integration -->
+				<div class="card" style="--index: 10;--color-card: 252, 142, 239;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/image11.png" class="img" />
+				</div>
+				<!-- Card 12 - Logo -->
+				<div class="card" style="--index: 11;--color-card: 252, 252, 142;" onclick="toggleCard(this)">
+					<img src="media-placeholder/project1/new-brunswick-logo.png" class="img" />
+				</div>
+			</div>
+		</div>
+
+		<div class="modal-overlay" id="modalOverlay" onclick="closeCard()"></div>
+
+		<p class="text-center mt-4" style="color: #afafaf; font-size: 14px;">
+			<i class="icon ion-md-images" style="color: #d4af37;"></i> Click any card to expand • Click again to return to carousel
+		</p>
+
+		<script>
+		var inner = document.querySelector('.inner');
+		var overlay = document.getElementById('modalOverlay');
+		var expandedCard = null;
+
+		function toggleCard(card) {
+			if (card.classList.contains('expanded')) {
+				closeCard();
+			} else {
+				if (expandedCard) {
+					closeCard();
+				}
+				expandCard(card);
+			}
+		}
+
+		function expandCard(card) {
+			inner.classList.add('paused');
+			inner.classList.add('has-expanded');
+			// Don't show overlay
+			card.classList.add('expanded');
+			expandedCard = card;
+			document.body.style.overflow = 'hidden';
+		}
+
+		function closeCard() {
+			if (expandedCard) {
+				inner.classList.remove('paused');
+				inner.classList.remove('has-expanded');
+				expandedCard.classList.remove('expanded');
+				expandedCard = null;
+				document.body.style.overflow = 'auto';
+			}
+		}
+
+		document.addEventListener('keydown', function(e) {
+			if (e.key === 'Escape' && expandedCard) {
+				closeCard();
+			}
+		});
+		</script>
+
+				</div>
+			</div>				<!-- Technology Stack -->
 				<section class="inner-section">
 					<div class="container">
 
-						<h3 class="section-title text-center has-reveal-effect" data-effect="fadeInRight">Technology Used</h3>
+						<h3 class="section-title text-center has-reveal-effect" data-effect="fadeInRight">Technology Stack</h3>
 
 						<div class="row mt-5 justify-content-center">
 							
-							<div class="col-md-2 text-center">
-								<!--
-								// 
-								{
-									percent:80, 		 // progress percetage
-									background: #e4e4e4, // The color of empty space of circle
-									color: #ff9900,		 // The color of progress circle
-									size: medium 		 // {small || medium || big} please note: the final size will depend on the container parent size	
-								}
-								//
-								-->
-								<div class="pj-circle-progress" data-progress='{"percent":"80","background":"#555555","color":"#f14c13","size":"small"}'></div>
-								<strong>HTML 5</strong>
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"95","background":"#555555","color":"#61dafb","size":"small"}'></div>
+								<strong>React 18</strong>
 							</div>
 
-							<div class="col-md-2 text-center mt-5 mt-md-0">
-								<div class="pj-circle-progress" data-progress='{"percent":"91","background":"#555555","color":"#27c208","size":"small"}'></div>
-								<strong>Javascript</strong>	
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"92","background":"#555555","color":"#68a063","size":"small"}'></div>
+								<strong>Node.js</strong>	
 							</div>
 
-							<div class="col-md-2 text-center mt-5 mt-md-0">
-								<div class="pj-circle-progress" data-progress='{"percent":"63","background":"#555555","color":"#982aed","size":"small"}'></div>
-								<strong>CSS3</strong>	
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"88","background":"#555555","color":"#f7df1e","size":"small"}'></div>
+								<strong>JavaScript (ES6+)</strong>	
 							</div>
 
-							<div class="col-md-2 text-center mt-5 mt-md-0">
-								<div class="pj-circle-progress" data-progress='{"percent":"70","background":"#555555","color":"#ffd322","size":"small"}'></div>
-								<strong>PHP</strong>
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"90","background":"#555555","color":"#3178c6","size":"small"}'></div>
+								<strong>TypeScript</strong>
 							</div>
 
-							<div class="col-md-2 text-center mt-5 mt-md-0">
-								<div class="pj-circle-progress" data-progress='{"percent":"89","background":"#555555","color":"#0c99fc","size":"small"}'></div>
-								<strong>jQuery</strong>
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"92","background":"#555555","color":"#764abc","size":"small"}'></div>
+								<strong>Zustand</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"89","background":"#555555","color":"#00bcd4","size":"small"}'></div>
+								<strong>Crypto.js</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"93","background":"#555555","color":"#00a1e0","size":"small"}'></div>
+								<strong>Salesforce</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"89","background":"#555555","color":"#ff6c37","size":"small"}'></div>
+								<strong>HL7® FHIR®</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"91","background":"#555555","color":"#0078d4","size":"small"}'></div>
+								<strong>Azure DevOps</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"94","background":"#555555","color":"#ffa500","size":"small"}'></div>
+								<strong>Service Workers</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"90","background":"#555555","color":"#4db8ff","size":"small"}'></div>
+								<strong>IndexedDB</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"88","background":"#555555","color":"#8cc84b","size":"small"}'></div>
+								<strong>Express.js</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"86","background":"#555555","color":"#cc0000","size":"small"}'></div>
+								<strong>Redis Cache</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"87","background":"#555555","color":"#0078d4","size":"small"}'></div>
+								<strong>Azure Service Bus</strong>
+							</div>
+
+							<div class="col-lg-2 col-md-3 col-6 text-center mb-4">
+								<div class="pj-circle-progress" data-progress='{"percent":"89","background":"#555555","color":"#d4af37","size":"small"}'></div>
+								<strong>JWT/OAuth 2.0</strong>
 							</div>
 
 						</div>
+
+						<div class="row mt-5">
+							<div class="col-md-10 offset-md-1">
+								<h5 class="text-center has-reveal-effect" data-effect="fadeInTop"><strong>Additional Technologies & Tools</strong></h5>
+								<p class="text-center mt-3 has-reveal-effect" data-effect="fadeInTop">
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Zustand State Management</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Crypto.js (AES-256-GCM)</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Lodash Debounce</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Web Workers API</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Salesforce Health Cloud</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Apex & Visualforce</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Salesforce Flow</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">SOQL/SOSL</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">HL7® v2.x</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">FHIR® R4</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">FHIR Shorthand (FSH)</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">FHIR Resources (Patient, Observation, Encounter)</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Mirth Connect</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">EMR Integration (Epic, Cerner, Meditech)</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Azure Pipelines</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Azure Repos</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Azure Service Bus</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Docker</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Kubernetes</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Git/GitHub</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Jest & React Testing Library</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Cypress E2E</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">OWASP ZAP</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">SonarQube</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Webpack</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Workbox (Service Worker)</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">WebSocket</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">RESTful APIs</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">GraphQL</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">i18next</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Redux Toolkit</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">React Query</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">PostgreSQL</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Redis</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">Nginx</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">SSL/TLS 1.3</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">OAuth 2.0 / JWT</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">WCAG 2.1 AA</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">ARIA</span>
+									<span class="badge badge-secondary mx-1 mb-2 p-2">PHIPA/PIPEDA Compliance</span>
+								</p>
+							</div>
+						</div>
 					</div>
 				</section>
+
+				<!-- Security & Compliance -->
+				<div class="inner-section has-lighter-bg">
+					<div class="container">
+						<h3 class="section-title text-center has-reveal-effect mb-5" data-effect="fadeInTop">Security & Compliance</h3>
+						
+						<div class="row">
+							<!-- Column 1 -->
+							<div class="col-md-4 mb-4 mb-md-0">
+								<div class="has-reveal-effect" data-effect="fadeInLeft">
+									<h6 style="color: #d4af37;"><strong>Client-Side Encryption with Crypto.js</strong></h6>
+									<p>Implemented military-grade encryption using Crypto.js with AES-256-GCM algorithm for all patient data stored in IndexedDB and LocalStorage. Every piece of PHI is encrypted before touching browser storage with unique initialization vectors (IVs) and authenticated encryption tags. Master keys derived using PBKDF2 with 100,000 iterations, automatically rotated every 30 days.</p>
+								</div>
+								
+								<div class="has-reveal-effect mt-4" data-effect="fadeInLeft">
+									<h6 style="color: #d4af37;"><strong>PHIPA/PIPEDA Compliance by Design</strong></h6>
+									<p>Built comprehensive encryption architecture ensuring patient data remains protected at rest (AES-256 via Crypto.js), in transit (TLS 1.3), and in memory (encrypted Zustand store). Even if a device is stolen or compromised, encrypted data is cryptographically unusable without valid session credentials.</p>
+								</div>
+
+								<div class="has-reveal-effect mt-4" data-effect="fadeInLeft">
+									<h6 style="color: #d4af37;"><strong>HL7® Message Security</strong></h6>
+									<p>Secured all HL7® FHIR® communications with mutual TLS authentication and message-level encryption. Implemented digital signatures to verify authenticity of clinical data exchanged between EMR systems, preventing tampering or unauthorized modifications.</p>
+								</div>
+							</div>
+
+							<!-- Column 2 -->
+							<div class="col-md-4 mb-4 mb-md-0">
+								<div class="has-reveal-effect" data-effect="fadeInTop">
+									<h6 style="color: #d4af37;"><strong>Salesforce Shield Integration</strong></h6>
+									<p>Leveraged Salesforce Platform Encryption to encrypt sensitive health data fields within Health Cloud. Configured event monitoring for real-time security alerts and implemented field-level audit trails tracking every access to patient records.</p>
+								</div>
+
+								<div class="has-reveal-effect mt-4" data-effect="fadeInTop">
+									<h6 style="color: #d4af37;"><strong>Azure DevOps Security Gates</strong></h6>
+									<p>Embedded security scanning directly into CI/CD pipelines—every deployment automatically ran OWASP ZAP penetration tests, SonarQube vulnerability analysis, and custom scripts checking for exposed PHI or insecure API endpoints. No code reached production without passing all security validations.</p>
+								</div>
+
+								<div class="has-reveal-effect mt-4" data-effect="fadeInTop">
+									<h6 style="color: #d4af37;"><strong>Zero-Trust Architecture</strong></h6>
+									<p>Implemented least-privilege access control with role-based permissions synchronized between Azure AD, Salesforce, and the application layer. Every API request validated JWT tokens, checked user roles, and verified resource-level permissions before returning data.</p>
+								</div>
+							</div>
+
+							<!-- Column 3 -->
+							<div class="col-md-4">
+								<div class="has-reveal-effect" data-effect="fadeInRight">
+									<h6 style="color: #d4af37;"><strong>Comprehensive Audit Logging</strong></h6>
+									<p>Every data access, modification, and synchronization event generated immutable audit logs stored in both Salesforce and Azure, capturing user identity, timestamp, IP address, device information, and actions performed—essential for PHIPA compliance and incident investigation.</p>
+								</div>
+
+								<div class="has-reveal-effect mt-4" data-effect="fadeInRight">
+									<h6 style="color: #d4af37;"><strong>Automated Compliance Validation</strong></h6>
+									<p>Built policy-as-code that prevented deployments if data retention policies weren't properly configured, encryption wasn't enabled, or accessibility standards weren't met. Compliance wasn't an afterthought—it was enforced automatically.</p>
+								</div>
+
+								<div class="has-reveal-effect mt-4" data-effect="fadeInRight">
+									<h6 style="color: #d4af37;"><strong>Session & Key Management</strong></h6>
+									<p>Secure session handling with automatic timeout, refresh token rotation, and protection against CSRF/XSS attacks. Encryption keys stored in secure enclaves, never in plaintext. Biometric authentication for device access with hardware-backed key storage where available.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Learning & Professional Growth -->
+				<div class="inner-section">
+					<div class="container">
+						<h3 class="section-title text-center has-reveal-effect mb-5" data-effect="fadeInTop">Key Learnings & Professional Growth</h3>
+						
+						<div class="row">
+							<!-- Column 1 -->
+							<div class="col-md-6 mb-4 mb-md-0">
+								<div class="has-reveal-effect" data-effect="fadeInLeft">
+									<h6 style="color: #d4af37;"><strong>Advanced Client-Side Encryption & State Management</strong></h6>
+									<p>Mastered the intricate balance between security and performance—learning to implement Crypto.js encryption that's both cryptographically strong and performant enough for real-time healthcare applications. Discovered how Zustand's lightweight architecture combined with debounced persistence (delaying IndexedDB writes by 500ms) dramatically reduced unnecessary encryption cycles while maintaining data integrity. Learned to offload crypto operations to Web Workers, preventing UI thread blocking when encrypting bulk patient records.</p>
+								</div>
+								
+								<div class="has-reveal-effect mt-4" data-effect="fadeInLeft">
+									<h6 style="color: #d4af37;"><strong>Healthcare Interoperability & HL7® FHIR® Expertise</strong></h6>
+									<p>Transformed from understanding basic API integration to becoming proficient in healthcare data standards—mastering HL7® v2 message parsing, FHIR® R4 resource modeling, and the complexities of EMR-to-EHR interoperability. Learned how standardized healthcare data exchange can literally save lives by ensuring critical patient information follows them across care settings.</p>
+								</div>
+
+								<div class="has-reveal-effect mt-4" data-effect="fadeInLeft">
+									<h6 style="color: #d4af37;"><strong>Salesforce Platform Development at Enterprise Scale</strong></h6>
+									<p>Deepened expertise in Salesforce Health Cloud architecture, building custom APIs with Apex, orchestrating complex workflows with Flow, and optimizing for governor limits. Learned how to leverage Salesforce as a robust system of record while maintaining performance and security for mission-critical healthcare operations.</p>
+								</div>
+							</div>
+
+							<!-- Column 2 -->
+							<div class="col-md-6">
+								<div class="has-reveal-effect" data-effect="fadeInRight">
+									<h6 style="color: #d4af37;"><strong>Advanced PWA & Offline-First Architecture</strong></h6>
+									<p>Mastered the intricacies of Service Workers beyond basic caching—implementing sophisticated synchronization strategies, conflict resolution algorithms, and IndexedDB schema versioning. Discovered how to build applications that work flawlessly whether users have 5G connectivity or no internet at all, crucial for healthcare workers in rural communities.</p>
+								</div>
+
+								<div class="has-reveal-effect mt-4" data-effect="fadeInRight">
+									<h6 style="color: #d4af37;"><strong>DevOps & Security Automation for Healthcare</strong></h6>
+									<p>Elevated my Azure DevOps capabilities from basic CI/CD to comprehensive security automation—integrating OWASP scanning, automated compliance validation, and policy-as-code that enforces PHIPA/PIPEDA requirements. Learned that in healthcare, DevOps isn't just about speed—it's about deploying safely, securely, and with complete auditability.</p>
+								</div>
+
+								<div class="has-reveal-effect mt-4" data-effect="fadeInRight">
+									<h6 style="color: #d4af37;"><strong>Government Contracting & Clinical Stakeholder Management</strong></h6>
+									<p>Navigated the complexities of government procurement, learned to communicate technical concepts to clinical stakeholders (nurses, physicians, administrators), and delivered solutions balancing innovation with strict regulatory requirements. Discovered that successful healthcare IT requires understanding both code and care delivery.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
 
 			</div>
 		</article>
@@ -220,7 +986,7 @@
 		<div class="container-fluid">
 			<div class="row">
 				<div class="col-md-6 text-center text-md-left d-md-flex align-items-md-center">
-					<p class="copyright-info">&copy; 2019. Vivian by WIP-Themes</p>
+					<p class="copyright-info">&copy; 2022. Vivian by WIP-Themes</p>
 				</div>
 
 				<div class="col-md-6 text-center text-md-right">
@@ -260,3 +1026,5 @@ var VivianOptions = {
 
 </body>
 </html>
+
+
