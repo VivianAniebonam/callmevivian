@@ -1197,7 +1197,13 @@ body.intro-start #main-header.scrolled .header-ui {
 /* Reusable intro spacing class for better word separation and readability */
 .intro-spacing {
   line-height: 1.15;
-  word-spacing: 0.12em;
+  word-spacing: 0.25em;
+}
+
+/* Ensure proper spacing between word wrappers created by JS animation */
+.intro-spacing .word-part {
+  /* margin-right: 0.35em !important; */
+  display: inline-block !important;
 }
 
 #intro #skip-intro {
