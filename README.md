@@ -63,7 +63,7 @@ I am currently enhancing:
 If you are an investor, partner, or collaborator interested in learning more or supporting ongoing projects:
 
 📧 **Email:** [aniebonamvivian1@gmail.com](mailto:aniebonamvivian1@gmail.com)  
-🌐 **Website:** [www.callmevivian.com](https://www.callmevivian.com) *(coming soon)*  
+🌐 **Website:** [viviananiebonam.github.io/callmevivian/vivian](https://viviananiebonam.github.io/callmevivian/vivian/) *(live on GitHub Pages)*  
 💼 **LinkedIn:** [Vivian Aniebonam](https://www.linkedin.com/in/viviananiebonam)  
 
 ---
