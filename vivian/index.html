@@ -1,8 +1,10 @@
 <!doctype html>
 <html lang="en" class="no-js">
+	
 <head>
   <!-- Basic Meta -->
   <meta charset="UTF-8" />
+  <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta name="author" content="Vivian Aniebonam" />
 
@@ -46,6 +48,12 @@
   <link rel="stylesheet" href="assets/css/plugins.css" />
   <link rel="stylesheet" href="assets/css/site.css" />
   <link rel="stylesheet" href="assets/css/skin.css" />
+  
+	<!-- Inline style for small, local overrides -->
+	<style>
+		/* Gold color for highlighted intro label */
+		.gold { color: #d4af37; /* classic gold */ }
+	</style>
 
   <!-- Structured Data for SEO (Person Schema) -->
   <script type="application/ld+json">
@@ -81,9 +89,6 @@
   </script>
 </head>
 
-
-
-
 <body>
 
 <!-- The preloader, remove line below to disable preloader -->
@@ -99,29 +104,28 @@
 
 	<!-- ============================= ** INTRO ** ============================= -->
 	<!-- Don't like the intro? remove these line to deactivate this feature -->
-	<div id="intro">
-		<div class="stages d-flex align-items-center justify-content-center">
-			<div class="stages-holder">
-				<!--
-					// each stage is wrapped with <div class="intro-stage"></div>
-					// You can put stage as many as you want, BUT remember some people really don't like to wait
-					// So, use it wisely ^_^
-				-->
-				<div class="intro-stage">
-					<h3 class="text-large">Hello, my name is <strong>Vivian Aniebonam</strong></h3>
-				</div>
+<div id="intro">
+	<div class="stages d-flex align-items-center justify-content-center">
+		<div class="stages-holder">
+			<!-- Intro Section 1: Personal Introduction -->
+			<div class="intro-stage">
+				<h3 class="text-large">Hi there 👋, I'm <strong>Vivian Aniebonam</strong>.</h3>
+				<h3 class="text-large">A <strong>Full-Stack Developer</strong> & <strong>Project Manager.</strong></h3>
+			</div>
 
-				<div class="intro-stage">
-					<h3 class="text-large">I do web design & development.</h3>
-				</div>
-
-				<div class="intro-stage">
-					<h3 class="text-large">Welcome in my online portfolio.</h3>
-				</div>
+		<!-- Intro Section 2: Expertise -->
+		<div class="intro-stage no-split">
+			<h3 class="text-large intro-spacing">Specializing in <strong>React, Node.js</strong> & <strong>Healthcare Tech (HL7® FHIR®)</strong>.</h3>
+			<h3 class="text-large intro-spacing"><span class="gold">Founder of</span> <strong>Vizra</strong> — building smarter Gig app.</h3>
+		</div>			
+		<!-- Intro Section 3: Welcome -->
+			<div class="intro-stage">
+				<h3 class="text-large">Welcome to my <strong>portfolio</strong> — where ideas turn into products 🚀</h3>
 			</div>
 		</div>
-		<a href="#" id="skip-intro">Skip intro</a>
 	</div>
+	<a href="#" id="skip-intro" class="button-86" role="button">Skip intro</a>
+</div>
 	<!-- ============================= ** END INTRO ** ============================= -->
 
 	<!-- ============================= ** HEADER ** ============================= -->

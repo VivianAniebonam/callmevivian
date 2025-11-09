@@ -949,20 +949,71 @@ window.poojy = window.poojy || {};
 		});
 		
 		for( var i = 0; i < x.stages.length; i++ ) {
-			
-			$(x.stages[i]).find('>*').each(function(){
-				$(this).html( function(i,html) {
-					var texts = $.trim(html);
-					return '<span class="word-part" style="display:inline-block">'+ texts.replace(/ /g, '</span> <span class="word-part" style="display:inline-block">') +'</span>';
+			// For stages marked .no-split we must NOT run the word-level splitter
+			// (it would mangle inner HTML like <span> or <strong>), however we
+			// still need to wrap raw text nodes into .text-part so the animation
+			// logic works. So only run the word-part transformation for normal stages.
+			if ( ! $(x.stages[i]).hasClass('no-split') ) {
+				$(x.stages[i]).find('>*').each(function(){
+					$(this).html( function(i,html) {
+						var texts = $.trim(html);
+						return '<span class="word-part" style="display:inline-block">'+ texts.replace(/ /g, '</span> <span class="word-part" style="display:inline-block">') +'</span>';
+					});
 				});
-			});
+			}
 
 			$(x.stages[i]).find('*').addBack().contents().each(function(){
 				if (this.nodeType == 3) {
 					var $this = $(this);
-					$this.replaceWith($this.text().replace(/\S/g, "<span class=\"text-part\">$&</span>"));
+					// Use Array.from to correctly split by Unicode code points
+					// so emoji (surrogate pairs) are not split into invalid halves.
+					var txt = $this.text();
+					if (txt.length === 0) return;
+					var chars = Array.from(txt);
+					var wrapped = chars.map(function(c){
+						// preserve plain whitespace characters as raw spaces so
+						// spacing between words remains (don't wrap spaces)
+						if (/\s/.test(c)) return c;
+						return '<span class="text-part">' + c + '</span>';
+					}).join('');
+					$this.replaceWith(wrapped);
 				}
 			});
+
+			// For stages explicitly marked with .no-split we skipped the
+			// word-level splitter earlier. That can leave sequences of
+			// adjacent `.text-part` spans with no parent word wrapper which
+			// allows browsers to break mid-word. Here we group consecutive
+			// `.text-part` siblings into a `.word-part` wrapper (display:inline-block)
+			// so words stay intact while preserving any inline HTML inside the stage.
+			if ( $(x.stages[i]).hasClass('no-split') ) {
+				$(x.stages[i]).find('.text-part').each(function(){
+					var $start = $(this);
+					// if already inside a word-part, skip
+					if ( $start.closest('.word-part').length ) return;
+					var $group = $start;
+					var $next = $start.next();
+					// collect consecutive .text-part siblings
+					while ( $next.length && $next.is('.text-part') ) {
+						$group = $group.add($next);
+						$next = $next.next();
+					}
+					if ( $group.length > 1 ) {
+						var $wrap = $('<span class="word-part" style="display:inline-block"></span>');
+						$group.first().before($wrap);
+							$group.each(function(){ $wrap.append(this); });
+							// Ensure a visible gap between wrapped words. When multiple
+							// inline-blocks are inserted consecutively the browser may
+							// render them without a separating space; append a single
+							// text node space after the wrapper to preserve word spacing.
+							// Do not duplicate if a whitespace text node already exists.
+							var nextNode = $wrap[0].nextSibling;
+							if ( !nextNode || nextNode.nodeType !== 3 || !/\s/.test(nextNode.nodeValue) ) {
+								$wrap[0].parentNode.insertBefore(document.createTextNode(' '), $wrap[0].nextSibling);
+							}
+					}
+				});
+			}
 		}
 
 		x.startRender = function() {
