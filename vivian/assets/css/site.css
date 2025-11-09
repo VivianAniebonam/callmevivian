@@ -582,7 +582,7 @@ h1 + ol, h2 + ol, h3 + ol, h4 + ol, h5 + ol, h6 + ol {
 }
 
 #main-header .header-ui .navbar .navbar-brand img {
-  max-height: 30px;
+  max-height: 70px;
   width: auto;
 }
 
@@ -672,7 +672,7 @@ h1 + ol, h2 + ol, h3 + ol, h4 + ol, h5 + ol, h6 + ol {
 
 @media (min-width: 576px) {
   #main-header .header-ui .navbar .navbar-brand img {
-    max-height: 40px;
+    max-height: 75px;
     width: auto;
   }
   #main-header .header-ui .mobile-menu-trigger .mobile-menu-button i, #main-header .header-ui .mobile-menu-trigger .mobile-menu-button .icon {
