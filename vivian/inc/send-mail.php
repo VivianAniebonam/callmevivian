@@ -3,7 +3,7 @@
  * Processing the contact form
  * require php mail() function to be activate and working
  *
- * @since Poojy HTML 1.0.0
+ * @since Vivian HTML 1.0.0
  * @author WIP Themes
  */
 
@@ -28,7 +28,7 @@ $options = array(
 	'to_email'        => 'tester@mailinator.com', // Enter your valid email address here.
 	'error_message'   => "Sorry. Cannot sent your message now. Please try again later!", // Error message, incase your server has some technical problems
 	'success_message' => "Thank you! Your message has been sent successfully!", // Success message
-	'subject_prefix'  => 'Poojy demo new email:', // Prefix text before email subject
+	'subject_prefix'  => 'Vivian demo new email:', // Prefix text before email subject
 );
 
 $subject       = $options['subject_prefix'] . ' ' . stripslashes( strip_tags( $_POST['subject'] ) );

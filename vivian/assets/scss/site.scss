@@ -15,7 +15,7 @@ $paragraph-margin-bottom: .5rem;
 
 /**
 -----
------ Template Name : Poojy
+----- Template Name : Vivian
 ----- Version       : 1.0.0
 ----- Author        : Wip Themes
 ----- Author URL    : https://themeforest.net/user/wip-themes
@@ -150,7 +150,7 @@ button {
     100% {-webkit-transform: rotate(360deg);}
 }
 button.on-submit,
-#poojyGlobLoader {
+#VivianGlobLoader {
 	font: inherit;
 	color: inherit;
 	text-transform: none;
@@ -178,7 +178,7 @@ button.on-submit,
 	animation-iteration-count: infinite;
 	-webkit-animation-iteration-count: infinite;
 }
-#poojyGlobLoader {
+#VivianGlobLoader {
 	position: fixed;
 	z-index: 999;
 	top: 50%;
@@ -963,7 +963,7 @@ body.intro-start {
 		right: auto;      
 	}
 }
-#poojy-site-preloader {
+#Vivian-site-preloader {
 	position: fixed;
 	z-index: 1001;
 	width: 100%;
@@ -1416,7 +1416,7 @@ section.site-hero {
 			}
 		}
 	}
-	.poojyRows {
+	.VivianRows {
 		display: block;
 		-ms-perspective: 1000px;
 		-webkit-perspective: 1000px;
@@ -1476,7 +1476,7 @@ section.site-hero {
 		bottom: calc(1rem + 60px);
 	}
 
-	#poojySlideProgress {
+	#VivianSlideProgress {
 		position: absolute;
 		z-index: 3;
 		left: 1rem;
@@ -1569,7 +1569,7 @@ section.site-hero {
 			bottom: calc(2rem + 80px);
 		}
 
-		#poojySlideProgress {
+		#VivianSlideProgress {
 			left: 2rem;
 			bottom: 2rem;
 			#slideBullets {
@@ -1609,7 +1609,7 @@ section.site-hero {
 			bottom: calc(2rem + 90px);
 		}
 
-		#poojySlideProgress {
+		#VivianSlideProgress {
 			left: 2rem;
 			bottom: 2rem;
 			#slideBullets {
@@ -2185,7 +2185,7 @@ ul.social-nav {
 }
 
 /** Contact form */
-#poojy-contact-form {
+#Vivian-contact-form {
 	margin: 0 ;
 	padding: 0;
 

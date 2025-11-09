@@ -1,9 +1,9 @@
-window.poojy = window.poojy || {};
+window.Vivian = window.Vivian || {};
 
 (function($){
 	'use strict';
-	$.fn.poojyHeroSlider = function (options) {
-		var settings = $.extend({}, $.fn.poojyHeroSlider.defaults, options);
+	$.fn.VivianHeroSlider = function (options) {
+		var settings = $.extend({}, $.fn.VivianHeroSlider.defaults, options);
 
 		return this.each(function(){
 			var el=this,
@@ -27,7 +27,7 @@ window.poojy = window.poojy || {};
 
 					c.appendChild(dv);
 
-					dv.id = 'poojySlideProgress';
+					dv.id = 'VivianSlideProgress';
 					dv.style.opacity = 0;
 
 					bull = '';
@@ -113,7 +113,7 @@ window.poojy = window.poojy || {};
 							attachButtonListener();
 							
 							anime({
-								targets: '#poojySlideProgress',
+								targets: '#VivianSlideProgress',
 								translateY: [50, 0],
 								opacity: [0,1],
 								duration: 500,
@@ -227,7 +227,7 @@ window.poojy = window.poojy || {};
 
 			function preparerow(direction) {
 				// reset && fill our rows
-				var rows = el.querySelectorAll('.poojyRows'),
+				var rows = el.querySelectorAll('.VivianRows'),
 					aSlide = activeSlide,
 					nSlide = aSlide,
 					slideNow = $(v.slides[aSlide]),
@@ -334,7 +334,7 @@ window.poojy = window.poojy || {};
 
 						$(v.slides[activeSlide]).css({zIndex: 2, opacity:1});
 						$(v.slides[activeSlide]).find('img').css({opacity:1});
-						$('.poojyRows').each(function(){
+						$('.VivianRows').each(function(){
 							$(this).css({display: 'none'});
 							$(this).find('.n-holder').css({
 								webkitTransform: '',
@@ -417,7 +417,7 @@ window.poojy = window.poojy || {};
 				var c = document.createDocumentFragment();
 				for(var i = 0; i < settings.rows; i++ ) {
 					var dv = document.createElement('div');
-					dv.className = 'poojyRows';
+					dv.className = 'VivianRows';
 					dv.style.position = 'absolute';
 					dv.style.width = '100%';
 					dv.style.height = Math.ceil(100/settings.rows)+'%';
@@ -437,7 +437,7 @@ window.poojy = window.poojy || {};
 		});
 	};
 
-	$.fn.poojyHeroSlider.defaults = {
+	$.fn.VivianHeroSlider.defaults = {
 		speed: 800,
 		autoPlay: false,
 		interval: 6000,
@@ -449,7 +449,7 @@ window.poojy = window.poojy || {};
 
 ( function($) {
 	'use strict';
-	var self = window.poojy,
+	var self = window.Vivian,
 		html = document.documentElement,
 		body = document.getElementsByTagName('body')[0],
 		windowRezize = false;
@@ -491,10 +491,10 @@ window.poojy = window.poojy || {};
 
 	// Create a new stage, will use it for global animations.
 	self.pixiStage = new PIXI.Container();
-	self.imgParticle = poojyOptions.imgParticle;
-	self.audioFile = poojyOptions.audio;
+	self.imgParticle = VivianOptions.imgParticle;
+	self.audioFile = VivianOptions.audio;
 	
-	if ( self.audioFile === "" || typeof poojyOptions.audio === 'undefined' ) {
+	if ( self.audioFile === "" || typeof VivianOptions.audio === 'undefined' ) {
 		self.audioFile = false;
 	}
 
@@ -505,15 +505,15 @@ window.poojy = window.poojy || {};
 	self.init = function() {
 		self.iframeHelper();
 
-		if ( $('#poojy-site-preloader').length ) {
+		if ( $('#Vivian-site-preloader').length ) {
 			anime({
-				targets: '#poojy-site-preloader',
+				targets: '#Vivian-site-preloader',
 				scale: [1, 1.2],
 				opacity: [1,0],
 				duration: 800,
 				easing: 'easeInOutSine',
 				complete: function() {
-					$('#poojy-site-preloader').remove();
+					$('#Vivian-site-preloader').remove();
 				}
 			});
 		}
@@ -866,7 +866,7 @@ window.poojy = window.poojy || {};
 			singleInstance: true,
 			loaded: function(err, sound) {
 				var manualPaused = false, initPlay = false;
-				sound.volume = poojyOptions.volume/100;
+				sound.volume = VivianOptions.volume/100;
 				self.audioPlayer = sound.play();
 
 				// check if browser support the autoplay
@@ -1081,7 +1081,7 @@ window.poojy = window.poojy || {};
 					}
 				});
 				self.onePageInit();
-				$('#project-gallery').poojyHeroSlider();
+				$('#project-gallery').VivianHeroSlider();
 				return false;
 			}
 
@@ -1296,7 +1296,7 @@ window.poojy = window.poojy || {};
 							$('.music-sound-ui').css({marginLeft: ''});
 							$('.navbar-brand, .main-nav-wrap, #mobile-menu-trigger').removeAttr('style');
 
-							$(window).trigger('poojyPortfolioClosed');
+							$(window).trigger('VivianPortfolioClosed');
 							if( ! $('.mobile-menu-trigger').is(':hidden') ) {
 								anime({
 									targets: '.mobile-menu-trigger',
@@ -1375,7 +1375,7 @@ window.poojy = window.poojy || {};
 							// load all images, to make sure all scripts running good
 							self.loadAllImages( imgs );
 
-							$(window).on('poojyImagesLoaded', function() {
+							$(window).on('VivianImagesLoaded', function() {
 								self.loaderIcon('hide');
 
 								if( ! $('.mobile-menu-trigger').is(':hidden') ) {
@@ -1486,13 +1486,13 @@ window.poojy = window.poojy || {};
 			im.onload = function () {
 				tracker.push(im);
 				if ( tracker.length >= imgs.length ) {
-					$(window).trigger('poojyImagesLoaded');
+					$(window).trigger('VivianImagesLoaded');
 				}
 			};
 			im.onerror = function () {
 				tracker.push(im);
 				if ( tracker.length >= imgs.length ) {
-					$(window).trigger('poojyImagesLoaded');
+					$(window).trigger('VivianImagesLoaded');
 				}
 			};
 			im.src = $(imgs[i]).attr('src');
@@ -1505,19 +1505,19 @@ window.poojy = window.poojy || {};
 			action = show;
 		}
 
-		if( $('#poojyGlobLoader').length < 1 ) {
+		if( $('#VivianGlobLoader').length < 1 ) {
 			var c = document.createDocumentFragment(),
 				dv = document.createElement('div');
 
 			c.appendChild(dv);
-			dv.id = 'poojyGlobLoader';
+			dv.id = 'VivianGlobLoader';
 			body.appendChild(c);
 		}
 
 		if ( action === 'show' ) {
-			$('#poojyGlobLoader').addClass('show');
+			$('#VivianGlobLoader').addClass('show');
 		} else {
-			$('#poojyGlobLoader').removeClass('show');
+			$('#VivianGlobLoader').removeClass('show');
 		}
 	};
 
@@ -1920,7 +1920,7 @@ window.poojy = window.poojy || {};
 				}
 			});
 
-			$(window).on('poojyPortfolioClosed', function() {
+			$(window).on('VivianPortfolioClosed', function() {
 				testiSwiper.update();
 			});
 		}
@@ -2091,7 +2091,7 @@ window.poojy = window.poojy || {};
 		// map setup
 		if ( $('#pj-map').length ) {
 			var map = L.map('pj-map',{
-				center: [poojyOptions.map.lat, poojyOptions.map.lon],
+				center: [VivianOptions.map.lat, VivianOptions.map.lon],
 				zoom: 16,
 				scrollWheelZoom: false,
 				fadeAnimation: false
@@ -2102,20 +2102,20 @@ window.poojy = window.poojy || {};
 			}).addTo(map);
 
 			var markerIcon = L.icon({
-				iconUrl: poojyOptions.map.marker,
+				iconUrl: VivianOptions.map.marker,
 				iconSize: [38, 41],
 				iconAnchor: [22, 40],
 				popupAnchor: [-3, -36]
 			});
 
-			L.marker([poojyOptions.map.lat, poojyOptions.map.lon], {icon: markerIcon}).addTo(map);
+			L.marker([VivianOptions.map.lat, VivianOptions.map.lon], {icon: markerIcon}).addTo(map);
 
 			if ( $('#pj-map').find('img.leaflet-marker-icon').length ) {
 				var origImg = $('#pj-map').find('img.leaflet-marker-icon'),
 					classes = origImg.attr('class'),
 					styles = origImg.attr('style');
 
-				$.get(poojyOptions.map.marker, function(data) {
+				$.get(VivianOptions.map.marker, function(data) {
 					// Get the SVG tag, ignore the rest
 					var $svg = $(data).find('svg'),
 						c = document.createDocumentFragment(),
@@ -2144,7 +2144,7 @@ window.poojy = window.poojy || {};
 
 	// Process contact form
 	self.processContactForm = function() {
-		var $form=$('#poojy-contact-form'), onSend = false;
+		var $form=$('#Vivian-contact-form'), onSend = false;
 
 		$form.on('submit', function(e) {
 			e.preventDefault();
@@ -2424,7 +2424,7 @@ window.poojy = window.poojy || {};
 	};
 
 	// If preloader removed, run the init from here
-	if ( $('#poojy-site-preloader').length < 1 ) {
+	if ( $('#Vivian-site-preloader').length < 1 ) {
 		PIXI.loader.load(function(loader, resources){
 			if ( $('#intro').length ) {
 				$('body').addClass('intro-start');
@@ -2433,7 +2433,7 @@ window.poojy = window.poojy || {};
 			} else {
 				self.setupAudio();
 				self.onePageInit();
-				$('#project-gallery').poojyHeroSlider();
+				$('#project-gallery').VivianHeroSlider();
 			}
 			self.init();
 		});
@@ -2448,7 +2448,7 @@ window.poojy = window.poojy || {};
 				} else {
 					self.setupAudio();
 					self.onePageInit();
-					$('#project-gallery').poojyHeroSlider();
+					$('#project-gallery').VivianHeroSlider();
 				}
 				self.init();
 			});

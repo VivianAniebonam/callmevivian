@@ -1,6 +1,6 @@
 /**
 -----
------ Template Name : Poojy
+----- Template Name : Vivian
 ----- Version       : 1.0.0
 ----- Author        : Wip Themes
 ----- Author URL    : https://themeforest.net/user/wip-themes
@@ -216,7 +216,7 @@ button {
 }
 
 button.on-submit,
-#poojyGlobLoader {
+#VivianGlobLoader {
   font: inherit;
   color: inherit;
   text-transform: none;
@@ -245,7 +245,7 @@ button.on-submit,
   -webkit-animation-iteration-count: infinite;
 }
 
-#poojyGlobLoader {
+#VivianGlobLoader {
   position: fixed;
   z-index: 999;
   top: 50%;
@@ -254,7 +254,7 @@ button.on-submit,
   display: none;
 }
 
-#poojyGlobLoader.show {
+#VivianGlobLoader.show {
   display: block;
 }
 
@@ -1099,7 +1099,7 @@ body.intro-start #main-header.scrolled .header-ui {
   }
 }
 
-#poojy-site-preloader {
+#Vivian-site-preloader {
   position: fixed;
   z-index: 1001;
   width: 100%;
@@ -1109,7 +1109,7 @@ body.intro-start #main-header.scrolled .header-ui {
   overflow: hidden;
 }
 
-#poojy-site-preloader .preloader-ui {
+#Vivian-site-preloader .preloader-ui {
   margin: 0;
   padding: 0;
   width: 100%;
@@ -1121,14 +1121,14 @@ body.intro-start #main-header.scrolled .header-ui {
   align-items: center;
 }
 
-#poojy-site-preloader .preloader-ui #preloader-text {
+#Vivian-site-preloader .preloader-ui #preloader-text {
   font-size: 4rem;
   font-weight: 600;
   margin: auto;
   text-align: center;
 }
 
-#poojy-site-preloader .preloader-ui #preloader-line {
+#Vivian-site-preloader .preloader-ui #preloader-line {
   position: absolute;
   width: 100%;
   max-width: 300px;
@@ -1138,7 +1138,7 @@ body.intro-start #main-header.scrolled .header-ui {
   margin: -1px 0 0 -150px;
 }
 
-#poojy-site-preloader .preloader-ui #preloader-line .progress-line {
+#Vivian-site-preloader .preloader-ui #preloader-line .progress-line {
   position: absolute;
   display: block;
   visibility: hidden;
@@ -1649,7 +1649,7 @@ section.site-hero {
   letter-spacing: .075em;
 }
 
-#project-gallery .poojyRows {
+#project-gallery .VivianRows {
   display: block;
   -ms-perspective: 1000px;
   -webkit-perspective: 1000px;
@@ -1661,7 +1661,7 @@ section.site-hero {
   backface-visibility: hidden;
 }
 
-#project-gallery .poojyRows .n-holder {
+#project-gallery .VivianRows .n-holder {
   position: relative;
   width: 100%;
   height: 100%;
@@ -1672,7 +1672,7 @@ section.site-hero {
   transform-origin: center center;
 }
 
-#project-gallery .poojyRows .n-front, #project-gallery .poojyRows .n-back {
+#project-gallery .VivianRows .n-front, #project-gallery .VivianRows .n-back {
   position: absolute;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
@@ -1680,7 +1680,7 @@ section.site-hero {
   height: 100%;
 }
 
-#project-gallery .poojyRows .n-back {
+#project-gallery .VivianRows .n-back {
   -webkit-transform: rotateX(180deg);
   transform: rotateX(180deg);
 }
@@ -1688,33 +1688,47 @@ section.site-hero {
 #project-gallery #project-gallery-next,
 #project-gallery #project-gallery-prev {
   position: absolute;
-  display: inline-block;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   z-index: 3;
-  width: 50px;
-  height: 50px;
-  line-height: 50px;
+  width: 48px;
+  height: 100px;
+  border-radius: 24px;
   text-align: center;
-  vertical-align: middle;
   -webkit-backface-visibility: hidden;
   backface-visibility: hidden;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
 }
 
 #project-gallery #project-gallery-next .icon,
 #project-gallery #project-gallery-prev .icon {
-  vertical-align: middle;
+  font-size: 26px;
+  transition: transform 0.3s ease;
+}
+
+#project-gallery #project-gallery-next:hover .icon {
+  transform: translateY(3px);
+}
+
+#project-gallery #project-gallery-prev:hover .icon {
+  transform: translateY(-3px);
 }
 
 #project-gallery #project-gallery-next {
-  right: 1rem;
-  bottom: 1rem;
+  right: 2rem;
+  bottom: 2rem;
 }
 
 #project-gallery #project-gallery-prev {
-  right: 1rem;
-  bottom: calc(1rem + 60px);
+  right: 2rem;
+  bottom: calc(2rem + 110px);
 }
 
-#project-gallery #poojySlideProgress {
+#project-gallery #VivianSlideProgress {
   position: absolute;
   z-index: 3;
   left: 1rem;
@@ -1724,7 +1738,7 @@ section.site-hero {
   vertical-align: middle;
 }
 
-#project-gallery #poojySlideProgress #slideNumbering {
+#project-gallery #VivianSlideProgress #slideNumbering {
   display: inline-block;
   vertical-align: middle;
   margin: 0 1rem 0 0;
@@ -1732,7 +1746,7 @@ section.site-hero {
   font-size: 13px;
 }
 
-#project-gallery #poojySlideProgress #slideNumbering .current {
+#project-gallery #VivianSlideProgress #slideNumbering .current {
   display: inline-block;
   font-size: 2rem;
   font-weight: bold;
@@ -1742,7 +1756,7 @@ section.site-hero {
   padding: 0;
 }
 
-#project-gallery #poojySlideProgress #slideBullets {
+#project-gallery #VivianSlideProgress #slideBullets {
   position: relative;
   display: inline-block;
   vertical-align: middle;
@@ -1752,7 +1766,7 @@ section.site-hero {
   padding: 0;
 }
 
-#project-gallery #poojySlideProgress #slideBullets a {
+#project-gallery #VivianSlideProgress #slideBullets a {
   display: inline-block;
   float: left;
   position: relative;
@@ -1762,7 +1776,7 @@ section.site-hero {
   line-height: 50px;
 }
 
-#project-gallery #poojySlideProgress #slideBullets a:before {
+#project-gallery #VivianSlideProgress #slideBullets a:before {
   content: "";
   position: absolute;
   display: block;
@@ -1775,6 +1789,24 @@ section.site-hero {
   transition: all .3s ease 0s;
 }
 
+/* Mobile: circular buttons */
+@media (max-width: 767px) {
+  #project-gallery #project-gallery-next,
+  #project-gallery #project-gallery-prev {
+    width: 56px !important;
+    height: 56px !important;
+    border-radius: 50% !important;
+  }
+  #project-gallery #project-gallery-next {
+    right: 1.5rem;
+    bottom: 1.5rem;
+  }
+  #project-gallery #project-gallery-prev {
+    right: 1.5rem;
+    bottom: calc(1.5rem + 70px);
+  }
+}
+
 @media (min-width: 768px) {
   #project-gallery ul.project-items li.project-item .gallery-content h2 {
     font-size: 3.5rem;
@@ -1784,9 +1816,9 @@ section.site-hero {
   }
   #project-gallery #project-gallery-next,
   #project-gallery #project-gallery-prev {
-    width: 70px;
-    height: 70px;
-    line-height: 70px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
   }
   #project-gallery #project-gallery-next {
     right: 2rem;
@@ -1794,13 +1826,13 @@ section.site-hero {
   }
   #project-gallery #project-gallery-prev {
     right: 2rem;
-    bottom: calc(2rem + 80px);
+    bottom: calc(2rem + 70px);
   }
-  #project-gallery #poojySlideProgress {
+  #project-gallery #VivianSlideProgress {
     left: 2rem;
     bottom: 2rem;
   }
-  #project-gallery #poojySlideProgress #slideBullets {
+  #project-gallery #VivianSlideProgress #slideBullets {
     width: 20vw;
   }
 }
@@ -1814,9 +1846,17 @@ section.site-hero {
   }
   #project-gallery #project-gallery-next,
   #project-gallery #project-gallery-prev {
-    width: 80px;
-    height: 80px;
-    line-height: 80px;
+    width: 64px;
+    height: 64px;
+    border-radius: 50%;
+  }
+  #project-gallery #project-gallery-next {
+    right: 2.5rem;
+    bottom: 2.5rem;
+  }
+  #project-gallery #project-gallery-prev {
+    right: 2.5rem;
+    bottom: calc(2.5rem + 74px);
   }
   #project-gallery #project-gallery-next {
     right: 2rem;
@@ -1826,11 +1866,11 @@ section.site-hero {
     right: 2rem;
     bottom: calc(2rem + 90px);
   }
-  #project-gallery #poojySlideProgress {
+  #project-gallery #VivianSlideProgress {
     left: 2rem;
     bottom: 2rem;
   }
-  #project-gallery #poojySlideProgress #slideBullets {
+  #project-gallery #VivianSlideProgress #slideBullets {
     width: 15vw;
   }
 }
@@ -2391,50 +2431,50 @@ ul.social-nav li i, ul.social-nav li .icon {
 }
 
 /** Contact form */
-#poojy-contact-form {
+#Vivian-contact-form {
   margin: 0;
   padding: 0;
 }
 
-#poojy-contact-form .row {
+#Vivian-contact-form .row {
   margin-left: -15px !important;
   margin-right: -15px !important;
 }
 
-#poojy-contact-form div[class*="col-"] {
+#Vivian-contact-form div[class*="col-"] {
   padding-left: 15px !important;
   padding-right: 15px !important;
 }
 
-#poojy-contact-form p {
+#Vivian-contact-form p {
   position: relative;
   margin: 0 0 30px;
 }
 
-#poojy-contact-form p input[type="text"],
-#poojy-contact-form p input[type="email"],
-#poojy-contact-form p input[type="phone"],
-#poojy-contact-form p textarea {
+#Vivian-contact-form p input[type="text"],
+#Vivian-contact-form p input[type="email"],
+#Vivian-contact-form p input[type="phone"],
+#Vivian-contact-form p textarea {
   padding-top: 1.5rem;
   padding-bottom: 1.5rem;
   padding-left: 0;
   padding-right: 0;
 }
 
-#poojy-contact-form p input[type="text"]:focus + label, #poojy-contact-form p input[type="text"].has_value + label,
-#poojy-contact-form p input[type="email"]:focus + label,
-#poojy-contact-form p input[type="email"].has_value + label,
-#poojy-contact-form p input[type="phone"]:focus + label,
-#poojy-contact-form p input[type="phone"].has_value + label,
-#poojy-contact-form p textarea:focus + label,
-#poojy-contact-form p textarea.has_value + label {
+#Vivian-contact-form p input[type="text"]:focus + label, #Vivian-contact-form p input[type="text"].has_value + label,
+#Vivian-contact-form p input[type="email"]:focus + label,
+#Vivian-contact-form p input[type="email"].has_value + label,
+#Vivian-contact-form p input[type="phone"]:focus + label,
+#Vivian-contact-form p input[type="phone"].has_value + label,
+#Vivian-contact-form p textarea:focus + label,
+#Vivian-contact-form p textarea.has_value + label {
   font-size: 12px;
   opacity: .75;
   letter-spacing: .075em;
   top: -10px;
 }
 
-#poojy-contact-form p label {
+#Vivian-contact-form p label {
   position: absolute;
   height: 20px;
   line-height: 20px;
@@ -2449,7 +2489,7 @@ ul.social-nav li i, ul.social-nav li .icon {
   transition: all .25s ease 0s;
 }
 
-#poojy-contact-form p textarea {
+#Vivian-contact-form p textarea {
   height: 1rem;
   min-height: 1rem;
   padding-top: .5rem;
