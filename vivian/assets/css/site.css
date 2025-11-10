@@ -2983,3 +2983,382 @@ ul.social-nav li i, ul.social-nav li .icon {
     padding-right: 45px;
   }
 }
+
+/* ===============================================
+   Security Accordion Styles
+   =============================================== */
+.security-accordion {
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0 80px;
+}
+
+/* Scroll Indicators */
+.scroll-indicator {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(180deg, rgba(26, 35, 126, 0.4), rgba(13, 27, 62, 0.3));
+  border-radius: 25px;
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+  z-index: 10;
+  cursor: pointer;
+  user-select: none;
+}
+
+.scroll-indicator.left {
+  left: 0;
+}
+
+.scroll-indicator.right {
+  right: 0;
+}
+
+.scroll-indicator:hover {
+  border-color: #d4af37;
+  background: linear-gradient(180deg, rgba(220, 53, 69, 0.3), rgba(26, 35, 126, 0.5));
+  transform: translateY(-50%) scale(1.05);
+  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4), 0 0 20px rgba(220, 53, 69, 0.3);
+}
+
+.scroll-indicator.hidden {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.scroll-bar {
+  width: 4px;
+  height: 120px;
+  background: rgba(26, 35, 126, 0.5);
+  border-radius: 2px;
+  position: relative;
+  overflow: hidden;
+  border: 1px solid rgba(212, 175, 55, 0.2);
+}
+
+.scroll-progress {
+  position: absolute;
+  width: 100%;
+  background: linear-gradient(180deg, #d4af37, #ffd700);
+  border-radius: 2px;
+  transition: height 0.3s ease, top 0.3s ease;
+  box-shadow: 0 0 12px rgba(212, 175, 55, 0.8), 0 0 6px rgba(220, 53, 69, 0.4);
+}
+
+.scroll-indicator.left .scroll-progress {
+  bottom: 0;
+  height: 0%;
+}
+
+.scroll-indicator.right .scroll-progress {
+  top: 0;
+  height: 0%;
+}
+.scroll-icon {
+  margin-top: 10px;
+  font-size: 24px;
+  color: #d4af37;
+  animation: bounce 2s infinite;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.6);
+}
+
+.scroll-indicator.left .scroll-icon {
+  animation: bounceDown 2s infinite;
+}
+
+.scroll-indicator.right .scroll-icon {
+  animation: bounceUp 2s infinite;
+}
+
+.scroll-indicator:hover .scroll-icon {
+  color: #ffd700;
+  text-shadow: 0 0 15px rgba(212, 175, 55, 0.9), 0 0 5px rgba(220, 53, 69, 0.5);
+}
+
+.scroll-text {
+  margin-top: 8px;
+  font-size: 10px;
+  color: #d4af37;
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  writing-mode: vertical-rl;
+  font-weight: 600;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.5);
+}
+
+.scroll-indicator:hover .scroll-text {
+  color: #ffd700;
+} font-weight: 600;
+}
+
+@keyframes bounceDown {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(5px);
+  }
+  60% {
+    transform: translateY(3px);
+  }
+}
+
+@keyframes bounceUp {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-5px);
+  }
+  60% {
+    transform: translateY(-3px);
+  }
+}
+
+.accordion-item {
+  background: linear-gradient(135deg, rgba(26, 35, 126, 0.4), rgba(13, 27, 62, 0.3));
+  border: 1px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  margin-bottom: 16px;
+  overflow: hidden;
+  transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+  backdrop-filter: blur(10px);
+  opacity: 0;
+  transform: translateY(30px) scale(0.95);
+  max-height: 0;
+  margin-bottom: 0;
+  pointer-events: none;
+}
+
+.accordion-item.visible {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  max-height: 1000px;
+  margin-bottom: 16px;
+  pointer-events: auto;
+}
+
+.accordion-item:hover {
+  border-color: #d4af37;
+  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3), 0 0 20px rgba(220, 53, 69, 0.2);
+  transform: translateY(-2px);
+  background: linear-gradient(135deg, rgba(26, 35, 126, 0.6), rgba(13, 27, 62, 0.5));
+}
+
+.accordion-item.active {
+  background: linear-gradient(135deg, rgba(220, 53, 69, 0.15), rgba(26, 35, 126, 0.4));
+  border-color: #d4af37;
+  box-shadow: 0 12px 48px rgba(212, 175, 55, 0.4), 0 0 30px rgba(220, 53, 69, 0.3);
+}
+
+.accordion-header {
+  display: flex;
+  align-items: center;
+  padding: 24px 28px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.3s ease;
+  position: relative;
+  background: linear-gradient(90deg, rgba(26, 35, 126, 0.15), transparent);
+}
+
+.accordion-header:hover {
+  background: linear-gradient(90deg, rgba(220, 53, 69, 0.2), rgba(26, 35, 126, 0.3));
+}
+
+.accordion-icon {
+  flex-shrink: 0;
+  width: 48px;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(26, 35, 126, 0.4), rgba(13, 27, 62, 0.3));
+  border: 2px solid rgba(212, 175, 55, 0.3);
+  border-radius: 12px;
+  margin-right: 20px;
+  transition: all 0.3s ease;
+}
+
+.accordion-icon i {
+  font-size: 24px;
+  color: #d4af37;
+  transition: transform 0.3s ease;
+  text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
+}
+
+.accordion-item.active .accordion-icon {
+  background: linear-gradient(135deg, #d4af37, #ffd700);
+  border-color: #d4af37;
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.6), 0 0 20px rgba(220, 53, 69, 0.3);
+}
+
+.accordion-item.active .accordion-icon i {
+  color: #0d1b3e;
+.accordion-title {
+  flex: 1;
+  margin: 0;
+  font-size: 18px;
+  font-weight: 600;
+  color: #ffffff;
+  letter-spacing: -0.02em;
+  transition: color 0.3s ease;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
+}
+
+.accordion-item.active .accordion-title {
+  color: #d4af37;
+  text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
+}
+
+.accordion-item.active .accordion-title {
+  color: #d4af37;
+.accordion-toggle {
+  flex-shrink: 0;
+  width: 32px;
+  height: 32px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, rgba(220, 53, 69, 0.2), rgba(26, 35, 126, 0.3));
+  border: 2px solid rgba(212, 175, 55, 0.4);
+  border-radius: 8px;
+  transition: all 0.3s ease;
+  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+}
+
+.accordion-toggle i {
+  font-size: 24px;
+  color: #d4af37;
+  transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
+}
+
+.accordion-item.active .accordion-toggle {
+  background: linear-gradient(135deg, #d4af37, #ffd700);
+  border-color: #d4af37;
+  transform: rotate(45deg);
+  box-shadow: 0 4px 16px rgba(212, 175, 55, 0.6), 0 0 20px rgba(220, 53, 69, 0.3);
+}
+
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+              opacity 0.3s ease;
+  opacity: 0;
+  padding: 0 28px;
+  border-top: 1px solid transparent;
+}
+
+.accordion-item.active .accordion-content {
+  max-height: 500px;
+  opacity: 1;
+  padding: 20px 28px 28px 96px;
+  border-top: 1px solid rgba(220, 53, 69, 0.3);
+  background: linear-gradient(180deg, rgba(26, 35, 126, 0.15), transparent);
+}
+
+.accordion-content p {
+  margin: 0;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.95);
+  font-size: 15px;
+} padding: 0 28px 28px 96px;
+}
+
+.accordion-content p {
+  margin: 0;
+  line-height: 1.8;
+  color: rgba(255, 255, 255, 0.85);
+  font-size: 15px;
+}
+
+/* Mobile responsive */
+@media (max-width: 768px) {
+  .security-accordion {
+    padding: 0 60px;
+  }
+  
+  .scroll-indicator {
+    width: 40px;
+    height: 150px;
+  }
+  
+  .scroll-bar {
+    height: 80px;
+  }
+  
+  .scroll-icon {
+    font-size: 20px;
+    margin-top: 8px;
+  }
+  
+  .scroll-text {
+    font-size: 9px;
+    margin-top: 6px;
+  }
+  
+  .accordion-header {
+    padding: 18px 20px;
+  }
+  
+  .accordion-icon {
+    width: 40px;
+    height: 40px;
+    margin-right: 16px;
+  }
+  
+  .accordion-icon i {
+    font-size: 20px;
+  }
+  
+  .accordion-title {
+    font-size: 16px;
+  }
+  
+  .accordion-toggle {
+    width: 28px;
+    height: 28px;
+  }
+  
+  .accordion-toggle i {
+    font-size: 20px;
+  }
+  
+  .accordion-item.active .accordion-content {
+    padding: 0 20px 20px 76px;
+  }
+  
+  .accordion-content p {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .security-accordion {
+    padding: 0 50px;
+  }
+  
+  .scroll-indicator {
+    width: 35px;
+    height: 130px;
+  }
+  
+  .scroll-bar {
+    height: 70px;
+    width: 3px;
+  }
+}

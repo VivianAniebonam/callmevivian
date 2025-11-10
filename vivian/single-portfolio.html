@@ -931,57 +931,165 @@
 					<div class="container">
 						<h3 class="section-title text-center has-reveal-effect mb-5" data-effect="fadeInTop">Security & Compliance</h3>
 						
-						<div class="row">
-							<!-- Column 1 -->
-							<div class="col-md-4 mb-4 mb-md-0">
-								<div class="has-reveal-effect" data-effect="fadeInLeft">
-									<h6 style="color: #d4af37;"><strong>Client-Side Encryption with Crypto.js</strong></h6>
+						<div class="security-accordion">
+							<!-- Left Scroll Indicator (Scroll Down) -->
+							<div class="scroll-indicator left" id="scroll-left">
+								<div class="scroll-bar">
+									<div class="scroll-progress"></div>
+								</div>
+								<i class="scroll-icon icon ion-ios-arrow-down"></i>
+								<span class="scroll-text">More Below</span>
+							</div>
+							
+							<!-- Right Scroll Indicator (Scroll Up) -->
+							<div class="scroll-indicator right hidden" id="scroll-right">
+								<div class="scroll-bar">
+									<div class="scroll-progress"></div>
+								</div>
+								<i class="scroll-icon icon ion-ios-arrow-up"></i>
+								<span class="scroll-text">Roll Back</span>
+							</div>
+							
+							<!-- Accordion Item 1 -->
+							<div class="accordion-item has-reveal-effect" data-effect="fadeInUp">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="icon ion-ios-lock"></i>
+									</div>
+									<h5 class="accordion-title">Client-Side Encryption with Crypto.js</h5>
+									<div class="accordion-toggle">
+										<i class="icon ion-ios-add"></i>
+									</div>
+								</div>
+								<div class="accordion-content">
 									<p>Implemented military-grade encryption using Crypto.js with AES-256-GCM algorithm for all patient data stored in IndexedDB and LocalStorage. Every piece of PHI is encrypted before touching browser storage with unique initialization vectors (IVs) and authenticated encryption tags. Master keys derived using PBKDF2 with 100,000 iterations, automatically rotated every 30 days.</p>
 								</div>
-								
-								<div class="has-reveal-effect mt-4" data-effect="fadeInLeft">
-									<h6 style="color: #d4af37;"><strong>PHIPA/PIPEDA Compliance by Design</strong></h6>
+							</div>
+
+							<!-- Accordion Item 2 -->
+							<div class="accordion-item has-reveal-effect" data-effect="fadeInUp">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="icon ion-ios-shield"></i>
+									</div>
+									<h5 class="accordion-title">Salesforce Shield Integration</h5>
+									<div class="accordion-toggle">
+										<i class="icon ion-ios-add"></i>
+									</div>
+								</div>
+								<div class="accordion-content">
+									<p>Leveraged Salesforce Platform Encryption to encrypt sensitive health data fields within Health Cloud. Configured event monitoring for real-time security alerts and implemented field-level audit trails tracking every access to patient records.</p>
+								</div>
+							</div>
+
+							<!-- Accordion Item 3 -->
+							<div class="accordion-item has-reveal-effect" data-effect="fadeInUp">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="icon ion-ios-filing"></i>
+									</div>
+									<h5 class="accordion-title">Comprehensive Audit Logging</h5>
+									<div class="accordion-toggle">
+										<i class="icon ion-ios-add"></i>
+									</div>
+								</div>
+								<div class="accordion-content">
+									<p>Every data access, modification, and synchronization event generated immutable audit logs stored in both Salesforce and Azure, capturing user identity, timestamp, IP address, device information, and actions performed—essential for PHIPA compliance and incident investigation.</p>
+								</div>
+							</div>
+
+							<!-- Accordion Item 4 -->
+							<div class="accordion-item has-reveal-effect" data-effect="fadeInUp">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="icon ion-ios-checkmark-circle"></i>
+									</div>
+									<h5 class="accordion-title">PHIPA/PIPEDA Compliance by Design</h5>
+									<div class="accordion-toggle">
+										<i class="icon ion-ios-add"></i>
+									</div>
+								</div>
+								<div class="accordion-content">
 									<p>Built comprehensive encryption architecture ensuring patient data remains protected at rest (AES-256 via Crypto.js), in transit (TLS 1.3), and in memory (encrypted Zustand store). Even if a device is stolen or compromised, encrypted data is cryptographically unusable without valid session credentials.</p>
 								</div>
+							</div>
 
-								<div class="has-reveal-effect mt-4" data-effect="fadeInLeft">
-									<h6 style="color: #d4af37;"><strong>HL7® Message Security</strong></h6>
+							<!-- Accordion Item 5 -->
+							<div class="accordion-item has-reveal-effect" data-effect="fadeInUp">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="icon ion-ios-pulse"></i>
+									</div>
+									<h5 class="accordion-title">HL7® Message Security</h5>
+									<div class="accordion-toggle">
+										<i class="icon ion-ios-add"></i>
+									</div>
+								</div>
+								<div class="accordion-content">
 									<p>Secured all HL7® FHIR® communications with mutual TLS authentication and message-level encryption. Implemented digital signatures to verify authenticity of clinical data exchanged between EMR systems, preventing tampering or unauthorized modifications.</p>
 								</div>
 							</div>
 
-							<!-- Column 2 -->
-							<div class="col-md-4 mb-4 mb-md-0">
-								<div class="has-reveal-effect" data-effect="fadeInTop">
-									<h6 style="color: #d4af37;"><strong>Salesforce Shield Integration</strong></h6>
-									<p>Leveraged Salesforce Platform Encryption to encrypt sensitive health data fields within Health Cloud. Configured event monitoring for real-time security alerts and implemented field-level audit trails tracking every access to patient records.</p>
+							<!-- Accordion Item 6 -->
+							<div class="accordion-item has-reveal-effect" data-effect="fadeInUp">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="icon ion-ios-construct"></i>
+									</div>
+									<h5 class="accordion-title">Azure DevOps Security Gates</h5>
+									<div class="accordion-toggle">
+										<i class="icon ion-ios-add"></i>
+									</div>
 								</div>
-
-								<div class="has-reveal-effect mt-4" data-effect="fadeInTop">
-									<h6 style="color: #d4af37;"><strong>Azure DevOps Security Gates</strong></h6>
+								<div class="accordion-content">
 									<p>Embedded security scanning directly into CI/CD pipelines—every deployment automatically ran OWASP ZAP penetration tests, SonarQube vulnerability analysis, and custom scripts checking for exposed PHI or insecure API endpoints. No code reached production without passing all security validations.</p>
 								</div>
+							</div>
 
-								<div class="has-reveal-effect mt-4" data-effect="fadeInTop">
-									<h6 style="color: #d4af37;"><strong>Zero-Trust Architecture</strong></h6>
+							<!-- Accordion Item 7 -->
+							<div class="accordion-item has-reveal-effect" data-effect="fadeInUp">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="icon ion-ios-key"></i>
+									</div>
+									<h5 class="accordion-title">Automated Compliance Validation</h5>
+									<div class="accordion-toggle">
+										<i class="icon ion-ios-add"></i>
+									</div>
+								</div>
+								<div class="accordion-content">
+									<p>Built policy-as-code that prevented deployments if data retention policies weren't properly configured, encryption wasn't enabled, or accessibility standards weren't met. Compliance wasn't an afterthought—it was enforced automatically.</p>
+								</div>
+							</div>
+
+							<!-- Accordion Item 8 -->
+							<div class="accordion-item has-reveal-effect" data-effect="fadeInUp">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="icon ion-ios-finger-print"></i>
+									</div>
+									<h5 class="accordion-title">Zero-Trust Architecture</h5>
+									<div class="accordion-toggle">
+										<i class="icon ion-ios-add"></i>
+									</div>
+								</div>
+								<div class="accordion-content">
 									<p>Implemented least-privilege access control with role-based permissions synchronized between Azure AD, Salesforce, and the application layer. Every API request validated JWT tokens, checked user roles, and verified resource-level permissions before returning data.</p>
 								</div>
 							</div>
 
-							<!-- Column 3 -->
-							<div class="col-md-4">
-								<div class="has-reveal-effect" data-effect="fadeInRight">
-									<h6 style="color: #d4af37;"><strong>Comprehensive Audit Logging</strong></h6>
-									<p>Every data access, modification, and synchronization event generated immutable audit logs stored in both Salesforce and Azure, capturing user identity, timestamp, IP address, device information, and actions performed—essential for PHIPA compliance and incident investigation.</p>
+							<!-- Accordion Item 9 -->
+							<div class="accordion-item has-reveal-effect" data-effect="fadeInUp">
+								<div class="accordion-header">
+									<div class="accordion-icon">
+										<i class="icon ion-ios-aperture"></i>
+									</div>
+									<h5 class="accordion-title">Session & Key Management</h5>
+									<div class="accordion-toggle">
+										<i class="icon ion-ios-add"></i>
+									</div>
 								</div>
-
-								<div class="has-reveal-effect mt-4" data-effect="fadeInRight">
-									<h6 style="color: #d4af37;"><strong>Automated Compliance Validation</strong></h6>
-									<p>Built policy-as-code that prevented deployments if data retention policies weren't properly configured, encryption wasn't enabled, or accessibility standards weren't met. Compliance wasn't an afterthought—it was enforced automatically.</p>
-								</div>
-
-								<div class="has-reveal-effect mt-4" data-effect="fadeInRight">
-									<h6 style="color: #d4af37;"><strong>Session & Key Management</strong></h6>
+								<div class="accordion-content">
 									<p>Secure session handling with automatic timeout, refresh token rotation, and protection against CSRF/XSS attacks. Encryption keys stored in secure enclaves, never in plaintext. Biometric authentication for device access with hardware-backed key storage where available.</p>
 								</div>
 							</div>
@@ -1163,6 +1271,126 @@ $(document).ready(function() {
 				}
 			}
 		}
+	});
+	
+	// ============================================
+	// Security Accordion Functionality
+	// ============================================
+	$('.accordion-header').on('click', function(e) {
+		e.preventDefault();
+		
+		var $item = $(this).parent('.accordion-item');
+		var $content = $item.find('.accordion-content');
+		var wasActive = $item.hasClass('active');
+		
+		// Close all other accordion items with smooth animation
+		$('.accordion-item.active').not($item).each(function() {
+			$(this).removeClass('active');
+			$(this).find('.accordion-content').css('max-height', '0');
+		});
+		
+		// Toggle current item
+		if (wasActive) {
+			$item.removeClass('active');
+			$content.css('max-height', '0');
+		} else {
+			$item.addClass('active');
+			// Set max-height to scrollHeight for smooth animation
+			var scrollHeight = $content.prop('scrollHeight');
+			$content.css('max-height', scrollHeight + 'px');
+		}
+	});
+	
+	// Touch support for accordion on mobile
+	$('.accordion-header').on('touchend', function(e) {
+		// Prevent default to avoid double-firing on mobile
+		e.preventDefault();
+		$(this).trigger('click');
+	});
+	
+	// ============================================
+	// Toilet Paper Roll Effect - Click to Rotate 3 Items
+	// ============================================
+	var $accordionItems = $('.accordion-item');
+	var totalItems = $accordionItems.length;
+	var currentPage = 0; // Which set of 3 we're showing (0 = first 3, 1 = next 3, etc.)
+	var itemsPerPage = 3;
+	var totalPages = Math.ceil(totalItems / itemsPerPage);
+	var $scrollLeft = $('#scroll-left');
+	var $scrollRight = $('#scroll-right');
+	
+	// Show first 3 items on load
+	showPage(currentPage);
+	
+	// Function to show specific page of 3 items
+	function showPage(pageIndex) {
+		// Hide all items first
+		$accordionItems.removeClass('visible');
+		
+		// Calculate start and end indices
+		var startIndex = pageIndex * itemsPerPage;
+		var endIndex = Math.min(startIndex + itemsPerPage, totalItems);
+		
+		// Show the 3 items for this page with staggered animation
+		for (var i = startIndex; i < endIndex; i++) {
+			(function(index) {
+				setTimeout(function() {
+					$accordionItems.eq(index).addClass('visible');
+				}, (index - startIndex) * 100);
+			})(i);
+		}
+		
+		updateScrollIndicators();
+	}
+	
+	// Update scroll indicator progress bars and visibility
+	function updateScrollIndicators() {
+		var progress = (currentPage / (totalPages - 1)) * 100;
+		
+		// Left indicator (scroll down) - show next 3
+		if (currentPage < totalPages - 1) {
+			$scrollLeft.removeClass('hidden');
+			$scrollLeft.find('.scroll-progress').css('height', (100 - progress) + '%');
+		} else {
+			$scrollLeft.addClass('hidden');
+		}
+		
+		// Right indicator (scroll up) - show previous 3
+		if (currentPage > 0) {
+			$scrollRight.removeClass('hidden');
+			$scrollRight.find('.scroll-progress').css('height', progress + '%');
+		} else {
+			$scrollRight.addClass('hidden');
+		}
+	}
+	
+	// Click left indicator - roll OUT current 3, roll IN next 3
+	$scrollLeft.on('click', function(e) {
+		e.preventDefault();
+		if (currentPage < totalPages - 1) {
+			currentPage++;
+			showPage(currentPage);
+		}
+	});
+	
+	// Click right indicator - roll OUT current 3, roll IN previous 3
+	$scrollRight.on('click', function(e) {
+		e.preventDefault();
+		if (currentPage > 0) {
+			currentPage--;
+			showPage(currentPage);
+		}
+	});
+	
+	// Touch support for mobile
+	$scrollLeft.on('touchend', function(e) {
+		e.preventDefault();
+		$(this).trigger('click');
+	});
+	
+	$scrollRight.on('touchend', function(e) {
+		e.preventDefault();
+		$(this).trigger('click');
 	});
 });
 </script>
