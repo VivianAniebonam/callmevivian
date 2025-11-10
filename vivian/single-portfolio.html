@@ -310,41 +310,107 @@
 					</div>
 				</div>
 
-				<!-- Technical Challenges & Solutions -->
+				<!-- Technical Challenges & Solutions (compact timeline) -->
 				<div class="inner-section">
 					<div class="container">
 						<h3 class="section-title text-center has-reveal-effect mb-5" data-effect="fadeInTop">Technical Challenges & Solutions</h3>
-						
-						<div class="row">
-							<!-- Column 1: Challenges 1-2 -->
-							<div class="col-md-6 mb-4 mb-md-0">
-								<div class="has-reveal-effect" data-effect="fadeInLeft">
-									<h5 style="color: #d4af37;"><strong>Challenge 1: EMR-to-EHR Interoperability Across Disparate Systems</strong></h5>
-									<p class="mb-3"><em>New Brunswick's hospitals used multiple incompatible EMR vendors (Epic, Cerner, Meditech) with different HL7® implementations, making unified patient data exchange nearly impossible.</em></p>
-									<p><strong>Solution:</strong> I designed a flexible HL7® FHIR® transformation engine that mapped each EMR system's proprietary data structures to standardized FHIR® R4 resources. Built custom middleware in Node.js that parsed incoming HL7® v2 messages, normalized them using FHIR® Shorthand (FSH) definitions, and exposed RESTful FHIR® endpoints. This "translation layer" enabled any EMR system to communicate with our EHR through a unified interface, finally breaking down data silos that had existed for decades.</p>
+						<style>
+							/* Timeline styles scoped to #tech-timeline */
+							#tech-timeline { position: relative; }
+							#tech-timeline .timeline-wrap { display: flex; gap: 24px; align-items: flex-start; }
+							#tech-timeline .timeline-nav { width: 260px; flex: 0 0 260px; position: relative; }
+							#tech-timeline .timeline-line { position: absolute; left: 28px; top: 8px; bottom: 8px; width: 3px; background: linear-gradient(#8b0b0b,#ff6b6b); border-radius: 2px; }
+							#tech-timeline .timeline-list { list-style: none; margin: 0; padding: 8px 0 8px 0; }
+							#tech-timeline .timeline-item { display: flex; align-items: center; gap: 12px; padding: 10px 6px; cursor: pointer; border-radius: 8px; }
+							#tech-timeline .timeline-item:focus { outline: 3px solid rgba(139,11,11,0.18); }
+							#tech-timeline .node-dot { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid #8b0b0b; box-shadow: 0 2px 8px rgba(139,11,11,0.15); transform: translateX(4px); }
+							#tech-timeline .timeline-item.active .node-dot { background: #8b0b0b; box-shadow: 0 6px 18px rgba(139,11,11,0.24); }
+							#tech-timeline .node-title { color: #ffffff; font-weight: 600; font-size: 0.95rem; }
+							#tech-timeline .timeline-panel { flex: 1 1 auto; min-height: 120px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); padding: 18px; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.35); }
+							#tech-timeline .panel-content { display: none; opacity: 0; transition: opacity 220ms ease; }
+							#tech-timeline .panel-content.active { display: block; opacity: 1; }
+							#tech-timeline .panel-content h5 { color: #d4af37; margin-top: 0; }
+							/* Responsive: stack vertically on small screens */
+							@media (max-width: 767px) {
+								#tech-timeline .timeline-wrap { flex-direction: column; }
+								#tech-timeline .timeline-nav { width: 100%; display: flex; }
+								#tech-timeline .timeline-line { display: none; }
+								#tech-timeline .timeline-list { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; }
+								#tech-timeline .timeline-item { flex: 0 0 auto; background: rgba(255,255,255,0.02); padding: 10px 12px; }
+							}
+						</style>
+
+						<div id="tech-timeline">
+							<div class="timeline-wrap">
+								<div class="timeline-nav">
+									<div class="timeline-line" aria-hidden="true"></div>
+									<ul class="timeline-list" role="tablist" aria-orientation="vertical">
+										<li class="timeline-item active" role="tab" tabindex="0" aria-selected="true" data-target="tech-panel-1">
+											<span class="node-dot" aria-hidden="true"></span>
+											<span class="node-title">EMR-to-EHR Interoperability</span>
+										</li>
+										<li class="timeline-item" role="tab" tabindex="0" aria-selected="false" data-target="tech-panel-2">
+											<span class="node-dot" aria-hidden="true"></span>
+											<span class="node-title">Offline Data Integrity</span>
+										</li>
+										<li class="timeline-item" role="tab" tabindex="0" aria-selected="false" data-target="tech-panel-3">
+											<span class="node-dot" aria-hidden="true"></span>
+											<span class="node-title">DevOps Security Scanning</span>
+										</li>
+										<li class="timeline-item" role="tab" tabindex="0" aria-selected="false" data-target="tech-panel-4">
+											<span class="node-dot" aria-hidden="true"></span>
+											<span class="node-title">Salesforce Integration at Scale</span>
+										</li>
+									</ul>
 								</div>
-								
-								<div class="has-reveal-effect mt-5" data-effect="fadeInLeft">
-									<h5 style="color: #d4af37;"><strong>Challenge 2: Offline Data Integrity & Synchronization Conflicts</strong></h5>
-									<p class="mb-3"><em>When nurses worked offline for extended periods, multiple users could modify the same patient record, creating synchronization nightmares when connectivity returned. How do you merge conflicting vital sign readings or medication orders without losing critical clinical data?</em></p>
-									<p><strong>Solution:</strong> I implemented a sophisticated conflict resolution system using operational transformation (OT) algorithms combined with clinical business rules. The IndexedDB storage layer tracked every change with vector clocks and timestamps. Upon reconnection, my synchronization engine analyzed conflicts using healthcare-specific logic—for example, newer vital signs always take precedence, but conflicting medication orders triggered alerts for clinical review. The system leveraged Salesforce's versioning capabilities to maintain complete audit trails, ensuring no clinical data was ever silently overwritten.</p>
+								<div class="timeline-panel">
+									<div id="tech-panel-1" class="panel-content active" role="tabpanel" aria-labelledby=""> 
+										<h5>Challenge 1: EMR-to-EHR Interoperability Across Disparate Systems</h5>
+										<p><em>New Brunswick's hospitals used multiple incompatible EMR vendors (Epic, Cerner, Meditech) with different HL7® implementations, making unified patient data exchange nearly impossible.</em></p>
+										<p><strong>Solution:</strong> I designed a flexible HL7® FHIR® transformation engine that mapped each EMR system's proprietary data structures to standardized FHIR® R4 resources. Built custom middleware in Node.js that parsed incoming HL7® v2 messages, normalized them using FHIR® Shorthand (FSH) definitions, and exposed RESTful FHIR® endpoints. This "translation layer" enabled any EMR system to communicate with our EHR through a unified interface, finally breaking down data silos that had existed for decades.</p>
+									</div>
+									<div id="tech-panel-2" class="panel-content" role="tabpanel">
+										<h5>Challenge 2: Offline Data Integrity & Synchronization Conflicts</h5>
+										<p><em>When nurses worked offline for extended periods, multiple users could modify the same patient record, creating synchronization nightmares when connectivity returned.</em></p>
+										<p><strong>Solution:</strong> I implemented a sophisticated conflict resolution system using operational transformation (OT) algorithms combined with clinical business rules. The IndexedDB storage layer tracked every change with vector clocks and timestamps. Upon reconnection, my synchronization engine analyzed conflicts using healthcare-specific logic—for example, newer vital signs always take precedence, but conflicting medication orders triggered alerts for clinical review. The system leveraged Salesforce's versioning capabilities to maintain complete audit trails, ensuring no clinical data was ever silently overwritten.</p>
+									</div>
+									<div id="tech-panel-3" class="panel-content" role="tabpanel">
+										<h5>Challenge 3: Azure DevOps Security Scanning for Healthcare Compliance</h5>
+										<p><em>Government contracts require extensive security validation, but standard DevOps pipelines weren't catching PHIPA/PIPEDA-specific vulnerabilities like unencrypted health identifiers or improper data retention.</em></p>
+										<p><strong>Solution:</strong> I extended the Azure DevOps pipeline with custom security gates including OWASP ZAP for penetration testing, SonarQube configured with healthcare-specific rules, and custom Python scripts that scanned for PHI (Protected Health Information) patterns in code, logs, and API responses. Added automated WCAG 2.1 accessibility testing and implemented policy-as-code that prevented deployments unless all security, privacy, and accessibility requirements passed. This infrastructure meant every release was auditable, compliant, and secure by default.</p>
+									</div>
+									<div id="tech-panel-4" class="panel-content" role="tabpanel">
+										<h5>Challenge 4: Salesforce Integration Performance at Scale</h5>
+										<p><em>Initial integration with Salesforce Health Cloud hit governor limits when synchronizing hundreds of patient records simultaneously, causing timeouts and data inconsistencies.</em></p>
+										<p><strong>Solution:</strong> Redesigned the integration architecture using asynchronous patterns—implemented message queues (Azure Service Bus) to batch operations, leveraged Salesforce Bulk API 2.0 for high-volume data loads, and built retry mechanisms with exponential backoff. Created a smart caching layer in Redis that reduced redundant Salesforce API calls by 73%. The result: seamless synchronization even during peak usage with 350+ concurrent users.</p>
+									</div>
 								</div>
 							</div>
-
-							<!-- Column 2: Challenges 3-4 -->
-							<div class="col-md-6">
-								<div class="has-reveal-effect" data-effect="fadeInRight">
-									<h5 style="color: #d4af37;"><strong>Challenge 3: Azure DevOps Security Scanning for Healthcare Compliance</strong></h5>
-									<p class="mb-3"><em>Government contracts require extensive security validation, but standard DevOps pipelines weren't catching PHIPA/PIPEDA-specific vulnerabilities like unencrypted health identifiers or improper data retention.</em></p>
-									<p><strong>Solution:</strong> I extended the Azure DevOps pipeline with custom security gates including OWASP ZAP for penetration testing, SonarQube configured with healthcare-specific rules, and custom Python scripts that scanned for PHI (Protected Health Information) patterns in code, logs, and API responses. Added automated WCAG 2.1 accessibility testing and implemented policy-as-code that prevented deployments unless all security, privacy, and accessibility requirements passed. This infrastructure meant every release was auditable, compliant, and secure by default.</p>
-								</div>
-
-								<div class="has-reveal-effect mt-5" data-effect="fadeInRight">
-									<h5 style="color: #d4af37;"><strong>Challenge 4: Salesforce Integration Performance at Scale</strong></h5>
-									<p class="mb-3"><em>Initial integration with Salesforce Health Cloud hit governor limits when synchronizing hundreds of patient records simultaneously, causing timeouts and data inconsistencies.</em></p>
-									<p><strong>Solution:</strong> Redesigned the integration architecture using asynchronous patterns—implemented message queues (Azure Service Bus) to batch operations, leveraged Salesforce Bulk API 2.0 for high-volume data loads, and built retry mechanisms with exponential backoff. Created a smart caching layer in Redis that reduced redundant Salesforce API calls by 73%. The result: seamless synchronization even during peak usage with 350+ concurrent users.</p>
-								</div>
-							</div>
+							<script>
+								(function(){
+									var items = document.querySelectorAll('#tech-timeline .timeline-item');
+									var panels = document.querySelectorAll('#tech-timeline .panel-content');
+									function activate(index){
+										items.forEach(function(it,i){
+											it.classList.toggle('active', i===index);
+											it.setAttribute('aria-selected', i===index ? 'true' : 'false');
+										});
+										panels.forEach(function(p,i){
+											if(i===index){ p.classList.add('active'); p.style.display='block'; } else { p.classList.remove('active'); p.style.display='none'; }
+										});
+									}
+									items.forEach(function(it, idx){
+										it.addEventListener('click', function(){ activate(idx); });
+										it.addEventListener('keydown', function(e){
+											if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activate(idx); }
+											if(e.key === 'ArrowDown'){ e.preventDefault(); var next = (idx+1)%items.length; items[next].focus(); }
+											if(e.key === 'ArrowUp'){ e.preventDefault(); var prev = (idx-1+items.length)%items.length; items[prev].focus(); }
+										});
+									});
+									// ensure initial state
+									activate(0);
+								})();
+							</script>
 						</div>
 					</div>
 				</div>
@@ -1124,10 +1190,8 @@
 							.learnings-tabs-wrapper .learnings-tabs-nav::after {
 								content: "";
 								position: absolute;
-								top: 6px;
-								right: 900px; /* preserve current offset (user said position is fine) */
-								width: 2.5px; /* much thicker / bold */
-								height: calc(100% - 12px); /* span the nav height */
+								top: 6px;				
+						         height: calc(100% - 12px); /* span the nav height */
 								background: #8b0b0b; /* dark red */
 								box-shadow: 0 0 10px rgba(139,11,11,0.45); /* subtle glow */
 								border-radius: 3px;

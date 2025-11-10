@@ -3509,6 +3509,68 @@ ul.social-nav li i, ul.social-nav li .icon {
     width: 3px;
   }
 }
+
+/* === Extracted: Tech timeline (scoped) === */
+#tech-timeline { position: relative; }
+#tech-timeline .timeline-wrap { display: flex; gap: 24px; align-items: flex-start; }
+#tech-timeline .timeline-nav { width: 260px; flex: 0 0 260px; position: relative; }
+#tech-timeline .timeline-line { position: absolute; left: 28px; top: 8px; bottom: 8px; width: 3px; background: linear-gradient(#8b0b0b,#ff6b6b); border-radius: 2px; }
+#tech-timeline .timeline-list { list-style: none; margin: 0; padding: 8px 0 8px 0; }
+#tech-timeline .timeline-item { display: flex; align-items: center; gap: 12px; padding: 10px 6px; cursor: pointer; border-radius: 8px; }
+#tech-timeline .timeline-item:focus { outline: 3px solid rgba(139,11,11,0.18); }
+#tech-timeline .node-dot { width: 16px; height: 16px; border-radius: 50%; background: #fff; border: 3px solid #8b0b0b; box-shadow: 0 2px 8px rgba(139,11,11,0.15); transform: translateX(4px); }
+#tech-timeline .timeline-item.active .node-dot { background: #8b0b0b; box-shadow: 0 6px 18px rgba(139,11,11,0.24); }
+#tech-timeline .node-title { color: #ffffff; font-weight: 600; font-size: 0.95rem; }
+#tech-timeline .timeline-panel { flex: 1 1 auto; min-height: 120px; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); padding: 18px; border-radius: 10px; box-shadow: 0 8px 30px rgba(0,0,0,0.35); }
+#tech-timeline .panel-content { display: none; opacity: 0; transition: opacity 220ms ease; }
+#tech-timeline .panel-content.active { display: block; opacity: 1; }
+#tech-timeline .panel-content h5 { color: #d4af37; margin-top: 0; }
+@media (max-width: 767px) {
+  #tech-timeline .timeline-wrap { flex-direction: column; }
+  #tech-timeline .timeline-nav { width: 100%; display: flex; }
+  #tech-timeline .timeline-line { display: none; }
+  #tech-timeline .timeline-list { display: flex; gap: 8px; overflow-x: auto; padding-bottom: 10px; }
+  #tech-timeline .timeline-item { flex: 0 0 auto; background: rgba(255,255,255,0.02); padding: 10px 12px; }
+}
+
+/* === Extracted: Learnings tabs overrides (scoped) === */
+#learnings-section .learnings-tabs-wrapper .learnings-tabs-nav {
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  gap: 10px;
+  padding: 8px 0;
+}
+
+#learnings-section .learnings-tabs-wrapper { position: relative; padding-right: 8px; }
+
+/* vertical rule positioned to the right side of the stacked nav */
+#learnings-section .learnings-tabs-wrapper .learnings-tabs-nav::after {
+  content: "";
+  position: absolute;
+  top: 6px;
+  right: 22px; /* closer to the tabs */
+  width: 3px;
+  height: calc(100% - 12px);
+  background: #8b0b0b;
+  box-shadow: 0 0 10px rgba(139,11,11,0.45);
+  border-radius: 3px;
+  pointer-events: none;
+}
+
+#learnings-section .learnings-tabs-nav .learning-tab { display: block; color: #ffffff !important; text-decoration: none; background: transparent; position: relative; padding: 10px 14px; border-radius: 6px; transition: background 0.18s ease; text-align: left; }
+
+#learnings-section .learnings-tabs-nav .learning-tab.active { color: #ffffff !important; font-weight: 600; background: transparent !important; box-shadow: none; }
+
+#learnings-section .learnings-tabs-nav .learning-tab.active::after { content: ""; position: absolute; left: 50%; bottom: 8px; width: 48px; transform: translateX(-50%); height: 4px; background: #8b0b0b; border-radius: 2px; box-shadow: 0 0 8px rgba(139,11,11,0.35); pointer-events: none; }
+
+#learnings-section .section-title { margin-bottom: 64px; }
+
+@media (max-width: 767px) {
+  #learnings-section .section-title { margin-bottom: 28px; }
+  #learnings-section .learnings-tabs-wrapper { margin-top: 12px; }
+}
+
 }
 
 

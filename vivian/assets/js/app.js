@@ -447,6 +447,77 @@ window.Vivian = window.Vivian || {};
 	};
 })(window.jQuery);
 
+/* === Extracted JS: timeline & learnings tab interactions === */
+document.addEventListener('DOMContentLoaded', function(){
+	// Learnings tabs
+	(function(){
+		var tabs = document.querySelectorAll('#learnings-section .learning-tab');
+		var contents = document.querySelectorAll('#learnings-section .learning-content');
+
+		function activateTab(tabEl){
+			if(!tabEl) return;
+			var target = tabEl.getAttribute('data-tab');
+			tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+			contents.forEach(function(c){ c.classList.remove('active'); c.style.display='none'; });
+
+			tabEl.classList.add('active');
+			tabEl.setAttribute('aria-selected','true');
+			var panel = document.getElementById(target);
+			if(panel){
+				panel.classList.add('active');
+				panel.style.opacity = 0;
+				panel.style.display = 'block';
+				var op = 0;
+				var timer = setInterval(function(){
+					op += 0.12;
+					panel.style.opacity = op;
+					if(op >= 1){ clearInterval(timer); panel.style.opacity = ''; }
+				}, 18);
+			}
+		}
+
+		tabs.forEach(function(tab){
+			tab.addEventListener('click', function(e){ e.preventDefault(); activateTab(tab); });
+			tab.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activateTab(tab); } });
+		});
+
+		// ensure initial state (find active or activate first)
+		var found = Array.prototype.find.call(tabs, function(t){ return t.classList.contains('active'); });
+		if(found){ activateTab(found); } else if(tabs[0]) { activateTab(tabs[0]); }
+	})();
+
+	// Technical timeline
+	(function(){
+		var items = document.querySelectorAll('#tech-timeline .timeline-item');
+		var panels = document.querySelectorAll('#tech-timeline .panel-content');
+		if(!items.length || !panels.length) return;
+
+		function activate(index){
+			items.forEach(function(it,i){
+				it.classList.toggle('active', i===index);
+				it.setAttribute('aria-selected', i===index ? 'true' : 'false');
+			});
+			panels.forEach(function(p,i){
+				if(i===index){ p.classList.add('active'); p.style.display='block'; } else { p.classList.remove('active'); p.style.display='none'; }
+			});
+		}
+
+		items.forEach(function(it, idx){
+			it.addEventListener('click', function(){ activate(idx); });
+			it.addEventListener('keydown', function(e){
+				if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activate(idx); }
+				if(e.key === 'ArrowDown'){ e.preventDefault(); var next = (idx+1)%items.length; items[next].focus(); }
+				if(e.key === 'ArrowUp'){ e.preventDefault(); var prev = (idx-1+items.length)%items.length; items[prev].focus(); }
+			});
+		});
+
+		// set initial
+		activate(0);
+	})();
+
+});
+
+
 ( function($) {
 	'use strict';
 	var self = window.Vivian,
