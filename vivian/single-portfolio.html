@@ -1276,6 +1276,11 @@ $(document).ready(function() {
 	// ============================================
 	// Security Accordion Functionality
 	// ============================================
+	
+	// Ensure ALL accordion items are closed on page load
+	$('.accordion-item').removeClass('active');
+	$('.accordion-content').css('max-height', '0');
+	
 	$('.accordion-header').on('click', function(e) {
 		e.preventDefault();
 		
@@ -1318,10 +1323,6 @@ $(document).ready(function() {
 	var totalPages = Math.ceil(totalItems / itemsPerPage);
 	var $scrollLeft = $('#scroll-left');
 	var $scrollRight = $('#scroll-right');
-	
-	// Ensure ALL accordion items are closed on page load
-	$accordionItems.removeClass('active');
-	$accordionItems.find('.accordion-content').css('max-height', '0');
 	
 	// Show first 3 items on load
 	showPage(currentPage);
