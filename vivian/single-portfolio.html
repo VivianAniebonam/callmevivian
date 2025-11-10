@@ -1098,47 +1098,199 @@
 				</div>
 
 				<!-- Learning & Professional Growth -->
-				<div class="inner-section">
+				<div id="learnings-section" class="inner-section">
 					<div class="container">
 						<h3 class="section-title text-center has-reveal-effect mb-5" data-effect="fadeInTop">Key Learnings & Professional Growth</h3>
+
 						
-						<div class="row">
-							<!-- Column 1 -->
-							<div class="col-md-6 mb-4 mb-md-0">
-								<div class="has-reveal-effect" data-effect="fadeInLeft">
-									<h6 style="color: #d4af37;"><strong>Advanced Client-Side Encryption & State Management</strong></h6>
-									<p>Mastered the intricate balance between security and performance—learning to implement Crypto.js encryption that's both cryptographically strong and performant enough for real-time healthcare applications. Discovered how Zustand's lightweight architecture combined with debounced persistence (delaying IndexedDB writes by 500ms) dramatically reduced unnecessary encryption cycles while maintaining data integrity. Learned to offload crypto operations to Web Workers, preventing UI thread blocking when encrypting bulk patient records.</p>
-								</div>
-								
-								<div class="has-reveal-effect mt-4" data-effect="fadeInLeft">
-									<h6 style="color: #d4af37;"><strong>Healthcare Interoperability & HL7® FHIR® Expertise</strong></h6>
-									<p>Transformed from understanding basic API integration to becoming proficient in healthcare data standards—mastering HL7® v2 message parsing, FHIR® R4 resource modeling, and the complexities of EMR-to-EHR interoperability. Learned how standardized healthcare data exchange can literally save lives by ensuring critical patient information follows them across care settings.</p>
+						<!-- Tabs Navigation -->
+						<!-- Make tabs stack vertically with white text -->
+						<style>
+							/* Ensure the learning tabs are stacked vertically and use white text */
+							.learnings-tabs-wrapper .learnings-tabs-nav {
+								display: flex;
+								flex-direction: column;
+								align-items: stretch;
+								gap: 10px;
+								padding: 8px 0;
+							}
+
+							/* Add a vertical rule to the right side of the stacked tabs (bold, dark red as requested) */
+							.learnings-tabs-wrapper {
+								position: relative; /* container for the pseudo element */
+								padding-right: 8px; /* keep current spacing so position doesn't shift */
+							}
+
+							.learnings-tabs-wrapper .learnings-tabs-nav::after {
+								content: "";
+								position: absolute;
+								top: 6px;
+								right: 900px; /* preserve current offset (user said position is fine) */
+								width: 2.5px; /* much thicker / bold */
+								height: calc(100% - 12px); /* span the nav height */
+								background: #8b0b0b; /* dark red */
+								box-shadow: 0 0 10px rgba(139,11,11,0.45); /* subtle glow */
+								border-radius: 3px;
+								pointer-events: none;
+							}
+
+							.learnings-tabs-nav .learning-tab {
+								display: block;
+								color: #ffffff !important;
+								text-decoration: none;
+								background: transparent;
+								position: relative; /* needed so underline pseudo-element can be positioned */
+								padding: 10px 14px;
+								border-radius: 6px;
+								transition: background 0.18s ease;
+								text-align: left;
+							}
+
+							.learnings-tabs-nav .learning-tab:hover {
+								background: rgba(255,255,255,0.04);
+							}
+
+							/* Active state: remove gold background and show a dark-red underline instead */
+							.learnings-tabs-nav .learning-tab.active {
+								color: #ffffff !important;
+								font-weight: 600;
+								background: transparent !important; /* removed gold background */
+								box-shadow: none;
+							}
+
+							.learnings-tabs-nav .learning-tab.active::after {
+								content: "";
+								position: absolute;
+								left: 50%;
+								bottom: 8px;
+								width: 48px; /* shortened underline width */
+								transform: translateX(-50%);
+								height: 4px; /* underline thickness */
+								background: #8b0b0b; /* dark red underline */
+								border-radius: 2px;
+								box-shadow: 0 0 8px rgba(139,11,11,0.35);
+								pointer-events: none;
+							}
+
+							.learnings-tabs-nav .learning-tab span { color: inherit; }
+
+							@media (min-width: 768px) {
+								/* limit width on larger screens so they look like a vertical nav */
+								.learnings-tabs-wrapper .learnings-tabs-nav { max-width: 320px; }
+							}
+
+
+
+							/* Extra spacing between the section title and the content below */
+							#learnings-section .section-title { margin-bottom: 64px; }
+							.learnings-tabs-wrapper { margin-top: 32px; }
+
+							/* Smaller spacing on small screens */
+							@media (max-width: 767px) {
+								#learnings-section .section-title { margin-bottom: 28px; }
+								.learnings-tabs-wrapper { margin-top: 12px; }
+							}
+						</style>
+
+						<div class="learnings-tabs-wrapper">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="learnings-tabs-nav" role="tablist" aria-orientation="vertical">
+										<a href="#" class="learning-tab active" data-tab="tab1" role="tab" aria-selected="true"><span>Encryption & State</span></a>
+										<a href="#" class="learning-tab" data-tab="tab2" role="tab" aria-selected="false"><span>HL7® FHIR®</span></a>
+										<a href="#" class="learning-tab" data-tab="tab3" role="tab" aria-selected="false"><span>Salesforce</span></a>
+										<a href="#" class="learning-tab" data-tab="tab4" role="tab" aria-selected="false"><span>PWA & Offline</span></a>
+										<a href="#" class="learning-tab" data-tab="tab5" role="tab" aria-selected="false"><span>DevOps Security</span></a>
+										<a href="#" class="learning-tab" data-tab="tab6" role="tab" aria-selected="false"><span>Stakeholder Mgmt</span></a>
+									</div>
 								</div>
 
-								<div class="has-reveal-effect mt-4" data-effect="fadeInLeft">
-									<h6 style="color: #d4af37;"><strong>Salesforce Platform Development at Enterprise Scale</strong></h6>
-									<p>Deepened expertise in Salesforce Health Cloud architecture, building custom APIs with Apex, orchestrating complex workflows with Flow, and optimizing for governor limits. Learned how to leverage Salesforce as a robust system of record while maintaining performance and security for mission-critical healthcare operations.</p>
-								</div>
-							</div>
+								<div class="col-md-8">
+									<div class="learnings-tabs-content">
+										<div id="tab1" class="learning-content active" role="tabpanel">
+											<h5>Encryption & State</h5>
+											<p>All sensitive clinical state in the PWA is protected at the edge. I implemented client-side encryption using Crypto.js (AES-256-GCM) so that any data written to IndexedDB or LocalStorage is encrypted before it leaves the application runtime. Keys are derived using PBKDF2 with strong iteration counts and rotated regularly; in production we paired this with server-backed key management so long-lived keys are never stored on the device.</p>
+											<p>State persistence was designed to survive offline periods and sudden app termination. We used a debounced persistence strategy to reduce encryption cycles during rapid UI activity, and moved heavy crypto work into Web Workers so the UI remains responsive when bulk encrypt/decrypt operations run. Every change is versioned, audited, and merged by the sync engine on reconnection to guarantee data integrity.</p>
+										</div>
 
-							<!-- Column 2 -->
-							<div class="col-md-6">
-								<div class="has-reveal-effect" data-effect="fadeInRight">
-									<h6 style="color: #d4af37;"><strong>Advanced PWA & Offline-First Architecture</strong></h6>
-									<p>Mastered the intricacies of Service Workers beyond basic caching—implementing sophisticated synchronization strategies, conflict resolution algorithms, and IndexedDB schema versioning. Discovered how to build applications that work flawlessly whether users have 5G connectivity or no internet at all, crucial for healthcare workers in rural communities.</p>
-								</div>
+										<div id="tab2" class="learning-content" role="tabpanel" style="display:none;">
+											<h5>HL7® FHIR®</h5>
+											<p>Interoperability was a core requirement. I built an HL7 integration layer that accepts legacy HL7 v2 messages and maps them to FHIR R4 resources (Patient, Observation, Encounter, MedicationRequest). The translation layer is implemented as Node.js microservices that validate, normalize and enrich incoming messages before forwarding them to our backend.</p>
+											<p>The FHIR layer also enables fine-grained clinical workflows on the frontend: nurses view and update FHIR resources directly, and the sync engine translates local changes back into HL7 or FHIR API calls to external systems while preserving audit trails and clinical context.</p>
+										</div>
 
-								<div class="has-reveal-effect mt-4" data-effect="fadeInRight">
-									<h6 style="color: #d4af37;"><strong>DevOps & Security Automation for Healthcare</strong></h6>
-									<p>Elevated my Azure DevOps capabilities from basic CI/CD to comprehensive security automation—integrating OWASP scanning, automated compliance validation, and policy-as-code that enforces PHIPA/PIPEDA requirements. Learned that in healthcare, DevOps isn't just about speed—it's about deploying safely, securely, and with complete auditability.</p>
-								</div>
+										<div id="tab3" class="learning-content" role="tabpanel" style="display:none;">
+											<h5>Salesforce</h5>
+											<p>Salesforce Health Cloud is the system of record. I integrated the PWA using a combination of secure REST APIs, Salesforce Bulk API for batched uploads, and platform automation (Apex & Flows) to reconcile and de-duplicate incoming clinical data. Sensitive fields are double-encrypted where necessary, and the integration respects Salesforce governor limits by batching and queueing operations through Azure Service Bus.</p>
+											<p>Server-side microservices handle transformation, conflict resolution, and resilient retries so that network blips or partial failures never result in data loss.</p>
+										</div>
 
-								<div class="has-reveal-effect mt-4" data-effect="fadeInRight">
-									<h6 style="color: #d4af37;"><strong>Government Contracting & Clinical Stakeholder Management</strong></h6>
-									<p>Navigated the complexities of government procurement, learned to communicate technical concepts to clinical stakeholders (nurses, physicians, administrators), and delivered solutions balancing innovation with strict regulatory requirements. Discovered that successful healthcare IT requires understanding both code and care delivery.</p>
+										<div id="tab4" class="learning-content" role="tabpanel" style="display:none;">
+											<h5>PWA & Offline</h5>
+											<p>The app is built as an offline-first Progressive Web App. Service Workers implement intelligent caching (cache-first for shell assets, network-first for dynamic clinical queries, stale-while-revalidate where appropriate) so the nurse UI stays snappy whether connected or not.</p>
+											<p>Patient interactions are stored locally in IndexedDB with encrypted payloads. On reconnection, the synchronization engine intelligently batches changes, validates them, handles conflicts using clinical rules, and pushes results to Salesforce and hospital EMRs.</p>
+										</div>
+
+										<div id="tab5" class="learning-content" role="tabpanel" style="display:none;">
+											<h5>DevOps Security</h5>
+											<p>To meet government compliance we integrated security gates directly into Azure DevOps pipelines. Every PR triggered static analysis (SonarQube), dependency and secret scanning, and automated penetration checks via OWASP ZAP. Release gates enforce unit, integration and E2E test coverage (Jest + Cypress) and policy-as-code blocks deployments that fail security or accessibility checks.</p>
+											<p>Infrastructure and secrets are managed as code with RBAC and audit logging so environments are reproducible and auditable.</p>
+										</div>
+
+										<div id="tab6" class="learning-content" role="tabpanel" style="display:none;">
+											<h5>Stakeholder Management</h5>
+											<p>Delivering this PWA required ongoing collaboration with provincial stakeholders, clinicians, and hospital IT teams. I ran discovery workshops, created bilingual training materials (EN/FR), and partnered with clinical leads to codify rules for conflict resolution and workflows so the software aligned with real-world practice.</p>
+											<p>Change management and clear documentation reduced adoption friction. We measured impact through time-on-task and care coordination metrics and used that data to iterate on features and UX.</p>
+										</div>
+									</div>
 								</div>
 							</div>
 						</div>
+
+						<script>
+							(function(){
+								// Tab switching for learning panels
+								var $tabs = document.querySelectorAll('.learning-tab');
+								var contents = document.querySelectorAll('.learning-content');
+
+								function activateTab(tabEl){
+									var target = tabEl.getAttribute('data-tab');
+									// deactivate tabs
+									$tabs.forEach(function(t){ t.classList.remove('active'); t.setAttribute('aria-selected','false'); });
+									// hide contents
+									contents.forEach(function(c){ c.classList.remove('active'); c.style.display = 'none'; });
+
+									// activate clicked
+									tabEl.classList.add('active');
+									tabEl.setAttribute('aria-selected','true');
+									var panel = document.getElementById(target);
+									if(panel){
+										panel.classList.add('active');
+										// simple fade-in
+										panel.style.opacity = 0;
+										panel.style.display = 'block';
+										var op = 0;
+										var timer = setInterval(function(){
+											op += 0.1;
+											panel.style.opacity = op;
+											if(op >= 1){ clearInterval(timer); panel.style.opacity = ''; }
+										}, 20);
+									}
+								}
+
+								$tabs.forEach(function(tab){
+									tab.addEventListener('click', function(e){
+										e.preventDefault();
+										activateTab(tab);
+									});
+									tab.addEventListener('keydown', function(e){
+										if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); activateTab(tab); }
+									});
+								});
+
+
+							})();
+						</script>
 					</div>
 				</div>
 
