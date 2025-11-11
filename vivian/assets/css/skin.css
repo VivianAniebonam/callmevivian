@@ -248,6 +248,12 @@ textarea:focus {
   color: white;
 }
 
+/* Ensure the close icon itself is red (override other rules if necessary) */
+#main-header .close-portfolio-wrap #close-portfolio i,
+#main-header .close-portfolio-wrap #close-portfolio .icon {
+  color: red !important;
+}
+
 #main-header .header-ui .mobile-menu-trigger .mobile-menu-button {
   color: #afafaf;
   fill: #afafaf;
