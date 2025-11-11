@@ -997,48 +997,182 @@
 						<div class="row mt-5">
 							<div class="col-md-10 offset-md-1">
 								<h5 class="text-center has-reveal-effect" data-effect="fadeInTop"><strong>Additional Technologies & Tools</strong></h5>
-								<p class="text-center mt-3 has-reveal-effect" data-effect="fadeInTop">
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Zustand State Management</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Crypto.js (AES-256-GCM)</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Lodash Debounce</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Web Workers API</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Salesforce Health Cloud</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Apex & Visualforce</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Salesforce Flow</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">SOQL/SOSL</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">HL7® v2.x</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">FHIR® R4</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">FHIR Shorthand (FSH)</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">FHIR Resources (Patient, Observation, Encounter)</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Mirth Connect</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">EMR Integration (Epic, Cerner, Meditech)</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Azure Pipelines</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Azure Repos</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Azure Service Bus</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Docker</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Kubernetes</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Git/GitHub</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Jest & React Testing Library</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Cypress E2E</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">OWASP ZAP</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">SonarQube</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Webpack</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Workbox (Service Worker)</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">WebSocket</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">RESTful APIs</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">GraphQL</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">i18next</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Redux Toolkit</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">React Query</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">PostgreSQL</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Redis</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">Nginx</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">SSL/TLS 1.3</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">OAuth 2.0 / JWT</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">WCAG 2.1 AA</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">ARIA</span>
-									<span class="badge badge-secondary mx-1 mb-2 p-2">PHIPA/PIPEDA Compliance</span>
-								</p>
+
+								<!-- Option 2: Grouped Collapsible Categories -->
+								<div class="skill-matrix-wrapper has-reveal-effect" data-effect="fadeInTop" aria-label="Technologies grouped by category">
+									<div class="skill-controls" style="display:flex;gap:12px;align-items:center;justify-content:center;margin-bottom:12px;flex-wrap:wrap;">
+										<div style="min-width:260px;display:flex;gap:8px;align-items:center;">
+											<label for="skillFilter" class="sr-only">Filter skills</label>
+											<input id="skillFilter" class="skill-filter-input" type="search" placeholder="Filter skills…" aria-label="Filter skills" />
+											<button id="skillClear" class="btn btn-sm btn-outline-light" type="button">Clear</button>
+										</div>
+									</div>
+
+									<div class="skill-card">
+										<div class="tech-groups" id="skillArea">
+
+											<!-- Frontend -->
+											<div class="tech-group">
+												<button class="tech-group-header" aria-expanded="true">Frontend</button>
+												<div class="tech-group-content">
+													<button class="tech-badge">React 18</button>
+													<button class="tech-badge">TypeScript</button>
+													<button class="tech-badge">Bootstrap</button>
+													<button class="tech-badge">CSS</button>
+													<button class="tech-badge">React Query</button>
+												</div>
+											</div>
+
+											<!-- Backend -->
+											<div class="tech-group">
+												<button class="tech-group-header" aria-expanded="false">Backend & APIs</button>
+												<div class="tech-group-content" hidden>
+													<button class="tech-badge">Node.js</button>
+													<button class="tech-badge">Express.js</button>
+													<button class="tech-badge">GraphQL</button>
+													<button class="tech-badge">Redis Cache</button>
+												</div>
+											</div>
+
+											<!-- Integration & Platform -->
+											<div class="tech-group">
+												<button class="tech-group-header" aria-expanded="false">Integration & Platform</button>
+												<div class="tech-group-content" hidden>
+													<button class="tech-badge">Salesforce Health Cloud</button>
+													<button class="tech-badge">Apex &amp; Visualforce</button>
+													<button class="tech-badge">HL7® FHIR®</button>
+													<button class="tech-badge">Azure Service Bus</button>
+												</div>
+											</div>
+
+											<!-- DevOps & Infra -->
+											<div class="tech-group">
+												<button class="tech-group-header" aria-expanded="false">Cloud & Infrastructure</button>
+												<div class="tech-group-content" hidden>
+													<button class="tech-badge">Azure DevOps</button>
+													<button class="tech-badge">Kubernetes</button>
+													<button class="tech-badge">Docker</button>
+													<button class="tech-badge">Service Workers</button>
+												</div>
+											</div>
+
+											<!-- Security & Data -->
+											<div class="tech-group">
+												<button class="tech-group-header" aria-expanded="false">Security & Data</button>
+												<div class="tech-group-content" hidden>
+													<button class="tech-badge">Crypto.js (AES-256-GCM)</button>
+													<button class="tech-badge">IndexedDB</button>
+													<button class="tech-badge">JWT / OAuth 2.0</button>
+													<button class="tech-badge">PHIPA / PIPEDA</button>
+												</div>
+											</div>
+
+											<!-- Tools & Libraries -->
+											<div class="tech-group">
+												<button class="tech-group-header" aria-expanded="false">Tools & Libraries</button>
+												<div class="tech-group-content" hidden>
+													<button class="tech-badge">Mirth Connect</button>
+													<button class="tech-badge">Chart.js</button>
+													<button class="tech-badge">Cypress</button>
+													<button class="tech-badge">BossTramp</button>
+												</div>
+											</div>
+
+										</div>
+									</div>
+
+									<script>
+									(function(){
+										var skillArea = document.getElementById('skillArea');
+										var filterInput = document.getElementById('skillFilter');
+										var clearBtn = document.getElementById('skillClear');
+
+										var groups = Array.prototype.slice.call(skillArea.querySelectorAll('.tech-group'));
+										// record initial expanded state so we can restore on clear
+										var initialExpanded = new Map();
+										groups.forEach(function(g){
+											var hdr = g.querySelector('.tech-group-header');
+											var content = g.querySelector('.tech-group-content');
+											var exp = hdr.getAttribute('aria-expanded') === 'true';
+											initialExpanded.set(g, exp);
+											// ensure DOM reflects the initial state
+											if(exp){ content.hidden = false; content.style.maxHeight = content.scrollHeight + 'px'; }
+											else { content.hidden = true; content.style.maxHeight = ''; }
+										});
+
+										// Toggle group open/closed
+										skillArea.querySelectorAll('.tech-group-header').forEach(function(btn){
+											btn.addEventListener('click', function(){
+												var expanded = btn.getAttribute('aria-expanded') === 'true';
+												var content = btn.nextElementSibling;
+												if(!expanded){
+													btn.setAttribute('aria-expanded', 'true');
+													content.hidden = false;
+													// force a reflow before animating maxHeight
+													void content.offsetWidth;
+													content.style.maxHeight = content.scrollHeight + 'px';
+												} else {
+													btn.setAttribute('aria-expanded', 'false');
+													content.style.maxHeight = '0';
+													setTimeout(function(){ content.hidden = true; content.style.maxHeight = ''; }, 320);
+												}
+											});
+											btn.addEventListener('keydown', function(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); btn.click(); } });
+										});
+
+										function normalize(s){ return (s||'').toString().toLowerCase().trim(); }
+										function filterAll(q){
+											var qn = normalize(q);
+											var badges = skillArea.querySelectorAll('.tech-badge');
+											badges.forEach(function(b){
+												var txt = normalize(b.textContent || b.innerText);
+												if(qn === '' || txt.indexOf(qn) !== -1){
+													b.style.display = 'inline-flex';
+												} else {
+													b.style.display = 'none';
+												}
+											});
+
+											// For each group, open it if it has matches, otherwise collapse
+											groups.forEach(function(g){
+												var hdr = g.querySelector('.tech-group-header');
+												var content = g.querySelector('.tech-group-content');
+												var anyVisible = g.querySelectorAll('.tech-badge:not([style*="display: none"])').length > 0;
+												if(qn === ''){
+													// restore initial state
+													var shouldOpen = initialExpanded.get(g);
+													if(shouldOpen){ hdr.setAttribute('aria-expanded','true'); content.hidden = false; content.style.maxHeight = content.scrollHeight + 'px'; }
+													else { hdr.setAttribute('aria-expanded','false'); content.style.maxHeight = '0'; setTimeout(function(){ content.hidden = true; content.style.maxHeight = ''; }, 320); }
+												} else {
+													if(anyVisible){
+														// open group to reveal matches
+														hdr.setAttribute('aria-expanded','true');
+														content.hidden = false;
+														void content.offsetWidth;
+														content.style.maxHeight = content.scrollHeight + 'px';
+													} else {
+														// collapse groups with no matches
+														hdr.setAttribute('aria-expanded','false');
+														content.style.maxHeight = '0';
+														setTimeout(function(){ content.hidden = true; content.style.maxHeight = ''; }, 320);
+													}
+												}
+											});
+										}
+
+										filterInput.addEventListener('input', function(e){ filterAll(e.target.value); });
+										clearBtn.addEventListener('click', function(){ filterInput.value=''; filterAll(''); filterInput.focus(); });
+
+										// Click feedback for badges
+										skillArea.addEventListener('click', function(e){
+											var btn = e.target.closest('.tech-badge');
+											if(!btn) return;
+											btn.classList.add('skill-tag--active');
+											setTimeout(function(){ btn.classList.remove('skill-tag--active'); }, 700);
+										});
+
+									})();
+									</script>
 							</div>
 						</div>
 					</div>

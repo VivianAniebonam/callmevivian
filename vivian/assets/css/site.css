@@ -36,6 +36,120 @@ a[href$=".jpeg"],
 a[href$=".gif"],
 a[href$=".png"] {
   cursor: zoom-in;
+
+}
+
+/* === Tech Tags Filter (Option 3) === */
+.tech-filter-wrapper { margin-top: 18px; }
+.tech-filter-controls { max-width: 960px; margin: 0 auto; }
+.tech-filter-input { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: #fff; padding: 10px 14px; border-radius: 8px; width: 60%; min-width: 260px; max-width: 540px; }
+.tech-filter-input:focus { outline: none; box-shadow: 0 6px 20px rgba(0,0,0,0.6), 0 0 0 4px rgba(212,175,55,0.06); border-color: rgba(212,175,55,0.18); }
+.tech-filter-list { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; max-width: 100%; margin: 0 auto; }
+.tech-filter-tag { background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.94); padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.04); font-size: 0.95rem; cursor: pointer; display: inline-flex; align-items: center; justify-content: center; }
+.tech-filter-tag:focus, .tech-filter-tag:hover { box-shadow: 0 8px 24px rgba(0,0,0,0.55), 0 0 0 4px rgba(212,175,55,0.06); border-color: rgba(212,175,55,0.12); color: #fff; transform: translateY(-2px); }
+.tech-filter-tag--copied { background: rgba(212,175,55,0.12); border-color: rgba(212,175,55,0.28); }
+.tech-filter-summary { max-width: 960px; margin: 0 auto 8px auto; }
+
+@media (max-width: 767px) {
+  .tech-filter-input { width: calc(100% - 120px); max-width: none; }
+  .tech-filter-controls { padding: 0 12px; }
+  .tech-filter-tag { padding: 6px 9px; font-size: 0.88rem; }
+}
+
+/* === Skill Matrix & Tag Cloud (Option 4) === */
+.skill-matrix-wrapper { margin-top: 18px; }
+.skill-controls { max-width: 1000px; margin: 0 auto 6px auto; }
+.skill-filter-input { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06); color: #fff; padding: 8px 10px; border-radius: 8px; }
+
+.skill-area { max-width: 1100px; margin: 0 auto; }
+.skill-matrix { display: flex; gap: 18px; justify-content: space-between; }
+.skill-column { flex: 1 1 0; background: rgba(255,255,255,0.02); border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; padding: 12px; }
+.skill-column-title { margin: 0 0 8px 0; color: #d4af37; font-weight: 700; }
+.skill-items { display:flex; gap:8px; flex-wrap:wrap; }
+.skill-tag { background: rgba(255,255,255,0.03); color: rgba(255,255,255,0.94); padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.04); font-size: 0.95rem; cursor: pointer; display:inline-flex; align-items:center; justify-content:center; }
+.skill-tag:hover, .skill-tag:focus { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 0 4px rgba(212,175,55,0.06); }
+.skill-tag--active { animation: skillPulse 0.65s ease; box-shadow: 0 10px 30px rgba(212,175,55,0.16); }
+@keyframes skillPulse { 0%{ transform: scale(1);} 50%{ transform: scale(1.06);} 100%{ transform: scale(1);} }
+
+.skill-cloud { padding: 18px; background: rgba(255,255,255,0.01); border-radius: 12px; border: 1px solid rgba(255,255,255,0.03); }
+.skill-cloud .cloud-inner { display:flex; gap:12px; flex-wrap:wrap; justify-content:center; align-items:center; }
+
+@media (max-width: 900px) {
+  .skill-matrix { flex-direction: column; }
+  .skill-column { width: 100%; }
+}
+
+/* === Polished visual redesign for Skill Matrix & Cloud === */
+.skill-card {
+  max-width: 1140px;
+  margin: 0 auto;
+  padding: 26px 28px;
+  border-radius: 14px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015));
+  border: 1px solid rgba(255,255,255,0.03);
+  box-shadow: 0 10px 40px rgba(0,0,0,0.55), inset 0 1px 0 rgba(255,255,255,0.02);
+}
+
+.skill-controls .btn {
+  background: transparent;
+  color: rgba(255,255,255,0.9);
+  border: 1px solid rgba(255,255,255,0.06);
+  padding: 8px 12px;
+  border-radius: 8px;
+  transition: all 220ms ease;
+}
+.skill-controls .btn.active,
+.skill-controls .btn:hover { background: rgba(212,175,55,0.08); border-color: rgba(212,175,55,0.18); color: #fff; transform: translateY(-2px); box-shadow: 0 8px 24px rgba(0,0,0,0.45); }
+
+.skill-filter-input { width: 320px; min-width: 180px; }
+
+.skill-matrix { gap: 22px; }
+.skill-column { padding: 18px; background: linear-gradient(180deg, rgba(255,255,255,0.012), rgba(255,255,255,0.01)); }
+.skill-column-title { font-size: 0.95rem; color: rgba(212,175,55,0.98); letter-spacing: 0.06em; }
+
+.skill-items { padding: 6px 0; }
+.skill-tag { text-transform: uppercase; letter-spacing: 0.06em; font-weight: 600; background: rgba(0,0,0,0.25); border: 1px solid rgba(255,255,255,0.03); color: #f3f3f3; padding: 10px 14px; border-radius: 999px; transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease; }
+.skill-tag:focus, .skill-tag:hover { transform: translateY(-4px); box-shadow: 0 14px 30px rgba(0,0,0,0.6), 0 0 0 5px rgba(212,175,55,0.05); background: rgba(212,175,55,0.06); }
+.skill-tag--active { box-shadow: 0 18px 40px rgba(212,175,55,0.12); border-color: rgba(212,175,55,0.18); }
+
+.skill-cloud { padding: 28px; display: block; }
+.cloud-inner { padding: 6px; }
+.cloud-inner .skill-tag { margin: 8px; display: inline-block; min-width: 90px; text-align: center; }
+
+/* Subtle entrance: make tags visible by default so they don't stay hidden
+  if animations are disabled or fail to run. Keep a lightweight transition
+  as a progressive enhancement. */
+.skill-card .skill-tag {
+  opacity: 1;
+  transform: none;
+  transition: transform 260ms ease, opacity 300ms ease;
+}
+
+/* Legacy animation keyframes retained for environments that still use them
+  (but tags are visible by default to avoid an empty UI). */
+@keyframes tagIn { to { opacity: 1; transform: translateY(0) scale(1); } }
+
+/* smaller devices tweak */
+@media (max-width: 640px) {
+  .skill-card { padding: 18px; }
+  .skill-controls { gap: 8px; }
+  .skill-filter-input { width: 160px; }
+  .skill-tag { padding: 8px 10px; font-size: 0.85rem; }
+}
+
+/* === Option 2: Grouped Collapsible Categories === */
+.tech-groups { display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); gap: 14px; }
+.tech-group { background: linear-gradient(180deg, rgba(255,255,255,0.01), rgba(255,255,255,0.015)); border: 1px solid rgba(255,255,255,0.03); border-radius: 12px; overflow: hidden; }
+.tech-group-header { display: flex; align-items: center; justify-content: space-between; width: 100%; padding: 12px 16px; background: transparent; border: 0; color: #fff; font-weight: 700; cursor: pointer; text-align: left; }
+.tech-group-header:after { content: '\25BC'; margin-left: 12px; opacity: 0.65; transition: transform 240ms ease; }
+.tech-group-header[aria-expanded="true"]:after { transform: rotate(180deg); }
+.tech-group-content { padding: 12px 16px 18px 16px; display: flex; gap: 8px; flex-wrap: wrap; align-items: center; max-height: 1000px; transition: max-height 300ms ease; }
+.tech-badge { background: rgba(0,0,0,0.28); color: #f3f3f3; padding: 8px 12px; border-radius: 999px; border: 1px solid rgba(255,255,255,0.03); display: inline-flex; align-items: center; justify-content: center; cursor: pointer; font-weight:600; text-transform: none; }
+.tech-badge:hover, .tech-badge:focus { transform: translateY(-3px); box-shadow: 0 12px 30px rgba(0,0,0,0.6), 0 0 0 4px rgba(212,175,55,0.06); }
+
+@media (max-width: 640px) {
+  .tech-group-header { padding: 10px 12px; font-size: 0.95rem; }
+  .tech-group-content { padding: 10px 12px 14px 12px; }
 }
 
 a.rd-more {
