@@ -30,7 +30,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
   font-kerning: auto;
   overflow-x: hidden;
-}
 
 a[href$=".jpg"],
 a[href$=".jpeg"],
@@ -3005,12 +3004,13 @@ ul.social-nav li i, ul.social-nav li .icon {
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(180deg, rgba(26, 35, 126, 0.4), rgba(13, 27, 62, 0.3));
+  /* toned-down navy for subtle emphasis */
+  background: linear-gradient(180deg, rgba(20,28,56,0.92), rgba(18,24,44,0.88));
   border-radius: 25px;
-  border: 2px solid rgba(212, 175, 55, 0.4);
-  backdrop-filter: blur(10px);
-  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
-  transition: all 0.3s ease;
+  border: 2px solid rgba(212, 175, 55, 0.25);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.55);
+  transition: all 0.28s ease;
   z-index: 10;
   cursor: pointer;
   user-select: none;
@@ -3026,9 +3026,9 @@ ul.social-nav li i, ul.social-nav li .icon {
 
 .scroll-indicator:hover {
   border-color: #d4af37;
-  background: linear-gradient(180deg, rgba(220, 53, 69, 0.3), rgba(26, 35, 126, 0.5));
-  transform: translateY(-50%) scale(1.05);
-  box-shadow: 0 8px 24px rgba(212, 175, 55, 0.4), 0 0 20px rgba(220, 53, 69, 0.3);
+  background: linear-gradient(180deg, rgba(26,35,60,0.75), rgba(20,28,56,0.75));
+  transform: translateY(-50%) scale(1.04);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.6), 0 0 12px rgba(212,175,55,0.06);
 }
 
 .scroll-indicator.hidden {
@@ -3039,20 +3039,20 @@ ul.social-nav li i, ul.social-nav li .icon {
 .scroll-bar {
   width: 4px;
   height: 120px;
-  background: rgba(26, 35, 126, 0.5);
+  background: rgba(20,28,56,0.65);
   border-radius: 2px;
   position: relative;
   overflow: hidden;
-  border: 1px solid rgba(212, 175, 55, 0.2);
+  border: 1px solid rgba(212,175,55,0.12);
 }
 
 .scroll-progress {
   position: absolute;
   width: 100%;
-  background: linear-gradient(180deg, #d4af37, #ffd700);
+  background: linear-gradient(180deg, #d4af37, #f6d46b);
   border-radius: 2px;
-  transition: height 0.3s ease, top 0.3s ease;
-  box-shadow: 0 0 12px rgba(212, 175, 55, 0.8), 0 0 6px rgba(220, 53, 69, 0.4);
+  transition: height 0.28s ease, top 0.28s ease;
+  box-shadow: 0 0 8px rgba(212,175,55,0.55);
 }
 
 .scroll-indicator.left .scroll-progress {
@@ -3126,13 +3126,15 @@ ul.social-nav li i, ul.social-nav li .icon {
 }
 
 .accordion-item {
-  background: linear-gradient(135deg, rgba(26, 35, 126, 0.4), rgba(13, 27, 62, 0.3));
-  border: 1px solid rgba(212, 175, 55, 0.3);
+  /* Use near-page dark tone for panel background to match site */
+  background: linear-gradient(135deg, #1e1e1e 0%, #202020 100%);
+  border: 1px solid rgba(255,255,255,0.03);
   border-radius: 12px;
   margin-bottom: 16px;
   overflow: hidden;
   transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-  backdrop-filter: blur(10px);
+  /* subtle blur kept for depth on capable browsers */
+  backdrop-filter: blur(6px);
   opacity: 0;
   transform: translateY(30px) scale(0.95);
   max-height: 0;
@@ -3149,16 +3151,17 @@ ul.social-nav li i, ul.social-nav li .icon {
 }
 
 .accordion-item:hover {
-  border-color: #d4af37;
-  box-shadow: 0 8px 32px rgba(212, 175, 55, 0.3), 0 0 20px rgba(220, 53, 69, 0.2);
+  border-color: rgba(255,255,255,0.06);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.5);
   transform: translateY(-2px);
-  background: linear-gradient(135deg, rgba(26, 35, 126, 0.6), rgba(13, 27, 62, 0.5));
+  background: linear-gradient(135deg, #232323, #1f1f1f);
 }
 
 .accordion-item.active {
-  background: linear-gradient(135deg, rgba(220, 53, 69, 0.15), rgba(26, 35, 126, 0.4));
+  /* keep an accent when active - gold border and subtle warm glow */
+  background: linear-gradient(135deg, #1f1f1f, #222222);
   border-color: #d4af37;
-  box-shadow: 0 12px 48px rgba(212, 175, 55, 0.4), 0 0 30px rgba(220, 53, 69, 0.3);
+  box-shadow: 0 10px 36px rgba(212, 175, 55, 0.12), 0 0 18px rgba(212,175,55,0.06);
 }
 
 .accordion-header {
@@ -3167,13 +3170,14 @@ ul.social-nav li i, ul.social-nav li .icon {
   padding: 24px 28px;
   cursor: pointer;
   user-select: none;
-  transition: all 0.3s ease;
+  transition: all 0.28s ease;
   position: relative;
-  background: linear-gradient(90deg, rgba(26, 35, 126, 0.15), transparent);
+  /* subtle navy wash for header */
+  background: linear-gradient(90deg, rgba(20,28,56,0.12), transparent);
 }
 
 .accordion-header:hover {
-  background: linear-gradient(90deg, rgba(220, 53, 69, 0.2), rgba(26, 35, 126, 0.3));
+  background: linear-gradient(90deg, rgba(26,30,50,0.16), rgba(20,24,40,0.12));
 }
 
 .accordion-icon {
@@ -3183,8 +3187,8 @@ ul.social-nav li i, ul.social-nav li .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(26, 35, 126, 0.4), rgba(13, 27, 62, 0.3));
-  border: 2px solid rgba(212, 175, 55, 0.3);
+  background: linear-gradient(135deg, rgba(20,28,56,0.6), rgba(18,24,44,0.55));
+  border: 2px solid rgba(212, 175, 55, 0.18);
   border-radius: 12px;
   margin-right: 20px;
   transition: all 0.3s ease;
@@ -3205,6 +3209,8 @@ ul.social-nav li i, ul.social-nav li .icon {
 
 .accordion-item.active .accordion-icon i {
   color: #0d1b3e;
+}
+
 .accordion-title {
   flex: 1;
   margin: 0;
@@ -3221,8 +3227,6 @@ ul.social-nav li i, ul.social-nav li .icon {
   text-shadow: 0 0 12px rgba(212, 175, 55, 0.5);
 }
 
-.accordion-item.active .accordion-title {
-  color: #d4af37;
 .accordion-toggle {
   flex-shrink: 0;
   width: 32px;
@@ -3230,11 +3234,11 @@ ul.social-nav li i, ul.social-nav li .icon {
   display: flex;
   align-items: center;
   justify-content: center;
-  background: linear-gradient(135deg, rgba(220, 53, 69, 0.2), rgba(26, 35, 126, 0.3));
-  border: 2px solid rgba(212, 175, 55, 0.4);
+  background: linear-gradient(135deg, rgba(220, 53, 69, 0.12), rgba(26, 35, 126, 0.12));
+  border: 2px solid rgba(212, 175, 55, 0.18);
   border-radius: 8px;
   transition: all 0.3s ease;
-  box-shadow: 0 2px 8px rgba(212, 175, 55, 0.2);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.45);
 }
 
 .accordion-toggle i {
@@ -3254,9 +3258,7 @@ ul.social-nav li i, ul.social-nav li .icon {
 .accordion-content {
   max-height: 0;
   overflow: hidden;
-  transition: max-height 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
-              padding 0.4s cubic-bezier(0.4, 0, 0.2, 1),
-              opacity 0.3s ease;
+  transition: max-height 0.42s cubic-bezier(0.4, 0, 0.2, 1), padding 0.42s cubic-bezier(0.4, 0, 0.2, 1), opacity 0.32s ease;
   opacity: 0;
   padding: 0 28px;
   border-top: 1px solid transparent;
@@ -3266,22 +3268,14 @@ ul.social-nav li i, ul.social-nav li .icon {
   max-height: 500px;
   opacity: 1;
   padding: 20px 28px 28px 96px;
-  border-top: 1px solid rgba(220, 53, 69, 0.3);
-  background: linear-gradient(180deg, rgba(26, 35, 126, 0.15), transparent);
+  border-top: 1px solid rgba(220, 53, 69, 0.12);
+  background: linear-gradient(180deg, rgba(26, 35, 126, 0.06), transparent);
 }
 
 .accordion-content p {
   margin: 0;
   line-height: 1.8;
-  color: rgba(255, 255, 255, 0.95);
-  font-size: 15px;
-} padding: 0 28px 28px 96px;
-}
-
-.accordion-content p {
-  margin: 0;
-  line-height: 1.8;
-  color: rgba(255, 255, 255, 0.85);
+  color: rgba(255, 255, 255, 0.88);
   font-size: 15px;
 }
 
@@ -3418,12 +3412,16 @@ ul.social-nav li i, ul.social-nav li .icon {
 
 /* Tab Content */
 .learnings-tabs-content {
-  background: linear-gradient(135deg, rgba(26, 35, 126, 0.4), rgba(13, 27, 62, 0.3));
-  border: 2px solid rgba(212, 175, 55, 0.3);
+  /* Make background-less: transparent so content blends with page */
+  background: transparent;
+  /* remove gold border; use a very subtle neutral border to separate content */
+  border: 1px solid rgba(255,255,255,0.04);
   border-radius: 16px;
   padding: 50px;
-  backdrop-filter: blur(10px);
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  /* remove heavy backdrop blur since background is transparent */
+  backdrop-filter: none;
+  /* remove gold-ish box glow to match page subtlety */
+  box-shadow: none;
   min-height: 300px;
 }
 

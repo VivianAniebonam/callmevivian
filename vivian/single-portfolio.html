@@ -546,6 +546,8 @@
 		.card {
 			position: absolute;
 			border: 2px solid rgba(var(--color-card));
+			/* Use page background so any gaps or transparent areas match the site */
+			background-color: #1a1a1a;
 			border-radius: 12px;
 			overflow: hidden;
 			inset: 0;
@@ -563,12 +565,15 @@
 			width: 100%;
 			height: 100%;
 			object-fit: cover;
-			background: #0000 radial-gradient(
+			/* Ensure any transparent pixels or letterboxing blends with page */
+			background-color: #1a1a1a;
+			background-image: radial-gradient(
 				circle,
 				rgba(var(--color-card), 0.2) 0%,
 				rgba(var(--color-card), 0.6) 80%,
 				rgba(var(--color-card), 0.9) 100%
 			);
+			display: block; /* remove inline-image gaps */
 			transition: all 0.4s ease;
 		}
 
