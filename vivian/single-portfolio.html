@@ -548,6 +548,9 @@
 			border: 2px solid rgba(var(--color-card));
 			/* Use page background so any gaps or transparent areas match the site */
 			background-color: #1a1a1a;
+			background-size: cover;
+			background-position: center center;
+			background-repeat: no-repeat;
 			border-radius: 12px;
 			overflow: hidden;
 			inset: 0;
@@ -577,6 +580,9 @@
 			transition: all 0.4s ease;
 		}
 
+		/* When using background-image on the card we hide the inline img to avoid layout gaps */
+		.card .img { display: none; }
+
 		/* Expanded State - Show ONLY this card */
 		.card.expanded {
 			position: fixed !important;
@@ -592,10 +598,9 @@
 			inset: auto !important;
 			border: 6px solid rgba(var(--color-card), 1) !important;
 			background: #1a1a1a !important;
-			box-shadow: 
-				0 0 150px rgba(var(--color-card), 0.8),
-				0 20px 60px rgba(0, 0, 0, 0.8),
-				inset 0 2px 0 rgba(255, 255, 255, 0.3) !important;
+			/* Remove coloured glow and strong highlights so image shows at natural brightness */
+			box-shadow:
+				0 20px 60px rgba(0, 0, 0, 0.8);
 			animation: expandCard 0.5s cubic-bezier(0.34, 1.56, 0.64, 1) !important;
 			padding: 0 !important;
 			border-radius: 16px;
@@ -620,7 +625,8 @@
 		.card.expanded .img {
 			object-fit: contain !important;
 			background: transparent !important;
-			filter: brightness(1.5) contrast(1.2) saturate(1.1) !important;
+			/* remove artificial brightening/contrast so images display naturally */
+			filter: none !important;
 			border-radius: 12px;
 			width: 100% !important;
 			height: auto !important;
@@ -850,6 +856,20 @@
 				closeCard();
 			}
 		});
+
+		// Convert each <img> inside .card to a background-image on the card
+		(function(){
+			var cards = document.querySelectorAll('.card');
+			cards.forEach(function(card){
+				var img = card.querySelector('img.img');
+				if(img && img.getAttribute('src')){
+					card.style.backgroundImage = 'url("'+img.getAttribute('src')+'")';
+					// keep the image element for accessibility but hide it visually
+					img.setAttribute('aria-hidden','true');
+					img.style.display = 'none';
+				}
+			});
+		})();
 		</script>
 
 
@@ -857,9 +877,36 @@
 			</div>
 			
 			<!-- Gallery Instruction -->
-			<div class="container" style="margin-top: 200px; margin-bottom: 40px;">
-				<p class="text-center" style="color: #afafaf; font-size: 16px; background: rgba(212, 175, 55, 0.1); padding: 20px; border-radius: 8px; border: 1px solid rgba(212, 175, 55, 0.3);">
-					<i class="icon ion-md-images" style="color: #c40c0c; font-size: 20px;"></i> <strong>Gallery Tip:</strong> Click any card above to expand • Click again to return to carousel
+			<style>
+				/* Subtle, refined gallery tip */
+				.gallery-tip {
+					max-width: 1100px;
+					margin: 48px auto;
+					padding: 18px 28px;
+					border-radius: 10px;
+					background: rgba(255,255,255,0.02);
+					border: 1px solid rgba(255,255,255,0.04);
+					position: relative;
+					z-index: 200000; /* ensure tip sits above transformed carousel cards */
+					color: #d0d0d0;
+					display:flex;
+					align-items:center;
+					gap:12px;
+					box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+					font-size:16px;
+					text-align: left;
+					opacity:0; transform:translateY(6px); animation: tipIn .5s ease .08s forwards;
+				}
+				.gallery-tip .icon { color: #c40c0c; font-size:20px; }
+				@keyframes tipIn { to { opacity:1; transform:none; } }
+				@media (max-width:767px){ .gallery-tip { padding:14px 16px; font-size:15px; flex-direction:row; } }
+			</style>
+
+			<div class="container" style="margin-top: 220px; margin-bottom: 40px;">
+				<p class="gallery-tip">
+					<i class="icon ion-md-images" aria-hidden="true"></i>
+					<strong style="margin-right:8px;">Gallery Tip:</strong>
+					<span>Click any card above to expand • Click again to return to carousel</span>
 				</p>
 			</div>
 			
