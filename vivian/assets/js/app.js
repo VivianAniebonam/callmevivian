@@ -1338,7 +1338,7 @@ document.addEventListener('DOMContentLoaded', function(){
 					translateX: self.sizes.w
 				});
 
-				$('#main > .single-portfolio').stop().animate({
+				$('#main > .project-government-new-brunswick').stop().animate({
 					opacity: 0
 				}, 300, function() {
 
@@ -2451,7 +2451,7 @@ document.addEventListener('DOMContentLoaded', function(){
 	};
 
 	self.singleProjectInit = function() {
-		if ( $('.single-portfolio').length < 1 ) {
+		if ( $('.project-government-new-brunswick').length < 1 ) {
 			return false;
 		}
 
@@ -2460,7 +2460,7 @@ document.addEventListener('DOMContentLoaded', function(){
 		}
 
 		anime({
-			targets: '.single-portfolio',
+			targets: '.project-government-new-brunswick',
 			translateY: [100, 0],
 			opacity: [0,1],
 			duration: 350,

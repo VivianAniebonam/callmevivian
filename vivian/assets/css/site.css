@@ -2724,37 +2724,37 @@ ul.social-nav li i, ul.social-nav li .icon {
 /**
  * =============> (8) Single Portfolio
  **/
-.single-portfolio {
+.project-government-new-brunswick {
   margin: 0;
   padding: 0;
   position: relative;
   opacity: 0;
 }
 
-.single-portfolio .portfolio-header {
+.project-government-new-brunswick .portfolio-header {
   position: relative;
   margin: 0;
   padding: 0;
   height: 100vh;
 }
 
-.single-portfolio .portfolio-header .portfolio-header-content {
+.project-government-new-brunswick .portfolio-header .portfolio-header-content {
   height: 100%;
   background: rgba(0, 0, 0, 0.5);
 }
 
-.single-portfolio .portfolio-header h1 {
+.project-government-new-brunswick .portfolio-header h1 {
   font-size: 3rem;
   margin: 0 0 .5rem;
 }
 
-.single-portfolio .portfolio-header h1 strong {
+.project-government-new-brunswick .portfolio-header h1 strong {
   color: rgba(0, 0, 0, 0.5);
   text-shadow: -1px -1px 0 #ffffff, 1px -1px 0 #ffffff, -1px 1px 0 #ffffff, 1px 1px 0 #ffffff;
 }
 
 @supports (-webkit-text-stroke-color: #666666) and (-webkit-text-fill-color: #ffffff) {
-  .single-portfolio .portfolio-header h1 strong {
+  .project-government-new-brunswick .portfolio-header h1 strong {
     text-shadow: none;
     letter-spacing: .025em;
     -webkit-text-stroke-color: #ffffff;
@@ -2765,18 +2765,18 @@ ul.social-nav li i, ul.social-nav li .icon {
   }
 }
 
-.single-portfolio .portfolio-header .portfolio-cat {
+.project-government-new-brunswick .portfolio-header .portfolio-cat {
   font-weight: 600;
   font-size: 15px;
   text-transform: uppercase;
   letter-spacing: .075em;
 }
 
-.single-portfolio .portfolio-header .container * {
+.project-government-new-brunswick .portfolio-header .container * {
   text-align: center;
 }
 
-.single-portfolio .portfolio-header .portfolio-header-bg {
+.project-government-new-brunswick .portfolio-header .portfolio-header-bg {
   position: absolute;
   z-index: -1;
   width: 100%;
@@ -2785,19 +2785,19 @@ ul.social-nav li i, ul.social-nav li .icon {
   left: 0;
 }
 
-.single-portfolio .portfolio-entry-image {
+.project-government-new-brunswick .portfolio-entry-image {
   margin: 0 0 0;
   overflow: hidden;
 }
 
 @media (min-width: 768px) {
-  .single-portfolio .portfolio-header h1 {
+  .project-government-new-brunswick .portfolio-header h1 {
     font-size: 3.5rem;
   }
 }
 
 @media (min-width: 992px) {
-  .single-portfolio .portfolio-header h1 {
+  .project-government-new-brunswick .portfolio-header h1 {
     font-size: 5rem;
   }
 }
