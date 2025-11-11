@@ -38,9 +38,53 @@
       box-shadow: 0 3px 6px rgba(0, 0, 0, 0.15);
     }
   </style>
+  
+  <style>
+:root{--scroll-btn-size:48px;--scroll-btn-bg:#111;--scroll-btn-accent:#f14c13;--scroll-btn-offset-right:28px;--scroll-btn-offset-bottom:28px}
+.scroll-up.btn{position:fixed;right:var(--scroll-btn-offset-right);bottom:var(--scroll-btn-offset-bottom);display:flex;align-items:center;gap:.5rem;padding:.25rem .6rem;border-radius:999px;background:var(--scroll-btn-bg);color:#fff;border:0;font-size:14px;height:var(--scroll-btn-size);min-width:var(--scroll-btn-size);box-shadow:0 6px 20px rgba(0,0,0,.25);transform:translateY(12px);opacity:0;visibility:hidden;transition:all .28s cubic-bezier(.2,.9,.2,1);z-index:9999}
+.scroll-up.btn .icon-right{display:inline-flex;align-items:center;justify-content:center;width:var(--scroll-btn-size);height:100%}
+.scroll-up.btn .icon-right svg{width:20px;height:20px;display:block}
+.scroll-up.btn .label{text-transform:uppercase;font-weight:600;font-size:12px;letter-spacing:.08em;line-height:1}
+.scroll-up.btn.visible{opacity:1;visibility:visible;transform:translateY(0)}
+.scroll-up.btn:focus{outline:none;box-shadow:0 0 0 4px rgba(241,76,19,.18)}
+@media (max-width:480px){.scroll-up.btn{right:14px;bottom:14px;padding:0;width:48px;height:48px;border-radius:50%;min-width:48px}.scroll-up.btn .label{display:none}}
+</style>
+
 </head>
 <body>
   <button class="button">Click Me</button>
+</button>
+
+<!-- Scroll to top button -->
+<button id="scrollUp" class="scroll-up btn" aria-label="Scroll to top" title="Back to top" data-threshold="300">
+  <span class="icon-right">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+      <polyline points="6 14 12 8 18 14"></polyline>
+      <line x1="12" y1="8" x2="12" y2="20"></line>
+    </svg>
+  </span>
+  <span class="label">Top</span>
+</button>
+
+<!-- Scroll-up behavior -->
+<script>
+(function(){
+  var btn = document.getElementById('scrollUp');
+  if(!btn) return;
+  var threshold = parseInt(btn.getAttribute('data-threshold')||300,10);
+  function onScroll(){
+    if(window.scrollY > threshold){ btn.classList.add('visible'); btn.setAttribute('aria-hidden','false'); }
+    else { btn.classList.remove('visible'); btn.setAttribute('aria-hidden','true'); }
+  }
+  function toTop(e){ if(e) e.preventDefault(); window.scrollTo({top:0,behavior:'smooth'}); btn.blur(); }
+  function onKey(e){ if(e.key === 'Enter' || e.key === ' '){ e.preventDefault(); toTop(); } }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  btn.addEventListener('click', toTop);
+  btn.addEventListener('keydown', onKey);
+  onScroll();
+})();
+</script>
+
 </body>
 </html>
 

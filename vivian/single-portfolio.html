@@ -21,6 +21,21 @@
 	<link rel="stylesheet" href="assets/css/plugins.css">
 	<link rel="stylesheet" href="assets/css/site.css">
 	<link rel="stylesheet" href="assets/css/skin.css">
+
+	<!-- Inline scroll-up styles (component scoped) -->
+	<style>
+	:root{--scroll-btn-size:56px;--scroll-btn-bg:rgba(48,48,48,0.95);--scroll-btn-accent:#ffffff;--scroll-btn-offset-right:24px;--scroll-btn-offset-bottom:24px}
+	.scroll-up.btn{font-family:'Poppins',sans-serif;background:none;color:var(--scroll-btn-accent);position:fixed;right:var(--scroll-btn-offset-right);bottom:var(--scroll-btn-offset-bottom);border:none;width:var(--scroll-btn-size);min-width:48px;height:140px;min-height:48px;padding:8px 6px;font-size:14px;z-index:1200;transition:transform .18s ease,opacity .18s ease;overflow:visible;border-radius:12px;box-shadow:0 8px 20px rgba(11,18,32,.35);opacity:0;transform:translateY(12px) scale(.98);pointer-events:none;-webkit-tap-highlight-color:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center}
+	.scroll-up.btn.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+	.scroll-up.btn:before{content:"";position:absolute;left:0;top:0;width:100%;height:45%;background:var(--scroll-btn-bg);z-index:-1;transition:0.25s ease all;border-top-left-radius:12px;border-top-right-radius:12px}
+	.scroll-up.btn:after{content:"";position:absolute;left:8%;bottom:8%;width:8%;height:22%;background:rgba(255,255,255,.08);transition:0.3s ease all;border-radius:4px}
+	.scroll-up.btn:hover{cursor:pointer;transform:translateY(-3px)}
+	.scroll-up.btn .icon-right{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
+	.scroll-up.btn .icon-right svg{width:34px;height:34px;display:block;color:var(--scroll-btn-accent);fill:none;stroke:currentColor;stroke-width:2;transition:transform .18s ease}
+	.scroll-up.btn .label{display:inline-block;font-weight:600;text-transform:uppercase;font-size:12px;margin-top:8px;position:relative;z-index:2;writing-mode:horizontal-tb;text-orientation:mixed;text-align:center}
+	.scroll-up.btn:focus,.scroll-up.btn:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(255,255,255,.06),0 0 0 6px rgba(11,18,32,.6);transform:translateY(-2px)}
+	@media(max-width:480px){:root{--scroll-btn-offset-right:14px;--scroll-btn-offset-bottom:18px}.scroll-up.btn{width:48px;height:48px;padding:0 6px;border-radius:999px}.scroll-up.btn .label{display:none}.scroll-up.btn:before{height:100%;border-radius:999px}.scroll-up.btn .icon-right svg{width:20px;height:20px}}
+	</style>
 </head>
 
 <body>
@@ -1574,6 +1589,17 @@
 	<!-- ========================= ** END FOOTER ** ========================= -->
 </div>
 
+<!-- Scroll Up Button (reusable component) -->
+<button class="scroll-up btn" id="scrollUp" aria-label="Scroll to top" title="Back to top" data-threshold="300">
+	<span class="icon-right" aria-hidden="true">
+		<svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" focusable="false">
+			<polyline points="6 14 12 8 18 14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+			<line x1="12" y1="8" x2="12" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+		</svg>
+	</span>
+	<span class="label">Top</span>
+</button>
+
 <script>
 /* <![CDATA[ */
 var VivianOptions = {
@@ -1592,6 +1618,22 @@ var VivianOptions = {
 <script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/plugins.js"></script>
 <script src="assets/js/app.js"></script>
+
+<!-- Scroll-up behaviour (small, dependency-free) -->
+<script>
+	(function(){
+		var btn = document.getElementById('scrollUp');
+		if(!btn) return;
+		var threshold = parseInt(btn.getAttribute('data-threshold'),10) || 300;
+		function onScroll(){ if(window.scrollY >= threshold){ btn.classList.add('visible'); btn.setAttribute('aria-hidden','false'); } else { btn.classList.remove('visible'); btn.setAttribute('aria-hidden','true'); } }
+		function toTop(e){ e && e.preventDefault(); window.scrollTo({ top:0, behavior: 'smooth' }); btn.blur(); }
+		function onKey(e){ if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){ toTop(e); } }
+		window.addEventListener('scroll', onScroll, { passive: true });
+		btn.addEventListener('click', toTop);
+		btn.addEventListener('keydown', onKey);
+		onScroll();
+	})();
+</script>
 
 <script>
 // Features slider navigation

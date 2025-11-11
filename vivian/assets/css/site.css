@@ -2847,15 +2847,18 @@ ul.social-nav li i, ul.social-nav li .icon {
 #features-prev {
   position: absolute;
   top: 50%;
-  z-index: 10;
+  z-index: 12000; /* bring above other overlays so clicks register */
+  pointer-events: auto;
 }
 
 #features-next {
-  right: -50px;
+  /* keep visually near the right edge but inside the container so clicks register */
+  right: 12px;
 }
 
 #features-prev {
-  left: -50px;
+  /* keep visually near the left edge but inside the container so clicks register */
+  left: 12px;
 }
 
 #features-next .btn-conteiner,
@@ -2868,31 +2871,36 @@ ul.social-nav li i, ul.social-nav li .icon {
   --color-shadow: #00000080;
 }
 
+/* Ensure the clickable area covers the visible button */
+#features-next .btn-content,
+#features-prev .btn-content { display: inline-flex; cursor: pointer; }
+
 #features-next .btn-content,
 #features-prev .btn-content {
-  display: flex;
+  display: inline-flex;
   align-items: center;
-  padding: 0px 3px;
+  justify-content: center;
+  width: 56px;
+  height: 56px;
+  padding: 0;
   text-decoration: none;
   font-family: "Poppins", sans-serif;
-  font-size: 25px;
+  font-size: 20px;
   color: var(--color-text);
   background: var(--color-background);
-  transition: 1s;
-  border-radius: 100px;
-  box-shadow: 0 0 0.2em 0 var(--color-background);
+  transition: 220ms ease;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.5);
+  cursor: pointer;
 }
 
 #features-next .btn-content:hover,
 #features-next .btn-content:focus,
 #features-prev .btn-content:hover,
 #features-prev .btn-content:focus {
-  transition: 0.5s;
-  -webkit-animation: btn-content 1s;
-  animation: btn-content 1s;
-  outline: 0.1em solid transparent;
-  outline-offset: 0.2em;
-  box-shadow: 0 0 0.4em 0 var(--color-background);
+  transform: translateY(-3px);
+  box-shadow: 0 16px 34px rgba(0,0,0,0.45);
+  outline: 3px solid rgba(255,68,68,0.12);
 }
 
 #features-next .btn-content .icon-arrow,
