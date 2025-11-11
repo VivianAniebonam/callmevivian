@@ -2490,6 +2490,71 @@ document.addEventListener('DOMContentLoaded', function(){
 						easing: 'linear'
 					});
 				}
+
+				// Initialize Security & Compliance accordion (runs on direct load and after AJAX injection)
+				(function initSecurityAccordion(){
+					if ( $('.security-accordion').length < 1 ) return;
+
+					var $accordionItems = $('.security-accordion .accordion-item');
+					var $scrollLeft = $('#scroll-left');
+					var $scrollRight = $('#scroll-right');
+					var itemsPerPage = 3;
+					var currentPage = 0;
+					var totalItems = $accordionItems.length;
+					var totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage));
+
+					// Ensure closed state
+					$accordionItems.removeClass('active visible');
+					$('.security-accordion .accordion-content').css('max-height','0');
+
+					// Accordion header toggle
+					$('.security-accordion').off('click', '.accordion-header').on('click', '.accordion-header', function(e){
+						e.preventDefault();
+						var $item = $(this).closest('.accordion-item');
+						var $content = $item.find('.accordion-content');
+						var wasActive = $item.hasClass('active');
+						// close others
+						$('.security-accordion .accordion-item.active').not($item).each(function(){
+							$(this).removeClass('active');
+							$(this).find('.accordion-content').css('max-height','0');
+						});
+						if (wasActive) {
+							$item.removeClass('active');
+							$content.css('max-height','0');
+						} else {
+							$item.addClass('active');
+							var h = $content.prop('scrollHeight') || 0;
+							$content.css('max-height', h + 'px');
+						}
+					});
+
+					// touch support
+					$('.security-accordion').off('touchend', '.accordion-header').on('touchend', '.accordion-header', function(e){ e.preventDefault(); $(this).trigger('click'); });
+
+					// Paging (show 3 items)
+					function showPage(pageIndex){
+						$accordionItems.removeClass('visible');
+						var start = pageIndex * itemsPerPage;
+						var end = Math.min(start + itemsPerPage, totalItems);
+						for(var i=start;i<end;i++){
+							(function(idx){ setTimeout(function(){ $accordionItems.eq(idx).addClass('visible'); }, (idx-start)*80); })(i);
+						}
+						updateIndicators();
+					}
+
+					function updateIndicators(){
+						var progress = (totalPages === 1) ? 100 : (currentPage / (totalPages - 1)) * 100;
+						if (currentPage < totalPages - 1) { $scrollLeft.removeClass('hidden'); $scrollLeft.find('.scroll-progress').css('height',(100-progress)+'%'); } else { $scrollLeft.addClass('hidden'); }
+						if (currentPage > 0) { $scrollRight.removeClass('hidden'); $scrollRight.find('.scroll-progress').css('height',progress+'%'); } else { $scrollRight.addClass('hidden'); }
+					}
+
+					$scrollLeft.off('click').on('click', function(e){ e.preventDefault(); if (currentPage < totalPages - 1) { currentPage++; showPage(currentPage); } });
+					$scrollRight.off('click').on('click', function(e){ e.preventDefault(); if (currentPage > 0) { currentPage--; showPage(currentPage); } });
+
+					// initial
+					currentPage = 0;
+					showPage(currentPage);
+				})();
 			}
 		});
 	};
