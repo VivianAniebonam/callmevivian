@@ -1,0 +1,438 @@
+<!doctype html>
+<html lang="en" class="no-js">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="author" content="WIP Themes">
+
+	<!-- favicon -->
+	<link rel="shortcut icon" type="image/png" href="assets/images/favicon.png"/>
+
+	<!-- Title -->
+	<title>Vivian &ndash; Single Portfolio Carousel</title>
+
+	<!-- Google font(s) -->
+	<link rel="dns-prefetch" href="//fonts.googleapis.com" />
+	<link href="//fonts.googleapis.com/css?family=Poppins:300,400,500,600,700i%7CIBM+Plex+Sans:300,400,500,600,700" rel="stylesheet">
+	
+	<!-- Stylesheet (CSS) files -->
+	<link rel="stylesheet" href="assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="assets/css/plugins.css">
+	<link rel="stylesheet" href="assets/css/site.css">
+	<link rel="stylesheet" href="assets/css/skin.css">
+
+	<!-- Inline scroll-up styles (component scoped) -->
+	<style>
+	:root{--scroll-btn-size:56px;--scroll-btn-bg:rgba(48,48,48,0.95);--scroll-btn-accent:#ffffff;--scroll-btn-offset-right:24px;--scroll-btn-offset-bottom:24px}
+	.scroll-up.btn{font-family:'Poppins',sans-serif;background:none;color:var(--scroll-btn-accent);position:fixed;right:var(--scroll-btn-offset-right);bottom:var(--scroll-btn-offset-bottom);border:none;width:var(--scroll-btn-size);min-width:48px;height:140px;min-height:48px;padding:8px 6px;font-size:14px;z-index:1200;transition:transform .18s ease,opacity .18s ease;overflow:visible;border-radius:12px;box-shadow:0 8px 20px rgba(11,18,32,.35);opacity:0;transform:translateY(12px) scale(.98);pointer-events:none;-webkit-tap-highlight-color:transparent;display:flex;flex-direction:column;align-items:center;justify-content:center}
+	.scroll-up.btn.visible{opacity:1;transform:translateY(0) scale(1);pointer-events:auto}
+	.scroll-up.btn:before{content:"";position:absolute;left:0;top:0;width:100%;height:45%;background:var(--scroll-btn-bg);z-index:-1;transition:0.25s ease all;border-top-left-radius:12px;border-top-right-radius:12px}
+	.scroll-up.btn:after{content:"";position:absolute;left:8%;bottom:8%;width:8%;height:22%;background:rgba(255,255,255,.08);transition:0.3s ease all;border-radius:4px}
+	.scroll-up.btn:hover{cursor:pointer;transform:translateY(-3px)}
+	.scroll-up.btn .icon-right{position:relative;width:100%;display:flex;align-items:center;justify-content:center}
+	.scroll-up.btn .icon-right svg{width:34px;height:34px;display:block;color:var(--scroll-btn-accent);fill:none;stroke:currentColor;stroke-width:2;transition:transform .18s ease}
+	.scroll-up.btn .label{display:inline-block;font-weight:600;text-transform:uppercase;font-size:12px;margin-top:8px;position:relative;z-index:2;writing-mode:horizontal-tb;text-orientation:mixed;text-align:center}
+	.scroll-up.btn:focus,.scroll-up.btn:focus-visible{outline:none;box-shadow:0 0 0 4px rgba(255,255,255,.06),0 0 0 6px rgba(11,18,32,.6);transform:translateY(-2px)}
+	@media(max-width:480px){:root{--scroll-btn-offset-right:14px;--scroll-btn-offset-bottom:18px}.scroll-up.btn{width:48px;height:48px;padding:0 6px;border-radius:999px}.scroll-up.btn .label{display:none}.scroll-up.btn:before{height:100%;border-radius:999px}.scroll-up.btn .icon-right svg{width:20px;height:20px}}
+	</style>
+</head>
+
+<body>
+
+<!-- #The main wrapper -->
+<div id="site" class="page">
+
+	<!-- ============================= ** HEADER ** ============================= -->
+	<header id="main-header" class="default-header">
+		<div class="header-ui">
+			<nav class="navbar">
+				<a class="navbar-brand" href="index.html" rel="home">
+					<img src="assets/images/hero2.png" srcset="assets/images/hero2.png 2x" alt="Vivian logo" />
+				</a>
+
+				<!-- MENU / NAVIGATION -->
+				<div class="main-nav-wrap">
+					<ul class="main-nav nav">
+						<li class="nav-item">
+							<a class="nav-link" href="index.html#home">Home</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="index.html#about">About</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="index.html#services">Services</a>
+						</li>
+
+						<li class="nav-item">
+							<a class="nav-link" href="index.html#contact">Contact</a>
+						</li>
+					</ul>
+				</div>
+				
+				<div class="music-sound-ui"></div>
+			</nav>
+		</div>
+	</header>
+	<!-- =========================== ** END HEADER ** =========================== -->
+
+	<!-- ============================= ** CONTENT ** ============================= -->
+	<main id="main" class="main">
+
+		<!--
+			* @since Vivian 1.0.0
+			* make sure to wrap your single portfolio content with <article class="project-government-new-brunswick">
+			* Need this to make sure Ajax working on the site index
+			*
+		-->
+		<article class="project-government-new-brunswick">
+			<!-- Heading -->
+			<header class="portfolio-header">
+				<div class="portfolio-header-content d-flex align-items-center">
+					<div class="container d-block">
+						<h1><strong>SynthAI</strong> Radiology</h1>
+						<div class="portfolio-cat">AI-Powered Imaging & Workflow Optimization</div>
+					</div>
+				</div>
+
+				<!-- featured image background -->
+				<div class="portfolio-header-bg jarallax">
+					<img src="media-placeholder/hero2.png" alt="portfolio image" />
+				</div>
+
+				<span class="pj-scroll-me">Scroll</span>
+			</header>
+
+			<div class="portfolio-entry-content">
+
+				<!-- Project overview (role, duration, summary) -->
+				<section class="inner-section has-lighter-bg has-sm-padding">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-3 has-reveal-effect" data-effect="revealRight">
+								<h6 class="text-uppercase">Duration</h6>
+								June — November 2024 (6 months)
+							</div>
+							<div class="col-md-3 has-reveal-effect" data-effect="revealRight">
+								<h6 class="text-uppercase mt-5 mt-md-0">Client</h6>
+								Synthesis Health
+							</div>
+							<div class="col-md-3 has-reveal-effect" data-effect="revealRight">
+								<h6 class="text-uppercase mt-5 mt-md-0">Role</h6>
+								IT Implementation & Integration Project Manager
+							</div>
+							<div class="col-md-3 has-reveal-effect" data-effect="revealRight">
+								<h6 class="text-uppercase mt-5 mt-md-0">Portfolio Budget</h6>
+								$12.3M (total across projects)
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Portfolio summary -->
+				<div class="inner-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<h3 class="section-title has-reveal-effect" data-effect="fadeInTop">Portfolio Summary</h3>
+							</div>
+							<div class="col-md-8 has-reveal-effect" data-effect="fadeInTop">
+								<p>
+									As IT Implementation & Integration Project Manager at Synthesis Health I led a portfolio of four AI-driven healthcare projects focused on radiology workflow optimization, cloud-native imaging storage, real-time diagnostic decision support, and PACS multitenancy. Responsibilities included technical leadership, stakeholder management, security/compliance oversight, and delivery of CI/CD-enabled deployments.
+								</p>
+								<p>
+									Across the portfolio I managed cross-functional teams (total 52 IT professionals), collaborated closely with AI engineers and cloud architects, and ensured HIPAA/GDPR compliance while meeting performance targets and budget constraints.
+								</p>
+							</div>
+						</div>
+					</div>
+				</div>
+
+				<!-- Project 1 -->
+				<section class="inner-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<div class="project-card mb-4" style="padding:1.6rem; border-left:4px solid #007bff; background:#fbfdff; border-radius:6px;">
+									<h4 style="color:#007bff; margin-bottom:0.6rem;"><span style="display:inline-block; background:#007bff; color:#fff; padding:0.25rem 0.6rem; border-radius:999px; font-size:0.85rem; margin-right:0.6rem;">01</span>AI-Powered Radiology Workflow Optimization</h4>
+									<div class="row mt-2">
+										<div class="col-md-3"><strong>Budget:</strong> $2.0M</div>
+										<div class="col-md-3"><strong>Team:</strong> 15 IT professionals</div>
+										<div class="col-md-6"><strong>Impact:</strong> Reduced diagnostic turnaround by 25%</div>
+									</div>
+									<p class="mt-3">Led the technical implementation of a Progressive Web App (PWA) that integrates AI algorithms to prioritize imaging studies. Built React.js dashboards for radiologists and implemented Node.js services to handle real-time communication with PACS systems.</p>
+									<div><strong>Development Experience:</strong>
+										<ul>
+											<li>React.js dashboards for prioritized case review</li>
+											<li>Node.js services for real-time PWA & PACS integration</li>
+											<li>Worked with AI engineers to integrate models into backend workflows</li>
+											<li>Performed encryption audits to meet HIPAA requirements</li>
+										</ul>
+									</div>
+									<div><strong>Tools & Frameworks:</strong> React.js, Node.js, Azure DevOps, IndexedDB, PACS integration</div>
+									<div class="mt-2"><strong>Key problems solved:</strong>
+										<ul>
+											<li><strong>Delayed diagnosis:</strong> Implemented AI triage to flag critical cases automatically.</li>
+											<li><strong>Offline sync failures:</strong> Implemented IndexedDB fallbacks to ensure continuity.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Project 2 -->
+				<section class="inner-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<div class="project-card mb-4" style="padding:1.6rem; border-left:4px solid #28a745; background:#fbfff7; border-radius:6px;">
+									<h4 style="color:#28a745; margin-bottom:0.6rem;"><span style="display:inline-block; background:#28a745; color:#fff; padding:0.25rem 0.6rem; border-radius:999px; font-size:0.85rem; margin-right:0.6rem;">02</span>Cloud-Native Imaging Data Repository</h4>
+									<div class="row mt-2">
+										<div class="col-md-3"><strong>Budget:</strong> $3.5M</div>
+										<div class="col-md-3"><strong>Team:</strong> 12 professionals</div>
+										<div class="col-md-6"><strong>Impact:</strong> Reduced retrieval latency by ~20%</div>
+									</div>
+									<p class="mt-3">Designed and implemented a secure, cloud-native repository for imaging data with offline support that integrated with the PWA. Implemented PostgreSQL schemas and IndexedDB for offline-first behavior.</p>
+									<div><strong>Development Experience:</strong>
+										<ul>
+											<li>PostgreSQL database design and query optimization</li>
+											<li>IndexedDB configuration for offline access</li>
+											<li>CI/CD pipelines using Azure DevOps for database deployments</li>
+											<li>Worked with cloud architects on scalable, compliant infrastructure</li>
+										</ul>
+									</div>
+									<div><strong>Tools & Frameworks:</strong> PostgreSQL, IndexedDB, Azure DevOps, JavaScript, Python</div>
+									<div class="mt-2"><strong>Key problems solved:</strong>
+										<ul>
+											<li><strong>Connectivity gaps:</strong> Offline-first design to guarantee access during outages.</li>
+											<li><strong>High latency:</strong> Query optimization and caching to lower retrieval times.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Project 3 -->
+				<section class="inner-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<div class="project-card mb-4" style="padding:1.6rem; border-left:4px solid #ffc107; background:#fffaf0; border-radius:6px;">
+									<h4 style="color:#e69500; margin-bottom:0.6rem;"><span style="display:inline-block; background:#ffc107; color:#212529; padding:0.25rem 0.6rem; border-radius:999px; font-size:0.85rem; margin-right:0.6rem;">03</span>Real-Time Diagnostic Decision Support System</h4>
+									<div class="row mt-2">
+										<div class="col-md-3"><strong>Budget:</strong> $2.8M</div>
+										<div class="col-md-3"><strong>Team:</strong> 10 professionals</div>
+										<div class="col-md-6"><strong>Impact:</strong> Real-time AI diagnostic recommendations at scale</div>
+									</div>
+									<p class="mt-3">Built Node.js APIs and microservices to deliver real-time AI-driven diagnostic recommendations within the PWA. Implemented secure authentication using Azure AD and optimized services for high concurrency.</p>
+									<div><strong>Development Experience:</strong>
+										<ul>
+											<li>Node.js API design for real-time integrations</li>
+											<li>Azure Active Directory for secure authentication</li>
+											<li>Microservice optimization for concurrency and low latency</li>
+										</ul>
+									</div>
+									<div><strong>Tools & Frameworks:</strong> Node.js, Azure AD, React.js, IndexedDB</div>
+									<div class="mt-2"><strong>Key problems solved:</strong>
+										<ul>
+											<li><strong>Data delays:</strong> Backend optimizations to deliver recommendations in real time.</li>
+											<li><strong>External data integration:</strong> Built robust APIs for merging external healthcare data.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Project 4 -->
+				<section class="inner-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-12">
+								<div class="project-card mb-4" style="padding:1.6rem; border-left:4px solid #dc3545; background:#fff6f6; border-radius:6px;">
+									<h4 style="color:#dc3545; margin-bottom:0.6rem;"><span style="display:inline-block; background:#dc3545; color:#fff; padding:0.25rem 0.6rem; border-radius:999px; font-size:0.85rem; margin-right:0.6rem;">04</span>PACS Multitenancy Deployment</h4>
+									<div class="row mt-2">
+										<div class="col-md-3"><strong>Budget:</strong> $4.0M</div>
+										<div class="col-md-3"><strong>Team:</strong> 15 professionals</div>
+										<div class="col-md-6"><strong>Impact:</strong> 40% reduction in deployment time</div>
+									</div>
+									<p class="mt-3">Led design and deployment of a multitenant PACS deployment enabling multiple healthcare organizations to share infrastructure while maintaining strict data isolation and regulatory compliance.</p>
+									<div><strong>Development Experience:</strong>
+										<ul>
+											<li>Node.js APIs for tenant-specific data management</li>
+											<li>PostgreSQL schemas for tenant isolation</li>
+											<li>Automated CI/CD with Azure DevOps to accelerate deployments</li>
+											<li>Regular audits to ensure HIPAA & GDPR compliance</li>
+										</ul>
+									</div>
+									<div><strong>Tools & Frameworks:</strong> Node.js, PostgreSQL, Azure DevOps, Postman, Lucidchart</div>
+									<div class="mt-2"><strong>Key problems solved:</strong>
+										<ul>
+											<li><strong>Data privacy:</strong> Designed a secure database structure for tenant isolation.</li>
+											<li><strong>Deployment speed:</strong> Automated pipelines to reduce update time by 40%.</li>
+										</ul>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Key achievements / metrics -->
+				<section class="inner-section has-lighter-bg has-sm-padding">
+					<div class="container">
+						<h3 class="section-title text-center">Key Achievements & Metrics</h3>
+						<div class="row mt-4">
+							<div class="col-md-3 text-center">
+								<h2 style="color:#007bff;">25%</h2>
+								<p>Reduction in diagnostic turnaround time</p>
+							</div>
+							<div class="col-md-3 text-center">
+								<h2 style="color:#28a745;">20%</h2>
+								<p>Improved data retrieval performance</p>
+							</div>
+							<div class="col-md-3 text-center">
+								<h2 style="color:#ffc107;">40%</h2>
+								<p>Faster deployment through CI/CD automation</p>
+							</div>
+							<div class="col-md-3 text-center">
+								<h2 style="color:#dc3545;">52</h2>
+								<p>IT professionals managed across portfolio</p>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Project management approach -->
+				<section class="inner-section">
+					<div class="container">
+						<div class="row">
+							<div class="col-md-4">
+								<h3 class="section-title">Project Management Approach</h3>
+							</div>
+							<div class="col-md-8">
+								<p>My approach combined stakeholder-driven discovery, Agile delivery, strong security posture, and automated CI/CD to ensure fast, safe, and auditable deployments.</p>
+								<ul>
+									<li>Stakeholder interviews and workshops to surface radiologist and provider requirements.</li>
+									<li>Jira-driven sprints with Azure DevOps pipelines for repeatable releases.</li>
+									<li>Regular security and compliance audits (HIPAA, GDPR).</li>
+									<li>Comprehensive documentation in Confluence; architecture diagrams in Lucidchart.</li>
+								</ul>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Technology overview -->
+				<section class="inner-section">
+					<div class="container">
+						<h3 class="section-title text-center">Technology Stack</h3>
+						<div class="row mt-4 justify-content-center">
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"95","background":"#e4e4e4","color":"#61dafb","size":"small"}'></div>
+								<strong>React.js</strong>
+							</div>
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"90","background":"#e4e4e4","color":"#68a063","size":"small"}'></div>
+								<strong>Node.js</strong>
+							</div>
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"88","background":"#e4e4e4","color":"#336791","size":"small"}'></div>
+								<strong>PostgreSQL</strong>
+							</div>
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"85","background":"#e4e4e4","color":"#0078d4","size":"small"}'></div>
+								<strong>Azure DevOps</strong>
+							</div>
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"82","background":"#e4e4e4","color":"#f7df1e","size":"small"}'></div>
+								<strong>JavaScript / Python</strong>
+							</div>
+						</div>
+					</div>
+				</section>
+
+			</div>
+		</article>
+
+	</main>
+	<!-- =========================== ** END CONTENT ** =========================== -->
+
+	<!-- =========================== ** FOOTER ** =========================== -->
+	<footer id="site-footer">
+		<div class="container-fluid">
+			<div class="row">
+				<div class="col-md-6 text-center text-md-left d-md-flex align-items-md-center">
+					<p class="copyright-info">&copy; 2019. Vivian by WIP-Themes</p>
+				</div>
+
+				<div class="col-md-6 text-center text-md-right">
+					<ul class="social-nav">
+						<li><a href="#"><i class="icon ion-logo-linkedin"></i></a></li>
+						<li><a href="#"><i class="icon ion-logo-facebook"></i></a></li>
+						<li><a href="#"><i class="icon ion-logo-instagram"></i></a></li>
+						<li><a href="#"><i class="icon ion-logo-github"></i></a></li>
+						<li><a href="#"><i class="icon ion-logo-twitter"></i></a></li>
+						<li><a href="#"><i class="icon ion-logo-youtube"></i></a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+	</footer>
+	<!-- ========================= ** END FOOTER ** ========================= -->
+</div>
+
+<script>
+/* <![CDATA[ */
+var VivianOptions = {
+	"imgParticle" : "assets/images/rose-small.png", // particle image, for intro text animation, edit the image to any color if you use another text color
+	"audio": "", // audio file
+	"volume": 8, // 0 - 100, define the volume here
+	"map": {
+		"lat" : -37.8173277, // Define the latitude here
+		"lon" : 144.9537353, // Define the longitude here
+		"marker" : 'assets/images/pin.svg' // Define the map marker icon
+	}
+};
+/* ]]> */
+</script>
+<!-- Scripts -->
+<script src="assets/js/jquery.min.js"></script>
+<script src="assets/js/plugins.js"></script>
+<script src="assets/js/app.js"></script>
+
+<!-- Scroll Up Button (reusable component) -->
+<button class="scroll-up btn" id="scrollUp" aria-label="Scroll to top" title="Back to top" data-threshold="300">
+	<span class="icon-right" aria-hidden="true">
+		<svg viewBox="0 0 24 24" width="34" height="34" aria-hidden="true" focusable="false">
+			<polyline points="6 14 12 8 18 14" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round" />
+			<line x1="12" y1="8" x2="12" y2="20" stroke="currentColor" stroke-width="2" stroke-linecap="round" />
+		</svg>
+	</span>
+	<span class="label">Top</span>
+</button>
+
+<!-- Scroll-up behaviour (small, dependency-free) -->
+<script>
+	(function(){
+		var btn = document.getElementById('scrollUp');
+		if(!btn) return;
+		var threshold = parseInt(btn.getAttribute('data-threshold'),10) || 300;
+		function onScroll(){ if(window.scrollY >= threshold){ btn.classList.add('visible'); btn.setAttribute('aria-hidden','false'); } else { btn.classList.remove('visible'); btn.setAttribute('aria-hidden','true'); } }
+		function toTop(e){ e && e.preventDefault(); window.scrollTo({ top:0, behavior: 'smooth' }); btn.blur(); }
+		function onKey(e){ if(e.key === 'Enter' || e.key === ' ' || e.key === 'Spacebar'){ toTop(e); } }
+		window.addEventListener('scroll', onScroll, { passive: true });
+		btn.addEventListener('click', toTop);
+		btn.addEventListener('keydown', onKey);
+		onScroll();
+	})();
+</script>
+
+</body>
+</html>
