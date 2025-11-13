@@ -155,60 +155,160 @@
 							</div>
 						</div>
 						
-						<!-- Key Achievements Metrics -->
-						<div class="row mt-5">
+						<!-- Key Achievements Metrics: match Portfolio Overview layout (title + short write-up left, metrics on the right) -->
+						<div class="row mt-5 achievements" aria-labelledby="achievements-title">
 							<div class="col-12 text-center mb-3">
-								<h4 class="section-title">Key Achievements</h4>
+								<h4 id="achievements-title" class="section-title">Key Achievements</h4>
 							</div>
-							<div class="col-md-3 text-center">
-								<h2 style="color:#007bff;">25%</h2>
-								<p>Reduction in diagnostic turnaround time</p>
+							<div class="col-md-8">
+								<div class="row">
+									<!-- Achievement item (percent) -->
+									<div class="col-6 col-md-3 text-center">
+										<div class="achievement" role="group" aria-labelledby="ach-1-label" style="--accent:#2F9BFF;">
+											<div class="ach-visual" aria-hidden="true">
+												<svg class="ach-ring" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+													<circle class="ring-bg" cx="60" cy="60" r="48" fill="none" stroke-width="6" />
+													<circle class="ring-fg" cx="60" cy="60" r="48" fill="none" stroke-width="6" stroke-linecap="round" transform="rotate(-90 60 60)" />
+												</svg>
+												<div class="ach-halo"></div>
+												<h2 class="ach-value" data-value="25" data-type="percent">0<span class="ach-suffix">%</span></h2>
+											</div>
+											<p id="ach-1-label" class="ach-label">Reduction in diagnostic turnaround time</p>
+											<span class="sr-only">25 percent reduction in diagnostic turnaround time</span>
+										</div>
+									</div>
+									<!-- Achievement item (percent) -->
+									<div class="col-6 col-md-3 text-center">
+										<div class="achievement" role="group" aria-labelledby="ach-2-label" style="--accent:#38C172;">
+											<div class="ach-visual" aria-hidden="true">
+												<svg class="ach-ring" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+													<circle class="ring-bg" cx="60" cy="60" r="48" fill="none" stroke-width="6" />
+													<circle class="ring-fg" cx="60" cy="60" r="48" fill="none" stroke-width="6" stroke-linecap="round" transform="rotate(-90 60 60)" />
+												</svg>
+												<div class="ach-halo"></div>
+												<h2 class="ach-value" data-value="20" data-type="percent">0<span class="ach-suffix">%</span></h2>
+											</div>
+											<p id="ach-2-label" class="ach-label">Improved data retrieval performance</p>
+											<span class="sr-only">20 percent improved data retrieval performance</span>
+										</div>
+									</div>
+									<!-- Achievement item (percent) -->
+									<div class="col-6 col-md-3 text-center">
+										<div class="achievement" role="group" aria-labelledby="ach-3-label" style="--accent:#FFC857;">
+											<div class="ach-visual" aria-hidden="true">
+												<svg class="ach-ring" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+													<circle class="ring-bg" cx="60" cy="60" r="48" fill="none" stroke-width="6" />
+													<circle class="ring-fg" cx="60" cy="60" r="48" fill="none" stroke-width="6" stroke-linecap="round" transform="rotate(-90 60 60)" />
+												</svg>
+												<div class="ach-halo"></div>
+												<h2 class="ach-value" data-value="40" data-type="percent">0<span class="ach-suffix">%</span></h2>
+											</div>
+											<p id="ach-3-label" class="ach-label">Faster deployment through CI/CD automation</p>
+											<span class="sr-only">40 percent faster deployment through CI/CD automation</span>
+										</div>
+									</div>
+									<!-- Achievement item (number) -->
+									<div class="col-6 col-md-3 text-center">
+										<div class="achievement" role="group" aria-labelledby="ach-4-label" style="--accent:#FF4D6D;">
+											<div class="ach-visual" aria-hidden="true">
+												<svg class="ach-ring" viewBox="0 0 120 120" width="120" height="120" aria-hidden="true">
+													<circle class="ring-bg" cx="60" cy="60" r="48" fill="none" stroke-width="6" />
+													<circle class="ring-fg" cx="60" cy="60" r="48" fill="none" stroke-width="6" stroke-linecap="round" transform="rotate(-90 60 60)" />
+												</svg>
+												<div class="ach-halo"></div>
+												<h2 class="ach-value" data-value="52" data-type="number">0</h2>
+											</div>
+											<p id="ach-4-label" class="ach-label">IT professionals managed across portfolio</p>
+											<span class="sr-only">52 IT professionals managed across portfolio</span>
+										</div>
+									</div>
+								</div>
 							</div>
-							<div class="col-md-3 text-center">
-								<h2 style="color:#28a745;">20%</h2>
-								<p>Improved data retrieval performance</p>
-							</div>
-							<div class="col-md-3 text-center">
-								<h2 style="color:#ffc107;">40%</h2>
-								<p>Faster deployment through CI/CD automation</p>
-							</div>
-							<div class="col-md-3 text-center">
-								<h2 style="color:#dc3545;">52</h2>
-								<p>IT professionals managed across portfolio</p>
-							</div>
-						</div>						
+						</div>
+
+						<!-- Scoped styles + animation script for achievements -->
+						<style>
+							/* Accent style for section titles that should show the red strip */
+							.section-title.section-accent-red { color: #fff; }
+							.section-title.section-accent-red:before { background-color: #dc3545; opacity: 0.85; width: 70px; height: 12px; bottom: auto; top: 0.35rem; }
+						
+							.achievements .achievement{position:relative;padding:1rem;margin:0 auto;max-width:220px}
+							.ach-visual{position:relative;width:120px;height:120px;margin:0 auto 0.6rem}
+							.ach-ring{display:block}
+							.ring-bg{stroke:rgba(255,255,255,0.06)}
+							.ring-fg{stroke:var(--accent, currentColor);stroke-dasharray:302;stroke-dashoffset:302;transition:stroke-dashoffset 900ms cubic-bezier(.2,.9,.2,1)}
+							.ach-halo{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);width:140px;height:140px;border-radius:50%;background:radial-gradient(circle at 30% 30%, var(--accent, currentColor) 0%, rgba(255,255,255,0.02) 20%, transparent 45%);opacity:0;transition:opacity .6s ease}
+							.ach-value{font-family:'Poppins',sans-serif;font-weight:700;font-size:clamp(28px,5vw,44px);margin:0;line-height:1;color:var(--accent);position:absolute;left:50%;top:50%;transform:translate(-50%,-50%);z-index:3;pointer-events:none}
+							.ach-suffix{font-weight:600;font-size:0.5em;margin-left:4px}
+							.ach-label{color:rgba(255,255,255,0.75);margin-top:0.6rem}
+							.achievement:hover{transform:translateY(-6px);transition:transform .24s ease}
+							.achievement:focus-within{outline:3px solid rgba(255,255,255,0.04);border-radius:8px}
+							/* responsive grid spacing */
+							@media(min-width:768px){.achievements .col-md-3{display:block}}
+							/* reduced motion */
+							@media (prefers-reduced-motion: reduce){
+								.ring-fg{transition:none}
+								.ach-halo{transition:none}
+								.achievement:hover{transform:none}
+							}
+							/* visually hidden */
+							.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+						</style>
+
+						<script>
+						(function(){
+							if (typeof window === 'undefined') return;
+							var prefersReduce = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+							function animateCount(el, target, type){
+								if(prefersReduce){ el.textContent = type === 'percent' ? target + '%' : target; return; }
+								var start = 0; var duration = 900; var startTime = null;
+								function step(ts){ if(!startTime) startTime = ts; var progress = Math.min((ts - startTime)/duration,1); var eased = 1 - Math.pow(1 - progress, 3); var value = Math.round(start + (target - start) * eased);
+									if(type === 'percent') el.innerHTML = value + '<span class="ach-suffix">%</span>'; else el.textContent = value;
+									if(progress < 1) requestAnimationFrame(step);
+								}
+								requestAnimationFrame(step);
+							}
+
+							function animateRing(svgCircle, percent){
+								if(!svgCircle) return;
+								var circumference = 2 * Math.PI * 48; // r=48
+								var offset = circumference * (1 - percent/100);
+								svgCircle.style.strokeDashoffset = offset;
+							}
+
+							var observer = new IntersectionObserver(function(entries, obs){
+								entries.forEach(function(entry){
+									if(!entry.isIntersecting) return;
+									var root = entry.target;
+									var valueEl = root.querySelector('.ach-value');
+									var fg = root.querySelector('.ring-fg');
+									var halo = root.querySelector('.ach-halo');
+									var target = Number(valueEl.getAttribute('data-value')) || 0;
+									var type = valueEl.getAttribute('data-type') || 'percent';
+									// animate
+									animateCount(valueEl, target, type);
+									if(fg){ var pct = (type === 'percent') ? target : Math.min(100, Math.round((target/100)*100)); animateRing(fg, pct); }
+									if(halo){ halo.style.opacity = 1; }
+									// small stagger for consecutive items
+									setTimeout(function(){ root.classList.add('achived'); }, 50);
+									obs.unobserve(root);
+								});
+							},{ threshold: 0.28 });
+
+							// initialize stroke dasharray
+							document.querySelectorAll('.achievement').forEach(function(item){
+								var fg = item.querySelector('.ring-fg');
+								if(fg){ var circumference = 2 * Math.PI * 48; fg.style.strokeDasharray = circumference; fg.style.strokeDashoffset = circumference; }
+								observer.observe(item);
+								// hover particle micro-burst (light) - simple scale pulse implemented in CSS; further effects can be added later
+							});
+						})();
+						</script>
 					
 					</div>
 				</section>
 
-				<!-- Technology overview -->
-				<section class="inner-section">
-					<div class="container">
-						<h3 class="section-title text-center">Technology Stack</h3>
-						<div class="row mt-4 justify-content-center">
-							<div class="col-md-2 text-center">
-								<div class="pj-circle-progress" data-progress='{"percent":"95","background":"#e4e4e4","color":"#61dafb","size":"small"}'></div>
-								<strong>React.js</strong>
-							</div>
-							<div class="col-md-2 text-center">
-								<div class="pj-circle-progress" data-progress='{"percent":"90","background":"#e4e4e4","color":"#68a063","size":"small"}'></div>
-								<strong>Node.js</strong>
-							</div>
-							<div class="col-md-2 text-center">
-								<div class="pj-circle-progress" data-progress='{"percent":"88","background":"#e4e4e4","color":"#336791","size":"small"}'></div>
-								<strong>PostgreSQL</strong>
-							</div>
-							<div class="col-md-2 text-center">
-								<div class="pj-circle-progress" data-progress='{"percent":"85","background":"#e4e4e4","color":"#0078d4","size":"small"}'></div>
-								<strong>Azure DevOps</strong>
-							</div>
-							<div class="col-md-2 text-center">
-								<div class="pj-circle-progress" data-progress='{"percent":"82","background":"#e4e4e4","color":"#f7df1e","size":"small"}'></div>
-								<strong>JavaScript / Python</strong>
-							</div>
-						</div>
-					</div>
-				</section>
+
 
 				<!-- Project 1 -->
 				<section class="inner-section">
@@ -947,8 +1047,36 @@
 							<div class="col-md-12 text-center">
 								<a href="mailto:hello@vivian.example?subject=Interest%20in%20SynthAI%20projects" class="btn btn-primary">Contact about collaboration</a>
 							</div>
+						</div>						
 						</div>
-						
+					</div>
+				</section>
+
+								<!-- Technology overview -->
+				<section class="inner-section">
+					<div class="container">
+						<h3 class="section-title text-center">Technology Stack</h3>
+						<div class="row mt-4 justify-content-center">
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"95","background":"#e4e4e4","color":"#61dafb","size":"small"}'></div>
+								<strong>React.js</strong>
+							</div>
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"90","background":"#e4e4e4","color":"#68a063","size":"small"}'></div>
+								<strong>Node.js</strong>
+							</div>
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"88","background":"#e4e4e4","color":"#336791","size":"small"}'></div>
+								<strong>PostgreSQL</strong>
+							</div>
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"85","background":"#e4e4e4","color":"#0078d4","size":"small"}'></div>
+								<strong>Azure DevOps</strong>
+							</div>
+							<div class="col-md-2 text-center">
+								<div class="pj-circle-progress" data-progress='{"percent":"82","background":"#e4e4e4","color":"#f7df1e","size":"small"}'></div>
+								<strong>JavaScript / Python</strong>
+							</div>
 						</div>
 					</div>
 				</section>
@@ -1065,15 +1193,21 @@ var VivianOptions = {
 		}
 	}
 	
-	.typewriter-role-1, .typewriter-role-2 {
-		display: inline-block;
-		border-right: 2px solid #007bff;
-		animation: blink 0.7s step-end infinite;
-		color: #007bff;
-		font-weight: 700;
-	}
-	
-	@keyframes blink {
+    .typewriter-role-1 {
+        display: inline-block;
+        border-right: 2px solid #007bff;
+        animation: blink 0.7s step-end infinite;
+        color: #007bff;
+        font-weight: 700;
+    }
+    
+    .typewriter-role-2 {
+        display: inline-block;
+        border-right: 2px solid #ffc107;
+        animation: blink 0.7s step-end infinite;
+        color: #ffc107;
+        font-weight: 700;
+    }	@keyframes blink {
 		from, to { border-color: transparent; }
 		50% { border-color: currentColor; }
 	}
