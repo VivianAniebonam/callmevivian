@@ -133,20 +133,23 @@
 
 
 				<!-- Portfolio & Executive Summary (Consolidated) -->
-				<section class="inner-section has-lighter-bg has-sm-padding">
-					<div class="container">
+				<section class="inner-section has-lighter-bg has-sm-padding portfolio-hero-section" style="position: relative; overflow: hidden;">
+					<!-- Particle Background Canvas -->
+					<canvas id="particleCanvas" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; z-index: 1;"></canvas>
+					
+					<div class="container" style="position: relative; z-index: 2;">
 						<div class="row">
 							<div class="col-md-4">
-								<h3 class="section-title has-reveal-effect" data-effect="fadeInTop">Portfolio Overview</h3>
+								<h3 class="section-title portfolio-title" style="opacity: 0;">Portfolio Overview</h3>
 							</div>
-							<div class="col-md-8 has-reveal-effect" data-effect="fadeInTop">
-								<p>
-									At Synthesis Health, I served in a dual capacity: as <strong>Project Manager for AI-driven initiatives</strong> and as <strong>IT Implementation & Integration Project Manager</strong> for technical deployment and infrastructure integration. In this combined role, I led a $12.3M portfolio of four AI-enabled radiology projects focused on workflow optimization, cloud-native imaging storage, real-time diagnostic decision support, and PACS multitenancy.
+							<div class="col-md-8">
+								<p class="hero-intro" style="opacity: 0;">
+									At Synthesis Health, I served in a dual capacity: as <strong class="typewriter-role-1"></strong> and as <strong class="typewriter-role-2"></strong> for technical deployment and infrastructure integration. In this combined role, I led a $12.3M portfolio of four AI-enabled radiology projects focused on workflow optimization, cloud-native imaging storage, real-time diagnostic decision support, and PACS multitenancy.
 								</p>
-								<p>
+								<p class="hero-responsibilities" style="opacity: 0;">
 									Responsibilities spanned the full project lifecycle: technical leadership, AI model integration oversight, stakeholder management across clinical and IT teams, security/compliance governance (HIPAA/GDPR), and delivery of CI/CD-enabled deployments. I managed cross-functional teams totaling 52 IT professionals, collaborated closely with AI engineers and cloud architects, and ensured all projects met performance targets and budget constraints while delivering measurable improvements in diagnostic turnaround, data access, and deployment efficiency.
 								</p>
-								<p class="mt-3">
+								<p class="hero-tech mt-3" style="opacity: 0;">
 									<strong>Key technologies:</strong> React.js, Node.js, PostgreSQL, Azure DevOps, SynthFlow, Mirth Connect, AWS, IndexedDB, Azure AD.
 								</p>
 							</div>
@@ -173,13 +176,8 @@
 								<h2 style="color:#dc3545;">52</h2>
 								<p>IT professionals managed across portfolio</p>
 							</div>
-						</div>
-						
-						<div class="row mt-4">
-							<div class="col-md-12 text-center">
-								<a href="mailto:hello@vivian.example?subject=Interest%20in%20SynthAI%20projects" class="btn btn-primary">Contact about collaboration</a>
-							</div>
-						</div>
+						</div>						
+					
 					</div>
 				</section>
 
@@ -944,6 +942,13 @@
 									<li>Regular encryption and security audits to ensure HIPAA / GDPR compliance.</li>
 								</ul>
 							</div>
+
+													<div class="row mt-4">
+							<div class="col-md-12 text-center">
+								<a href="mailto:hello@vivian.example?subject=Interest%20in%20SynthAI%20projects" class="btn btn-primary">Contact about collaboration</a>
+							</div>
+						</div>
+						
 						</div>
 					</div>
 				</section>
@@ -1024,6 +1029,220 @@ var VivianOptions = {
 		btn.addEventListener('keydown', onKey);
 		onScroll();
 	})();
+</script>
+
+<!-- Portfolio Hero Animations -->
+<style>
+	/* Hero Animation Styles */
+	.portfolio-hero-section {
+		min-height: 500px;
+		padding: 4rem 0 !important;
+	}
+	
+	.portfolio-title {
+		animation: fadeInDown 0.8s ease-out forwards;
+	}
+	
+	@keyframes fadeInDown {
+		from {
+			opacity: 0;
+			transform: translateY(-30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	
+	@keyframes fadeInUp {
+		from {
+			opacity: 0;
+			transform: translateY(30px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
+	}
+	
+	.typewriter-role-1, .typewriter-role-2 {
+		display: inline-block;
+		border-right: 2px solid #007bff;
+		animation: blink 0.7s step-end infinite;
+		color: #007bff;
+		font-weight: 700;
+	}
+	
+	@keyframes blink {
+		from, to { border-color: transparent; }
+		50% { border-color: currentColor; }
+	}
+	
+	.hero-intro { animation: fadeInUp 0.8s ease-out 0.4s forwards; }
+	.hero-responsibilities { animation: fadeInUp 0.8s ease-out 0.8s forwards; }
+	.hero-tech { animation: fadeInUp 0.8s ease-out 1.2s forwards; }
+</style>
+
+<script>
+(function() {
+	'use strict';
+	
+	// Typewriter Effect
+	function typeWriter(element, text, speed, callback) {
+		let i = 0;
+		element.textContent = '';
+		element.style.borderRight = '2px solid currentColor';
+		
+		function type() {
+			if (i < text.length) {
+				element.textContent += text.charAt(i);
+				i++;
+				setTimeout(type, speed);
+			} else {
+				setTimeout(function() {
+					element.style.borderRight = 'none';
+					if (callback) callback();
+				}, 500);
+			}
+		}
+		type();
+	}
+	
+	// Initialize Typewriter on Page Load
+	window.addEventListener('load', function() {
+		const role1 = document.querySelector('.typewriter-role-1');
+		const role2 = document.querySelector('.typewriter-role-2');
+		
+		if (role1 && role2) {
+			setTimeout(function() {
+				typeWriter(role1, 'Project Manager for AI-driven initiatives', 50, function() {
+					setTimeout(function() {
+						typeWriter(role2, 'IT Implementation & Integration Project Manager', 50);
+					}, 300);
+				});
+			}, 600);
+		}
+	});
+	
+	// Particle Background Effect
+	const canvas = document.getElementById('particleCanvas');
+	if (canvas) {
+		const ctx = canvas.getContext('2d');
+		let particles = [];
+		let animationId;
+		
+		function resizeCanvas() {
+			canvas.width = canvas.offsetWidth;
+			canvas.height = canvas.offsetHeight;
+		}
+		
+		class Particle {
+			constructor() {
+				this.reset();
+			}
+			
+			reset() {
+				this.x = Math.random() * canvas.width;
+				this.y = Math.random() * canvas.height;
+				this.size = Math.random() * 3 + 1;
+				this.speedX = Math.random() * 0.5 - 0.25;
+				this.speedY = Math.random() * 0.5 - 0.25;
+				this.opacity = Math.random() * 0.3 + 0.1;
+				this.shape = Math.floor(Math.random() * 3); // 0: circle, 1: square, 2: triangle
+			}
+			
+			update() {
+				this.x += this.speedX;
+				this.y += this.speedY;
+				
+				if (this.x < 0 || this.x > canvas.width) this.speedX *= -1;
+				if (this.y < 0 || this.y > canvas.height) this.speedY *= -1;
+			}
+			
+			draw() {
+				ctx.fillStyle = `rgba(0, 123, 255, ${this.opacity})`;
+				ctx.strokeStyle = `rgba(0, 123, 255, ${this.opacity + 0.2})`;
+				ctx.lineWidth = 1;
+				
+				if (this.shape === 0) {
+					// Circle
+					ctx.beginPath();
+					ctx.arc(this.x, this.y, this.size, 0, Math.PI * 2);
+					ctx.fill();
+				} else if (this.shape === 1) {
+					// Square
+					ctx.fillRect(this.x - this.size, this.y - this.size, this.size * 2, this.size * 2);
+				} else {
+					// Triangle
+					ctx.beginPath();
+					ctx.moveTo(this.x, this.y - this.size);
+					ctx.lineTo(this.x + this.size, this.y + this.size);
+					ctx.lineTo(this.x - this.size, this.y + this.size);
+					ctx.closePath();
+					ctx.fill();
+				}
+			}
+		}
+		
+		function init() {
+			resizeCanvas();
+			particles = [];
+			const particleCount = Math.floor((canvas.width * canvas.height) / 8000);
+			
+			for (let i = 0; i < particleCount; i++) {
+				particles.push(new Particle());
+			}
+		}
+		
+		function connectParticles() {
+			for (let i = 0; i < particles.length; i++) {
+				for (let j = i + 1; j < particles.length; j++) {
+					const dx = particles[i].x - particles[j].x;
+					const dy = particles[i].y - particles[j].y;
+					const distance = Math.sqrt(dx * dx + dy * dy);
+					
+					if (distance < 120) {
+						ctx.strokeStyle = `rgba(0, 123, 255, ${0.15 * (1 - distance / 120)})`;
+						ctx.lineWidth = 0.5;
+						ctx.beginPath();
+						ctx.moveTo(particles[i].x, particles[i].y);
+						ctx.lineTo(particles[j].x, particles[j].y);
+						ctx.stroke();
+					}
+				}
+			}
+		}
+		
+		function animate() {
+			ctx.clearRect(0, 0, canvas.width, canvas.height);
+			
+			particles.forEach(particle => {
+				particle.update();
+				particle.draw();
+			});
+			
+			connectParticles();
+			animationId = requestAnimationFrame(animate);
+		}
+		
+		window.addEventListener('resize', function() {
+			resizeCanvas();
+			init();
+		});
+		
+		init();
+		animate();
+		
+		// Pause animation when not visible (performance optimization)
+		document.addEventListener('visibilitychange', function() {
+			if (document.hidden) {
+				cancelAnimationFrame(animationId);
+			} else {
+				animate();
+			}
+		});
+	}
+})();
 </script>
 
 </body>
