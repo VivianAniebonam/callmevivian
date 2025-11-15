@@ -358,8 +358,12 @@
 								  --color-pure: #fff;
 								  --color-primary: #212121;
 								  --color-secondary: #fff;
-								  --muted: #383838;
+								  --muted: #4a1d1d;
 								}
+								/* When the user clicks the light icon (toggle becomes checked),
+								   make the nav background black and text white */
+								.uiverse-nav .mode:checked + .container .wrap{ background:#121111; }
+								.uiverse-nav .mode:checked + .container .label{ color:#fff; }
 								.uiverse-nav .container {
 								  background-color: transparent;
 								  position: relative;
@@ -381,6 +385,7 @@
 								  border: 1px solid var(--muted);
 								  border-radius: calc(var(--round) - var(--p-y));
 								  margin-left: calc(var(--p-x) * 2);
+								  flex-shrink: 0;
 								  display: flex;
 								  align-items: center;
 								  justify-content: center;
@@ -429,7 +434,7 @@
 								  --round: 10px;
 								  --p-x: 8px;
 								  --p-y: 2px;
-								  --w-label: clamp(180px, 22vw, 260px);
+								  --w-label: clamp(200px, 25vw, 280px);
 								  display: flex;
 								  align-items: center;
 								  padding: var(--p-y) var(--p-x);
@@ -456,12 +461,12 @@
 								.uiverse-nav .label {
 								  cursor: pointer;
 								  outline: none;
-								  font-size: 0.875rem;
+								  font-size: 0.86rem;
 								  letter-spacing: initial;
 								  font-weight: 500;
 								  color: var(--color-secondary);
 								  background: transparent;
-								  padding: 8px 14px;
+								  padding: 8px 12px;
 								  width: var(--w-label);
 								  min-width: var(--w-label);
 								  text-decoration: none;
@@ -476,9 +481,11 @@
 								  z-index: 2;
 								  -webkit-tap-highlight-color: transparent;
 								}
+								/* Slightly tighter for the longest label so the toggle stays in view */
+								.uiverse-nav label[for="rd-2"] { font-size: 0.84rem; }
 								.uiverse-nav .label span {
 								  display: block;
-								  white-space: normal;
+								  white-space: nowrap; /* keep (A–Z) on the same line */
 								}
 
 								.uiverse-nav .wrap input[class*="rd-"]:checked + label {
