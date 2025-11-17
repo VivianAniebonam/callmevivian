@@ -107,7 +107,7 @@
 			<div class="portfolio-entry-content">
 
 				<!-- Project overview (role, duration, summary) -->
-				<section class="inner-section has-lighter-bg has-sm-padding">
+				<section class="inner-section has-lighter-bg has-sm-padding tab-section tab-tech">
 					<div class="container">
 						<div class="row">
 							<div class="col-md-3 has-reveal-effect" data-effect="revealRight">
@@ -548,26 +548,407 @@
 								  transform: translateX(200%) scaleX(1);
 								}
 								</style>
+
+								<!-- Tab visibility helpers (scoped) -->
+								<style>
+								  .tab-section.is-hidden { display: none !important; }
+								  .tab-content-container { margin-top: 2rem; }
+								  .tab-content-area { min-height: 400px; }
+								</style>
+
+								<script>
+								(function(){
+								  function setTab(tab){
+								    // Hide all tab sections first
+								    ['ai','pm','tech'].forEach(function(key){
+								      document.querySelectorAll('.tab-section.tab-' + key).forEach(function(el){
+								        if(key === tab){ 
+								          el.classList.remove('is-hidden'); 
+								          el.style.display = '';
+								        } else { 
+								          el.classList.add('is-hidden'); 
+								          el.style.display = 'none';
+								        }
+								      });
+								    });
+
+								    // Handle main content areas
+								    var contentContainers = {
+								      'ai': document.getElementById('ai-content'),
+								      'pm': document.getElementById('pm-content'),  
+								      'tech': document.getElementById('tech-content')
+								    };
+
+								    Object.keys(contentContainers).forEach(function(key) {
+								      var container = contentContainers[key];
+								      if (container) {
+								        if (key === tab) {
+								          container.style.display = 'block';
+								        } else {
+								          container.style.display = 'none';
+								        }
+								      }
+								    });
+
+								    // Update tab visual state
+								    updateTabVisualState(tab);
+								  }
+
+								  function updateTabVisualState(activeTab) {
+								    // Update any visual indicators if needed
+								    var tabs = {
+								      'ai': document.getElementById('rd-1'),
+								      'pm': document.getElementById('rd-2'),
+								      'tech': document.getElementById('rd-3')
+								    };
+
+								    Object.keys(tabs).forEach(function(key) {
+								      var tabElement = tabs[key];
+								      if (tabElement) {
+								        var label = tabElement.nextElementSibling;
+								        if (label && label.classList.contains('label')) {
+								          if (key === activeTab) {
+								            label.style.fontWeight = '600';
+								          } else {
+								            label.style.fontWeight = '500';
+								          }
+								        }
+								      }
+								    });
+								  }
+
+								  function init(){
+								    var rd1 = document.getElementById('rd-1');
+								    var rd2 = document.getElementById('rd-2');
+								    var rd3 = document.getElementById('rd-3');
+								    
+								    if(!rd1 || !rd2 || !rd3) return;
+								    
+								    function onChange(){
+								      if(rd1.checked) setTab('ai');
+								      else if(rd2.checked) setTab('pm');
+								      else if(rd3.checked) setTab('tech');
+								    }
+								    
+								    [rd1,rd2,rd3].forEach(function(r){ 
+								      r.addEventListener('change', onChange); 
+								    });
+								    
+								    // Set initial tab (AI is checked by default)
+								    setTab('ai');
+								  }
+								  
+								  if(document.readyState === 'loading') {
+								    document.addEventListener('DOMContentLoaded', init); 
+								  } else {
+								    init();
+								  }
+								})();
+								</script>
 								
-								<!-- Tab Content -->
-								<div class="tab-content mt-4" id="experience-tab-content">
-									<!-- AI Project Development Leadership Tab -->
-									<div class="tab-pane fade show active" id="ai-leadership" role="tabpanel" aria-labelledby="ai-leadership-tab">
-										<div class="experience-content">
+								<!-- Tab Content Areas -->
+								<div class="tab-content-container mt-4" id="experience-tab-content">
+									
+									<!-- AI Content (Default Active) -->
+									<div id="ai-content" class="tab-content-area">
+										<div class="container">
+											<h3 class="section-title">AI Project Development Leadership</h3>
 											<p class="lead">As Project Manager for AI initiatives, I led the development and integration of AI models into clinical workflows, coordinating cross-functional teams and ensuring successful deployment of AI-powered radiology solutions.</p>
+											
+											<div class="row mt-4">
+												<div class="col-md-6">
+													<h4>AI Development Lifecycle Management</h4>
+													<ul>
+														<li><strong>Model Integration Oversight:</strong> Coordinated with AI engineers and data scientists to integrate machine learning models for diagnostic prioritization and decision support into production systems.</li>
+														<li><strong>Clinical Validation:</strong> Facilitated clinical validation workflows with radiologists to ensure AI outputs met clinical standards and improved diagnostic accuracy.</li>
+														<li><strong>Data Pipeline Development:</strong> Oversaw design and implementation of data pipelines feeding imaging and metadata to AI models while maintaining HIPAA compliance.</li>
+														<li><strong>Performance Monitoring:</strong> Established KPIs for AI model accuracy, inference latency, and clinical impact; tracked model drift and retraining schedules.</li>
+													</ul>
+												</div>
+												<div class="col-md-6">
+													<h4>Cross-Functional Team Coordination</h4>
+													<ul>
+														<li><strong>AI Engineering Team:</strong> Coordinated with ML engineers on model training, validation, versioning, and deployment strategies.</li>
+														<li><strong>Development Team:</strong> Led React/Node.js developers building PWA interfaces displaying AI predictions and prioritized case lists.</li>
+														<li><strong>Clinical Stakeholders:</strong> Facilitated workshops with radiologists to refine AI features, gather feedback, and drive clinical adoption.</li>
+														<li><strong>Compliance & Security:</strong> Ensured AI systems met regulatory requirements including model explainability, audit logging, and data de-identification.</li>
+													</ul>
+												</div>
+											</div>
 										</div>
 									</div>
-									
-									<!-- Project Management Implementation Tab (placeholder for now) -->
-									<div class="tab-pane fade" id="pm-implementation" role="tabpanel" aria-labelledby="pm-implementation-tab">
-										<div class="experience-content">
-											<p class="lead">Detailed end-to-end project delivery narrative for the XYZ Health Network — DICOM-Only PACS Integration (RadFlow + Amazon S3). This section documents what was done in each phase (Initiation → Closure), artifacts produced, tools used, folder structures, and recommended templates.</p>
+
+									<!-- PM Content -->  
+									<div id="pm-content" class="tab-content-area" style="display: none;">
+										<!-- PM implementation content -->
+										<div class="container">
+											<h3 class="section-title text-center">Project Management Implementation — XYZ Health Network (A–Z)</h3>
+											<p class="text-center">Detailed end-to-end project delivery narrative for the XYZ Health Network — DICOM-Only PACS Integration (RadFlow + Amazon S3). This section documents what was done in each phase (Initiation → Closure), artifacts produced, tools used, folder structures, and recommended templates.</p>
+
+											<!-- Project overview table -->
+											<table class="table table-sm table-bordered mt-3">
+												<tr><th>Project Title</th><td>XYZ Health Network – DICOM-Only PACS Integration</td></tr>
+												<tr><th>Project Manager</th><td>Vivian Aniebonam</td></tr>
+												<tr><th>Client</th><td>XYZ Health Network</td></tr>
+												<tr><th>Start Date</th><td>2025-02-10</td></tr>
+												<tr><th>Target Go-Live</th><td>2025-04-20</td></tr>
+												<tr><th>Scope (short)</th><td>Integrate DICOM-only image flows from participating facilities into Synthesis Health RadFlow with storage on Amazon S3; configure AE Titles & secure transfer; enable central retrieval for clinicians.</td></tr>
+											</table>
+
+											<!-- High-level process SVG -->
+											<div class="text-center mt-3 mb-3">
+												<svg width="100%" height="80" viewBox="0 0 1200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+													<style> .step { fill:#f5f7fb; stroke:#d6e0f0; } .label{ font-family: Arial, sans-serif; font-size:13px; fill:#10243a; }</style>
+													<rect x="10" y="10" width="170" height="60" rx="6" class="step"/> <text x="95" y="40" class="label" text-anchor="middle">1. Initiation</text>
+													<rect x="210" y="10" width="170" height="60" rx="6" class="step"/> <text x="295" y="40" class="label" text-anchor="middle">2. Planning</text>
+													<rect x="410" y="10" width="170" height="60" rx="6" class="step"/> <text x="495" y="40" class="label" text-anchor="middle">3. Execution</text>
+													<rect x="610" y="10" width="170" height="60" rx="6" class="step"/> <text x="695" y="40" class="label" text-anchor="middle">4. Testing</text>
+													<rect x="810" y="10" width="170" height="60" rx="6" class="step"/> <text x="895" y="40" class="label" text-anchor="middle">5. Go-Live</text>
+													<rect x="1010" y="10" width="170" height="60" rx="6" class="step"/> <text x="1095" y="40" class="label" text-anchor="middle">6. Closure</text>
+													<!-- arrows -->
+													<line x1="180" y1="40" x2="210" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
+													<line x1="380" y1="40" x2="410" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
+													<line x1="580" y1="40" x2="610" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
+													<line x1="780" y1="40" x2="810" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
+													<line x1="980" y1="40" x2="1010" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
+													<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9fb6d9" /></marker></defs>
+												</svg>
+											</div>
+
+											<!-- Phase 1: Initiation -->
+											<section class="mt-3">
+												<h4>1. Initiation</h4>
+												<p><strong>Objective:</strong> Confirm scope, secure sponsorship, produce Project Charter and high-level plan, identify key stakeholders and establish governance. For XYZ Health Network the primary sponsor was the Provincial Imaging Services team.</p>
+												<h5>Activities performed</h5>
+												<ul>
+													<li>Project kick-off meeting with XYZ Health Network stakeholders (Clinical Leads, IT Network, PACS ops, Security).</li>
+													<li>Conducted stakeholder analysis and created Stakeholder Register (owner, interest, influence, communication needs).</li>
+													<li>Developed Project Charter (scope, objectives, constraints, assumptions, success criteria).</li>
+													<li>Identified initial risks and created the RAID Log skeleton (Risks, Assumptions, Issues, Dependencies).</li>
+													<li>Collected sample DICOM files and AE Title details from three pilot sites.</li>
+													<li>Validated network connectivity prerequisites (VPN endpoints, firewall rules, port ranges for DICOM C-STORE/C-FIND/C-MOVE).</li>
+												</ul>
+												<h5>Artifacts produced</h5>
+												<ul>
+													<li>Project Charter (MS Word) — includes scope, sponsor signoff, objectives and KPIs.</li>
+													<li>Stakeholder Register (Excel) — contact, role, communication cadence.</li>
+													<li>RAID Log (Confluence / Excel) initial entries.</li>
+													<li>AE Title Setup Checklist (documents AE Titles for send/receive/demo).</li>
+													<li>High-level Acceptance Criteria (clinical signoff conditions).</li>
+												</ul>
+												<h5>Tools & owners</h5>
+												<ul>
+													<li>Owner: Project Manager (Vivian) — charter/sponsor liaison.</li>
+													<li>Tools: Confluence (charter & registers), Jira (epics backlog), MS Teams for meetings, Lucidchart for diagrams.</li>
+												</ul>
+												<hr />
+											</section>
+
+											<!-- Phase 2: Planning -->
+											<section class="mt-3">
+												<h4>2. Planning</h4>
+												<p><strong>Objective:</strong> Produce the execution-ready plan: detailed schedule, environment definitions, security plan, integration checklist, testing & cutover plans.</p>
+												<h5>Key planning activities (detailed)</h5>
+												<ol>
+													<li><strong>Environment & network planning</strong> — Confirm AE Titles for Sender, Receiver, Demo; coordinate VPN and firewall rules; define S3 bucket naming and retention policy (e.g., s3://synth-alberta-prod/studies/).</li>
+													<li><strong>Integration design</strong> — Map incoming DICOM SOP Classes and transfer syntaxes; create SynthFlow mapping templates (patient demographics, accession, priority tags).</li>
+													<li><strong>Security & compliance</strong> — Define encryption at rest (SSE-KMS), TLS endpoints for DICOMweb, IAM roles for S3 access, logging & audit trail requirements.</li>
+													<li><strong>Schedule & resourcing</strong> — Establish sprint cadence (2-week sprints), resource allocation (network engineer, integration lead, AI engineer, QA lead), and steering committee dates.</li>
+													<li><strong>Testing strategy</strong> — Define unit tests, integration tests, performance tests, and UAT acceptance criteria; produce UAT plan and defect logging process.</li>
+													<li><strong>Cutover & rollback planning</strong> — Create cutover runbook and rollback criteria (e.g., if ingest fails >X%).</li>
+												</ol>
+												<hr />
+											</section>
+
+											<!-- Phase 3: Execution -->
+											<section class="mt-3">
+												<h4>3. Execution</h4>
+												<p><strong>Objective:</strong> Implement integrations, configure RadFlow pipelines, create storage buckets, and perform initial connectivity and ingest tests for pilot sites.</p>
+												<h5>Tasks completed (detailed)</h5>
+												<ul>
+													<li>Configured AWS S3 buckets and applied lifecycle policies (e.g., 90 days nearline, archive after 365 days) and KMS policies for encryption.</li>
+													<li>Provisioned RadFlow endpoints and created DICOM validation rules; deployed SynthFlow tag mappings for AE Titles.</li>
+													<li>Performed AE Title registration and C-ECHO tests with each pilot site; documented results in Integration Checklist.</li>
+													<li>Instrumented monitoring and logging (S3 access logs, CloudTrail, and application logs) and connected to Grafana/Prometheus for dashboards.</li>
+													<li>Completed CI/CD pipelines that deploy microservice configuration to staging and production RadFlow clusters (Azure DevOps).</li>
+													<li>Weekly demos to clinical users and feedback capture (Confluence action items; Jira tasks created for follow-ups).</li>
+												</ul>
+												<hr />
+											</section>
+
+											<!-- Phase 4: Testing -->
+											<section class="mt-3">
+												<h4>4. Testing</h4>
+												<p><strong>Objective:</strong> Validate functional correctness, performance, security and clinical acceptance (UAT). For XYZ Health Network we executed lab tests, integration tests, performance tests and UAT with clinical reviewers.</p>
+												<h5>Test types & approach</h5>
+												<ul>
+													<li><strong>Unit / component tests:</strong> Validate RadFlow rules and microservice endpoints.</li>
+													<li><strong>Integration tests:</strong> End-to-end flow: DICOM send → RadFlow validation → S3 store → retrieval via DICOMweb / WADO.</li>
+													<li><strong>Performance tests:</strong> Throughput and concurrency testing (simulate parallel C-STOREs to ensure system sustains production load).</li>
+													<li><strong>Security tests:</strong> Pen test guidance, TLS verification, IAM role checks and S3 access logging review.</li>
+													<li><strong>UAT:</strong> Clinical acceptance with sample anonymized cases and clinician checklist.</li>
+												</ul>
+												<h5>Acceptance criteria (sample)</h5>
+												<ul>
+													<li>All pilot sites pass AE C-ECHO and C-STORE with >=99% success rate across 1,000 sample studies.</li>
+													<li>Clinical signoff: clinicians confirm retrieval and viewing of images with expected metadata mapping.</li>
+													<li>Security scans show no critical findings and audit logs are captured as required.</li>
+												</ul>
+												<hr />
+											</section>
+
+											<!-- Phase 5: Go-Live -->
+											<section class="mt-3">
+												<h4>5. Go-Live</h4>
+												<p><strong>Objective:</strong> Execute the cutover runbook, validate operational readiness and place environments into production mode. For XYZ Health Network we used a staged pilot-to-production approach.</p>
+												<h5>Go-Live checklist (selected items)</h5>
+												<ul>
+													<li>Final AE Title confirmation and last-mile network checks.</li>
+													<li>Execute cutover runbook: switch senders to RadFlow endpoints; monitor C-STORE successes.</li>
+													<li>Enable monitoring dashboards and alerting (thresholds for failed ingests, latency).</li>
+													<li>Ensure support roster and Hypercare schedule is active (24/7 for first 72 hours depending on SLA).</li>
+													<li>Collect immediate feedback and log issues in Jira with priority for fixes in Hypercare.</li>
+												</ul>
+												<hr />
+											</section>
+
+											<!-- Phase 6: Closure -->
+											<section class="mt-3">
+												<h4>6. Closure</h4>
+												<p><strong>Objective:</strong> Formalize acceptance, transfer operations to business-as-usual (BAU), capture lessons learned and close project finances.</p>
+												<h5>Closure tasks</h5>
+												<ul>
+													<li>Obtain formal Client Test Signoff (UAT signoff) and Sponsor Acceptance.</li>
+													<li>Handover operational runbooks, SOPs, and contact lists to BAU (Confluence & ticketing onboarding).</li>
+													<li>Conduct Lessons Learned workshop and publish Final Status Report.</li>
+													<li>Archive project artifacts into the 06_Closure folder and set retention policy for the project workspace.</li>
+												</ul>
+												<hr />
+											</section>
+
+											<!-- Financial Calculator -->
+											<section class="mt-3">
+												<h4>7. Financial Analysis</h4>
+												<p><strong>Service Price List (summary)</strong></p>
+												<ul>
+													<li>Archive Historical Files: 50,000 CAD</li>
+													<li>DICOM-Only PACS Transfer: 80,000 CAD</li>
+													<li>HL7 Integration: 90,000 CAD</li>
+													<li>Custom Technical Workflow: 15,000 CAD</li>
+													<li>VPN / Secure Infrastructure: 5,000 CAD</li>
+													<li>AE Title Setup & Validation: 4,000 CAD</li>
+													<li>Cloud Storage Configuration: 6,000 CAD</li>
+													<li>Radiologist Consultation (2 wks): 20,000 CAD</li>
+												</ul>
+												<p><strong>Total Off-Set Price:</strong> $140,000.00</p>
+
+												<h5>Resource Costs (summary)</h5>
+												<ul>
+													<li>Project Manager — 90 CAD/hr, 320 hrs — $28,800</li>
+													<li>Integration Engineer — 80 CAD/hr, 280 hrs — $22,400</li>
+													<li>Technical Architect — 95 CAD/hr, 200 hrs — $19,000</li>
+													<li>QA Tester — 70 CAD/hr, 150 hrs — $10,500</li>
+													<li>Support Specialist (1-Month Hypercare) — 65 CAD/hr, 100 hrs — $6,500</li>
+												</ul>
+												<p><strong>Immediate Project Gain / (Loss):</strong> $52,800.00</p>
+
+												<h5>5-Year Financial Projection (summary)</h5>
+												<p>Estimated total revenue over 2025–2029: $182,000.00. Estimated 5yr storage & support cost: $64,800. Total 5yr profit projection: $108,750.00.</p>
+											</section>
 										</div>
+									</div>
+
+									<!-- Technical Architecture Content -->
+									<div id="tech-content" class="tab-content-area" style="display: none;">
+										<div class="container">
+											<h3>Technical Architecture &amp; Data Flow</h3>
+
+											<section class="tech-overview">
+												<h4>Overview</h4>
+												<p>Incoming clinical messages and imaging arrive from hospitals and clinics in HL7, XML, JSON and DICOM. Mirth Connect acts as the interface engine to normalize and route messages. Imaging files are stored in AWS (S3) for scalable storage and retained in the Synthesis Archive for operational access and long-term retention. Metadata is stored in a transactional database (PostgreSQL) enabling fast search and retrieval. SynthFlow is used to author DICOM tag templates, map incoming metadata to DICOM fields, and apply client-specific configurations. SynthAI consumes imaging + metadata to generate prioritization and diagnostic guidance for radiologists.</p>
+											</section>
+
+											<section class="dicom-tags">
+												<h4>DICOM &amp; DICOM Tags — How this works</h4>
+												<p>DICOM (Digital Imaging and Communications in Medicine) is both a file format and a network protocol used to store, transmit and retrieve medical images and associated metadata. Every DICOM file contains a header of metadata encoded as tags and a pixel data element that contains the image.</p>
+
+												<h5>Key points about DICOM tags</h5>
+												<ul>
+													<li>Each tag is represented as a 16-bit group and 16-bit element pair, e.g. (0010,0010) is Patient Name.</li>
+													<li>Tags carry a Value Representation (VR) that defines the data type (e.g., PN, DA, UI).</li>
+													<li>Essential tags for indexing and retrieval include Study Instance UID (0020,000D), Series Instance UID (0020,000E), SOP Instance UID (0008,0018), Modality (0008,0060), Study Date (0008,0020) and Patient ID (0010,0020).</li>
+													<li>Pixel data lives in tag (7FE0,0010) and is usually large, so metadata is indexed separately to make searching fast.</li>
+												</ul>
+
+												<p>In SynthFlow we define tag templates and mapping rules that translate incoming HL7/XML/JSON fields into target DICOM tags. Typical mappings include patient demographics, accession numbers, study descriptions and ordering physician info. SynthFlow also supports:</p>
+												<ul>
+													<li>Tag templating and conditional rules (set or override tags based on client rules).</li>
+													<li>Anonymization and de-identification profiles for research or privacy-safe sharing.</li>
+													<li>Tag enrichment — adding derived tags (e.g., priority code) to support triage.</li>
+													<li>DICOMweb and WADO endpoints configuration for easy browser-based retrieval.</li>
+												</ul>
+											</section>
+
+											<section class="integration-stack">
+												<h4>Integration stack (Mirth Connect, AWS, Synthesis Archive)</h4>
+
+												<h5>Mirth Connect</h5>
+												<p>Mirth Connect acts as the integration engine. Channels ingest HL7, XML, JSON and DICOM (via connectors/plugins), perform transformations, validation and routing. Typical Mirth responsibilities include:</p>
+												<ul>
+													<li>Parse ADT/ORM/ORU HL7 messages and extract metadata.</li>
+													<li>Perform message transforms (e.g., map HL7 fields into a DICOM tag mapping request for SynthFlow).</li>
+													<li>Trigger retrieval or storage actions (C-FIND, C-MOVE, DICOMweb PUT) to move images into AWS or the Synthesis Archive.</li>
+												</ul>
+
+												<h5>AWS Storage</h5>
+												<p>Imaging objects (DICOM) are stored in S3 with lifecycle policies. Metadata indexes and thumbnails are stored in PostgreSQL for quick queries. S3 provides scalable, durable storage and can be configured for cross-region replication and access logging.</p>
+
+												<h5>Synthesis Archive</h5>
+												<p>The Synthesis Archive provides a searchable, regulatory-ready archive with role-based access, audit trails and integration endpoints (DICOM, DICOMweb, WADO). The archive supports retrieval via DICOM C-GET/C-MOVE or DICOMweb GET and serves as the operational access layer for clinicians.</p>
+
+												<p>Together these components enable reliable ingestion, transformation, storage and retrieval at scale while preserving clinical metadata and auditability.</p>
+											</section>
+
+											<section class="synthai">
+												<h4>SynthAI &amp; Diagnostic Support</h4>
+												<p>SynthAI augments radiologist workflows by ingesting imaging and metadata, running inference models, and surfacing prioritized cases and visual cues (heatmaps, bounding boxes) that point to potential abnormalities. Typical outputs include:</p>
+												<ul>
+													<li>Priority score (for triage)</li>
+													<li>Structured suggestions and confidence scores</li>
+													<li>Annotated images or overlay layers viewable in the PWA</li>
+												</ul>
+												<p>Models run in the backend with appropriate logging and versioning; outputs are stored as structured metadata and linked to DICOM instances so radiologists can review original images and AI annotations side-by-side.</p>
+											</section>
+
+											<section class="standards">
+												<h4>Standards &amp; Message Types</h4>
+												<ul>
+													<li><strong>HL7:</strong> ADT (patient updates), ORM (orders) and ORU (results) messages are parsed to enrich imaging metadata and trigger workflows.</li>
+													<li><strong>XML / JSON:</strong> Modern APIs and vendor-specific payloads are parsed and normalized by Mirth before mapping to DICOM or metadata records.</li>
+													<li><strong>DICOM / DICOMweb:</strong> Image storage and retrieval; DICOMweb (WADO-RS) enables browser-friendly retrieval of DICOM images and metadata.</li>
+												</ul>
+											</section>
+
+											<section class="security">
+												<h4>Security, Privacy &amp; Compliance</h4>
+												<ul>
+													<li>Encryption at rest (S3 SSE) and in transit (TLS) for all network communications.</li>
+													<li>Role-based access control and audit logging (who accessed what and when).</li>
+													<li>Support for de-identification/anonymization profiles where required for research.</li>
+													<li>Regular encryption and security audits to ensure HIPAA / GDPR compliance.</li>
+												</ul>
+											</section>
+										</div>
+									</div>
+
+									<!-- External Tab Content Container -->
+									<div id="external-tab-content" class="tab-content-area" style="display: none;">
+										<!-- External content loaded via JS -->
 									</div>
 								</div>
 							</div>
 						</div>
-						<div class="row mt-4">
+						<div class="row mt-4 tab-section tab-ai">
 							<div class="col-md-6">
 								<h5>AI Development Lifecycle Management</h5>
 								<ul>
@@ -657,13 +1038,13 @@
 				</section>
 
 				<!-- Project 1 -->
-				<section class="inner-section">
+				<section class="inner-section tab-section tab-ai">
 					<div class="container">
 						<div class="row">
 							<div class="col-12">
 								<div class="project-card mb-4" style="padding:1.6rem; border-left:4px solid #007bff; background:#fbfdff; border-radius:6px;">
 									<h4 style="color:#007bff; margin-bottom:0.6rem;"><span style="display:inline-block; background:#007bff; color:#fff; padding:0.25rem 0.6rem; border-radius:999px; font-size:0.85rem; margin-right:0.6rem;">01</span>AI-Powered Radiology Workflow Optimization</h4>
-									<div class="row mt-2">
+									<div class="row mt-4 tab-section tab-ai">
 										<div class="col-md-3"><strong>Budget:</strong> $2.0M</div>
 										<div class="col-md-3"><strong>Team:</strong> 15 IT professionals</div>
 										<div class="col-md-6"><strong>Impact:</strong> Reduced diagnostic turnaround by 25%</div>
@@ -692,13 +1073,13 @@
 				</section>
 
 				<!-- Project 2 -->
-				<section class="inner-section">
+				<section class="inner-section tab-section tab-ai">
 					<div class="container">
 						<div class="row">
 							<div class="col-12">
 								<div class="project-card mb-4" style="padding:1.6rem; border-left:4px solid #28a745; background:#fbfff7; border-radius:6px;">
 									<h4 style="color:#28a745; margin-bottom:0.6rem;"><span style="display:inline-block; background:#28a745; color:#fff; padding:0.25rem 0.6rem; border-radius:999px; font-size:0.85rem; margin-right:0.6rem;">02</span>Cloud-Native Imaging Data Repository</h4>
-									<div class="row mt-2">
+									<div class="row mt-4 tab-section tab-ai">
 										<div class="col-md-3"><strong>Budget:</strong> $3.5M</div>
 										<div class="col-md-3"><strong>Team:</strong> 12 professionals</div>
 										<div class="col-md-6"><strong>Impact:</strong> Reduced retrieval latency by ~20%</div>
@@ -726,13 +1107,13 @@
 				</section>
 
 				<!-- Project 3 -->
-				<section class="inner-section">
+				<section class="inner-section tab-section tab-ai">
 					<div class="container">
 						<div class="row">
 							<div class="col-12">
 								<div class="project-card mb-4" style="padding:1.6rem; border-left:4px solid #ffc107; background:#fffaf0; border-radius:6px;">
 									<h4 style="color:#e69500; margin-bottom:0.6rem;"><span style="display:inline-block; background:#ffc107; color:#212529; padding:0.25rem 0.6rem; border-radius:999px; font-size:0.85rem; margin-right:0.6rem;">03</span>Real-Time Diagnostic Decision Support System</h4>
-									<div class="row mt-2">
+									<div class="row mt-4 tab-section tab-ai">
 										<div class="col-md-3"><strong>Budget:</strong> $2.8M</div>
 										<div class="col-md-3"><strong>Team:</strong> 10 professionals</div>
 										<div class="col-md-6"><strong>Impact:</strong> Real-time AI diagnostic recommendations at scale</div>
@@ -759,13 +1140,13 @@
 				</section>
 
 				<!-- Project 4 -->
-				<section class="inner-section">
+				<section class="inner-section tab-section tab-ai">
 					<div class="container">
 						<div class="row">
 							<div class="col-12">
 								<div class="project-card mb-4" style="padding:1.6rem; border-left:4px solid #dc3545; background:#fff6f6; border-radius:6px;">
 									<h4 style="color:#dc3545; margin-bottom:0.6rem;"><span style="display:inline-block; background:#dc3545; color:#fff; padding:0.25rem 0.6rem; border-radius:999px; font-size:0.85rem; margin-right:0.6rem;">04</span>PACS Multitenancy Deployment</h4>
-									<div class="row mt-2">
+									<div class="row mt-4 tab-section tab-ai">
 										<div class="col-md-3"><strong>Budget:</strong> $4.0M</div>
 										<div class="col-md-3"><strong>Team:</strong> 15 professionals</div>
 										<div class="col-md-6"><strong>Impact:</strong> 40% reduction in deployment time</div>
@@ -794,428 +1175,8 @@
 
 
 
-					<!-- Project Management Implementation (A–Z) -->
-					<section id="pm-implementation" class="inner-section has-sm-padding">
-						<div class="container">
-							<h3 class="section-title text-center">Project Management Implementation — XYZ Health Network (A–Z)</h3>
-							<p class="text-center">Detailed end-to-end project delivery narrative for the XYZ Health Network — DICOM-Only PACS Integration (RadFlow + Amazon S3). This section documents what was done in each phase (Initiation → Closure), artifacts produced, tools used, folder structures, and recommended templates.</p>
-
-							<!-- Project overview table -->
-							<table class="table table-sm table-bordered mt-3">
-								<tr><th>Project Title</th><td>XYZ Health Network – DICOM-Only PACS Integration</td></tr>
-								<tr><th>Project Manager</th><td>Vivian Aniebonam</td></tr>
-								<tr><th>Client</th><td>XYZ Health Network</td></tr>
-								<tr><th>Start Date</th><td>2025-02-10</td></tr>
-								<tr><th>Target Go-Live</th><td>2025-04-20</td></tr>
-								<tr><th>Scope (short)</th><td>Integrate DICOM-only image flows from participating facilities into Synthesis Health RadFlow with storage on Amazon S3; configure AE Titles & secure transfer; enable central retrieval for clinicians.</td></tr>
-							</table>
-
-							<!-- High-level process SVG -->
-							<div class="text-center mt-3 mb-3">
-								<svg width="100%" height="80" viewBox="0 0 1200 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
-									<style> .step { fill:#f5f7fb; stroke:#d6e0f0; } .label{ font-family: Arial, sans-serif; font-size:13px; fill:#10243a; }</style>
-									<rect x="10" y="10" width="170" height="60" rx="6" class="step"/> <text x="95" y="40" class="label" text-anchor="middle">1. Initiation</text>
-									<rect x="210" y="10" width="170" height="60" rx="6" class="step"/> <text x="295" y="40" class="label" text-anchor="middle">2. Planning</text>
-									<rect x="410" y="10" width="170" height="60" rx="6" class="step"/> <text x="495" y="40" class="label" text-anchor="middle">3. Execution</text>
-									<rect x="610" y="10" width="170" height="60" rx="6" class="step"/> <text x="695" y="40" class="label" text-anchor="middle">4. Testing</text>
-									<rect x="810" y="10" width="170" height="60" rx="6" class="step"/> <text x="895" y="40" class="label" text-anchor="middle">5. Go-Live</text>
-									<rect x="1010" y="10" width="170" height="60" rx="6" class="step"/> <text x="1095" y="40" class="label" text-anchor="middle">6. Closure</text>
-									<!-- arrows -->
-									<line x1="180" y1="40" x2="210" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
-									<line x1="380" y1="40" x2="410" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
-									<line x1="580" y1="40" x2="610" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
-									<line x1="780" y1="40" x2="810" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
-									<line x1="980" y1="40" x2="1010" y2="40" stroke="#9fb6d9" stroke-width="3" marker-end="url(#arr)" />
-									<defs><marker id="arr" markerWidth="8" markerHeight="8" refX="6" refY="4" orient="auto"><path d="M0,0 L8,4 L0,8 z" fill="#9fb6d9" /></marker></defs>
-								</svg>
-							</div>
-
-
-							<!-- Phase 1: Initiation -->
-							<section class="mt-3">
-								<h4>1. Initiation</h4>
-								<p><strong>Objective:</strong> Confirm scope, secure sponsorship, produce Project Charter and high-level plan, identify key stakeholders and establish governance. For XYZ Health Network the primary sponsor was the Provincial Imaging Services team.</p>
-								<h5>Activities performed</h5>
-								<ul>
-									<li>Project kick-off meeting with XYZ Health Network stakeholders (Clinical Leads, IT Network, PACS ops, Security).</li>
-									<li>Conducted stakeholder analysis and created Stakeholder Register (owner, interest, influence, communication needs).</li>
-									<li>Developed Project Charter (scope, objectives, constraints, assumptions, success criteria).</li>
-									<li>Identified initial risks and created the RAID Log skeleton (Risks, Assumptions, Issues, Dependencies).</li>
-									<li>Collected sample DICOM files and AE Title details from three pilot sites.</li>
-									<li>Validated network connectivity prerequisites (VPN endpoints, firewall rules, port ranges for DICOM C-STORE/C-FIND/C-MOVE).</li>
-								</ul>
-								<h5>Artifacts produced</h5>
-								<ul>
-									<li>Project Charter (MS Word) — includes scope, sponsor signoff, objectives and KPIs.</li>
-									<li>Stakeholder Register (Excel) — contact, role, communication cadence.</li>
-									<li>RAID Log (Confluence / Excel) initial entries.</li>
-									<li>AE Title Setup Checklist (documents AE Titles for send/receive/demo).</li>
-									<li>High-level Acceptance Criteria (clinical signoff conditions).</li>
-								</ul>
-								<h5>Tools & owners</h5>
-								<ul>
-									<li>Owner: Project Manager (Vivian) — charter/sponsor liaison.</li>
-									<li>Tools: Confluence (charter & registers), Jira (epics backlog), MS Teams for meetings, Lucidchart for diagrams.</li>
-								</ul>
-								<hr />
-							</section>
-
-							<!-- Project timeline image (SVG) - placed after Initiation as requested -->
-							<div class="text-center mt-3 mb-4">
-								<img src="assets/images/project-timeline.svg" alt="Project timeline (Feb-Apr)" class="img-fluid" style="max-width:100%;height:auto;border:1px solid #e9eef6;border-radius:6px;padding:8px;background:#fff;" />
-								<p class="small text-muted mt-2">Project timeline (condensed view). For a high-resolution PNG, replace this SVG with the provided image.</p>
-							</div>
-
-							<!-- Phase 2: Planning -->
-							<section class="mt-3">
-								<h4>2. Planning</h4>
-								<p><strong>Objective:</strong> Produce the execution-ready plan: detailed schedule, environment definitions, security plan, integration checklist, testing & cutover plans.</p>
-								<h5>Key planning activities (detailed)</h5>
-								<ol>
-									<li><strong>Environment & network planning</strong> — Confirm AE Titles for Sender, Receiver, Demo; coordinate VPN and firewall rules; define S3 bucket naming and retention policy (e.g., s3://synth-alberta-prod/studies/).</li>
-									<li><strong>Integration design</strong> — Map incoming DICOM SOP Classes and transfer syntaxes; create SynthFlow mapping templates (patient demographics, accession, priority tags).</li>
-									<li><strong>Security & compliance</strong> — Define encryption at rest (SSE-KMS), TLS endpoints for DICOMweb, IAM roles for S3 access, logging & audit trail requirements.</li>
-									<li><strong>Schedule & resourcing</strong> — Establish sprint cadence (2-week sprints), resource allocation (network engineer, integration lead, AI engineer, QA lead), and steering committee dates.</li>
-									<li><strong>Testing strategy</strong> — Define unit tests, integration tests, performance tests, and UAT acceptance criteria; produce UAT plan and defect logging process.</li>
-									<li><strong>Cutover & rollback planning</strong> — Create cutover runbook and rollback criteria (e.g., if ingest fails >X%).</li>
-								</ol>
-								<h5>Artifacts produced (examples)</h5>
-								<ul>
-									<li>Project schedule / Gantt (Excel + Project Gantt) — milestones: AE config, Integration test, UAT, Pilot, Go-Live.</li>
-									<li>Integration Checklist (detailed item list per site): AE Title settings, C-ECHO tests, C-STORE success, DICOM header validation.</li>
-									<li>Network runbook & firewall ticket templates.</li>
-									<li>SynthFlow mapping templates (Confluence + YAML snippets).</li>
-									<li>Security plan & data handling SOPs (Confluence).</li>
-								</ul>
-								<h5>Folder structure (recommended)</h5>
-								<pre>
-								Project-{XYZHealthNetwork}-DICOM-Integration/
-								├─ 01_Initiation/
-								│  ├─ Project_Charter.docx
-								│  └─ Stakeholder_Register.xlsx
-								├─ 02_Planning/
-								│  ├─ Integration_Checklist.xlsx
-								│  ├─ AE_Title_Setup_Checklist.xlsx
-								│  └─ Network_Runbook.md
-								├─ 03_Execution/
-								│  └─ Implementation_notes/
-								├─ 04_Testing/
-								│  ├─ UAT_Plan.docx
-								│  └─ Error_Tracker.xlsx
-								├─ 05_Go-Live/
-								│  └─ Cutover_Runbook.md
-								└─ 06_Closure/
-								   └─ Lessons_Learned.docx
-								</pre>
-								<h5>Tools & roles</h5>
-								<ul>
-									<li>Jira: epics/stories, sprint boards, trackers for AE config and UAT defects.</li>
-									<li>Confluence: all documents, runbooks, and approvals (versioned).</li>
-									<li>Azure DevOps: pipelines for infra and release gating (if infra-as-code used).</li>
-									<li>Lucidchart: network and integration diagrams.</li>
-								</ul>
-								<hr />
-							</section>
-
-							<!-- Phase 3: Execution -->
-							<section class="mt-3">
-								<h4>3. Execution</h4>
-								<p><strong>Objective:</strong> Implement integrations, configure RadFlow pipelines, create storage buckets, and perform initial connectivity and ingest tests for pilot sites.</p>
-								<h5>Tasks completed (detailed)</h5>
-								<ul>
-									<li>Configured AWS S3 buckets and applied lifecycle policies (e.g., 90 days nearline, archive after 365 days) and KMS policies for encryption.</li>
-									<li>Provisioned RadFlow endpoints and created DICOM validation rules; deployed SynthFlow tag mappings for AE Titles.</li>
-									<li>Performed AE Title registration and C-ECHO tests with each pilot site; documented results in Integration Checklist.</li>
-									<li>Instrumented monitoring and logging (S3 access logs, CloudTrail, and application logs) and connected to Grafana/Prometheus for dashboards.</li>
-									<li>Completed CI/CD pipelines that deploy microservice configuration to staging and production RadFlow clusters (Azure DevOps).</li>
-									<li>Weekly demos to clinical users and feedback capture (Confluence action items; Jira tasks created for follow-ups).</li>
-								</ul>
-								<h5>Deliverables</h5>
-								<ul>
-									<li>Configured AE Titles on RadFlow and client devices (AE Sender/Receiver lists).</li>
-									<li>Test logs showing successful C-STORE transfers and checksum validation.</li>
-									<li>Deployment pipelines and runbooks for failover and scale.</li>
-								</ul>
-								<h5>Example artifacts (links)</h5>
-								<ul>
-									<li>Integration Checklist (site-by-site): AE Title, IP, port, C-ECHO status, C-STORE status.</li>
-									<li>SynthFlow template: mapping YAML snippets (stored in Confluence snippets).</li>
-								</ul>
-								<hr />
-							</section>
-
-							<!-- Phase 4: Testing -->
-							<section class="mt-3">
-								<h4>4. Testing</h4>
-								<p><strong>Objective:</strong> Validate functional correctness, performance, security and clinical acceptance (UAT). For XYZ Health Network we executed lab tests, integration tests, performance tests and UAT with clinical reviewers.</p>
-								<h5>Test types & approach</h5>
-								<ul>
-									<li><strong>Unit / component tests:</strong> Validate RadFlow rules and microservice endpoints.</li>
-									<li><strong>Integration tests:</strong> End-to-end flow: DICOM send → RadFlow validation → S3 store → retrieval via DICOMweb / WADO.</li>
-									<li><strong>Performance tests:</strong> Throughput and concurrency testing (simulate parallel C-STOREs to ensure system sustains production load).</li>
-									<li><strong>Security tests:</strong> Pen test guidance, TLS verification, IAM role checks and S3 access logging review.</li>
-									<li><strong>UAT:</strong> Clinical acceptance with sample anonymized cases and clinician checklist.</li>
-								</ul>
-								<h5>Defect management</h5>
-								<p>All defects raised during testing were logged into Jira as bug issues with fields: severity, steps to reproduce, owner, target sprint, and status. Example defect fields used in our template:</p>
-								<ul>
-									<li>ID, Summary, Severity (Critical/High/Medium/Low), Affected Site, Steps, Assigned To, Status, Fix Version.</li>
-								</ul>
-								<h5>Acceptance criteria (sample)</h5>
-								<ul>
-									<li>All pilot sites pass AE C-ECHO and C-STORE with >=99% success rate across 1,000 sample studies.</li>
-									<li>Clinical signoff: clinicians confirm retrieval and viewing of images with expected metadata mapping.</li>
-									<li>Security scans show no critical findings and audit logs are captured as required.</li>
-								</ul>
-								<hr />
-							</section>
-
-							<!-- Phase 5: Go-Live -->
-							<section class="mt-3">
-								<h4>5. Go-Live</h4>
-								<p><strong>Objective:</strong> Execute the cutover runbook, validate operational readiness and place environments into production mode. For XYZ Health Network we used a staged pilot-to-production approach.</p>
-								<h5>Go-Live checklist (selected items)</h5>
-								<ul>
-									<li>Final AE Title confirmation and last-mile network checks.</li>
-									<li>Execute cutover runbook: switch senders to RadFlow endpoints; monitor C-STORE successes.</li>
-									<li>Enable monitoring dashboards and alerting (thresholds for failed ingests, latency).</li>
-									<li>Ensure support roster and Hypercare schedule is active (24/7 for first 72 hours depending on SLA).</li>
-									<li>Collect immediate feedback and log issues in Jira with priority for fixes in Hypercare.</li>
-								</ul>
-								<h5>Communication</h5>
-								<p>Send Go-Live announcement to stakeholders including operational contacts, escalation points, and hyperlinks to runbooks and dashboards. Use scheduled check-ins (30min for first day, then hourly/shift-based) and a steering update at 24 hours and 7 days.</p>
-								<hr />
-							</section>
-
-							<!-- Phase 6: Closure -->
-							<section class="mt-3">
-								<h4>6. Closure</h4>
-								<p><strong>Objective:</strong> Formalize acceptance, transfer operations to business-as-usual (BAU), capture lessons learned and close project finances.</p>
-								<h5>Closure tasks</h5>
-								<ul>
-									<li>Obtain formal Client Test Signoff (UAT signoff) and Sponsor Acceptance.</li>
-									<li>Handover operational runbooks, SOPs, and contact lists to BAU (Confluence & ticketing onboarding).</li>
-									<li>Conduct Lessons Learned workshop and publish Final Status Report.</li>
-									<li>Archive project artifacts into the 06_Closure folder and set retention policy for the project workspace.</li>
-								</ul>
-								<hr />
-							</section>
-
-							<!-- Phase 7: Financial Analysis (placeholder) -->
-							<section class="mt-3">
-								<h4>7. Financial Analysis (post-closure)</h4>
-								<p>After closure the project finance owner will reconcile actuals vs budget, capture capital vs operational costs, and prepare a Cost-Benefit summary for XYZ Health Network. Typical artifacts include:</p>
-								<ul>
-									<li>Final cost report (line items: infrastructure, licensing, labour, travel).</li>
-									<li>ROI and TCO projections updated with actuals.</li>
-									<li>Post-implementation support cost schedule (monthly/yearly).</li>
-								</ul>
-								<p><em>Note:</em> We will prepare the financial analysis after receiving actual cost inputs from procurement and time sheets.</p>
-							</section>
-
-							<!-- Interactive Financial Calculator (Excel-like) -->
-							<section id="financial-calculator" class="inner-section has-sm-padding">
-			 					<div class="container">
-			 						<h3 class="section-title text-center">Interactive Financial Analysis — Project Cost & 5yr Projection</h3>
-			 						<p class="text-center">This interactive section mirrors the supplied financial worksheet. Toggle services, edit prices and resource hours to recalculate immediate project gain/loss and the 5-year profit projection. Colors reflect outcome (red/orange/yellow/green).</p>
-			 						<!-- Services / Off-set -->
-			 						<div class="row mt-3">
-			 							<div class="col-md-7">
-			 								<h6>Service Price List</h6>
-			 								<div class="table-responsive">
-			 									<table class="table table-sm table-bordered">
-			 										<thead><tr><th>Include</th><th>Service Description</th><th style="width:160px;">Price (CAD)</th></tr></thead>
-			 										<tbody>
-			 										<tr><td><input type="checkbox" class="svc-include" data-price="50000" checked></td><td>Archive Historical Files</td><td><input class="svc-price form-control" type="number" value="50000" min="0" step="0.01"></td></tr>
-			 										<tr><td><input type="checkbox" class="svc-include" data-price="80000" checked></td><td>DICOM-Only PACS Transfer</td><td><input class="svc-price form-control" type="number" value="80000" min="0" step="0.01"></td></tr>
-			 										<tr><td><input type="checkbox" class="svc-include" data-price="90000"></td><td>HL7 Integration</td><td><input class="svc-price form-control" type="number" value="90000" min="0" step="0.01"></td></tr>
-			 										<tr><td><input type="checkbox" class="svc-include" data-price="15000"></td><td>Custom Technical Workflow</td><td><input class="svc-price form-control" type="number" value="15000" min="0" step="0.01"></td></tr>
-			 										<tr><td><input type="checkbox" class="svc-include" data-price="5000"></td><td>VPN / Secure Infrastructure</td><td><input class="svc-price form-control" type="number" value="5000" min="0" step="0.01"></td></tr>
-			 										<tr><td><input type="checkbox" class="svc-include" data-price="4000" checked></td><td>AE Title Setup & Validation</td><td><input class="svc-price form-control" type="number" value="4000" min="0" step="0.01"></td></tr>
-			 										<tr><td><input type="checkbox" class="svc-include" data-price="6000" checked></td><td>Cloud Storage Configuration</td><td><input class="svc-price form-control" type="number" value="6000" min="0" step="0.01"></td></tr>
-			 										<tr><td><input type="checkbox" class="svc-include" data-price="20000"></td><td>Radiologist Consultation (2 wks)</td><td><input class="svc-price form-control" type="number" value="20000" min="0" step="0.01"></td></tr>
-			 										</tbody>
-			 									</table>
-			 								</div>
-			 								<p><strong>Total Off-Set Price:</strong> <span id="svc-total">$0</span></p>
-			 							</div>
-			 							<div class="col-md-5">
-			 								<h6>Resource Costs (hourly)</h6>
-			 								<div class="table-responsive">
-			 									<table class="table table-sm table-bordered">
-			 										<thead><tr><th>Role</th><th>Rate (CAD/hr)</th><th>Hours</th><th>Total (CAD)</th></tr></thead>
-			 										<tbody>
-			 										<tr><td>Project Manager</td><td><input class="res-rate form-control" data-role="pm" type="number" value="90" min="0" step="0.01"></td><td><input class="res-hours form-control" data-role="pm" type="number" value="320" min="0" step="0.1"></td><td class="res-total" data-role="pm">$0</td></tr>
-			 										<tr><td>Integration Engineer</td><td><input class="res-rate form-control" data-role="ie" type="number" value="80" min="0" step="0.01"></td><td><input class="res-hours form-control" data-role="ie" type="number" value="280" min="0" step="0.1"></td><td class="res-total" data-role="ie">$0</td></tr>
-			 										<tr><td>Technical Architect</td><td><input class="res-rate form-control" data-role="ta" type="number" value="95" min="0" step="0.01"></td><td><input class="res-hours form-control" data-role="ta" type="number" value="200" min="0" step="0.1"></td><td class="res-total" data-role="ta">$0</td></tr>
-			 										<tr><td>QA Tester</td><td><input class="res-rate form-control" data-role="qa" type="number" value="70" min="0" step="0.01"></td><td><input class="res-hours form-control" data-role="qa" type="number" value="150" min="0" step="0.1"></td><td class="res-total" data-role="qa">$0</td></tr>
-			 										<tr><td>Support Specialist (1-Month Hypercare)</td><td><input class="res-rate form-control" data-role="sp" type="number" value="65" min="0" step="0.01"></td><td><input class="res-hours form-control" data-role="sp" type="number" value="100" min="0" step="0.1"></td><td class="res-total" data-role="sp">$0</td></tr>
-			 										</tbody>
-			 									</table>
-			 								</div>
-			 								<p><strong>Total Resources Utilized:</strong> <span id="res-total">$0</span></p>
-			 							</div>
-			 						</div>
-			 						<!-- Immediate summary -->
-			 						<hr />
-			 						<div class="row">
-			 							<div class="col-md-6">
-			 								<p><strong>Immediate Off-Set Price (Selected Services):</strong> <span id="immediate-offset">$0</span></p>
-			 								<p><strong>Immediate Total Resources:</strong> <span id="immediate-res">$0</span></p>
-			 								<p><strong>Immediate Project Gain / (Loss):</strong> <span id="immediate-net">$0</span></p>
-			 							</div>
-			 							<div class="col-md-6 text-right">
-			 								<div id="immediate-box" style="padding:1rem;border-radius:6px;font-weight:700;display:inline-block;min-width:260px;text-align:center;">Net: $0</div>
-			 								<p class="mt-2"><small>Color: red = loss, orange = low, yellow = moderate, green = healthy</small></p>
-			 							</div>
-			 						</div>
-			 						<!-- 5 year projection -->
-			 						<hr />
-			 						<h5>5-Year Financial Projection</h5>
-			 						<div class="table-responsive">
-			 							<table class="table table-sm table-bordered">
-			 								<thead><tr><th>Year</th><th>Estimated Imaging Volume</th><th>Storage Required (TB)</th><th>Annual Subscription Fee (CAD)</th><th>Estimated Revenue (CAD)</th></tr></thead>
-			 								<tbody>
-			 								<tr data-year="2025"><td>2025</td><td><input class="proj-vol form-control" data-year="2025" type="number" value="10000"></td><td><input class="proj-tb form-control" data-year="2025" type="number" value="2"></td><td><input class="proj-fee form-control" data-year="2025" type="number" value="25000"></td><td class="proj-rev" data-year="2025">$0</td></tr>
-			 								<tr data-year="2026"><td>2026</td><td><input class="proj-vol form-control" data-year="2026" type="number" value="15000"></td><td><input class="proj-tb form-control" data-year="2026" type="number" value="3"></td><td><input class="proj-fee form-control" data-year="2026" type="number" value="30000"></td><td class="proj-rev" data-year="2026">$0</td></tr>
-			 								<tr data-year="2027"><td>2027</td><td><input class="proj-vol form-control" data-year="2027" type="number" value="20000"></td><td><input class="proj-tb form-control" data-year="2027" type="number" value="5"></td><td><input class="proj-fee form-control" data-year="2027" type="number" value="35000"></td><td class="proj-rev" data-year="2027">$0</td></tr>
-			 								<tr data-year="2028"><td>2028</td><td><input class="proj-vol form-control" data-year="2028" type="number" value="25000"></td><td><input class="proj-tb form-control" data-year="2028" type="number" value="7"></td><td><input class="proj-fee form-control" data-year="2028" type="number" value="42000"></td><td class="proj-rev" data-year="2028">$0</td></tr>
-			 								<tr data-year="2029"><td>2029</td><td><input class="proj-vol form-control" data-year="2029" type="number" value="30000"></td><td><input class="proj-tb form-control" data-year="2029" type="number" value="10"></td><td><input class="proj-fee form-control" data-year="2029" type="number" value="50000"></td><td class="proj-rev" data-year="2029">$0</td></tr>
-			 								</tbody>
-			 								<tfoot>
-			 								<tr><th>TOTAL</th><th></th><th class="proj-total-tb">27 TB</th><th></th><th id="proj-total-rev">$0</th></tr>
-			 								</tfoot>
-			 							</table>
-			 						</div>
-			 						<!-- 5yr storage & support -->
-			 						<div class="row">
-			 							<div class="col-md-8">
-			 								<h6>5yr Storage & Support Cost</h6>
-			 								<div class="table-responsive">
-			 									<table class="table table-sm table-bordered">
-			 									<thead><tr><th>Year</th><th>Storage Used (TB)</th><th>Cloud Storage Cost (CAD)</th><th>Internal Support Hours</th><th>Internal Support Cost (CAD)</th></tr></thead>
-			 									<tbody>
-			 									<tr><td>2025</td><td class="sc-tb" data-year="2025">2</td><td class="sc-cost" data-year="2025">4800</td><td class="sc-hours" data-year="2025">30</td><td class="sc-cost-int" data-year="2025">1950</td></tr>
-			 									<tr><td>2026</td><td class="sc-tb" data-year="2026">3</td><td class="sc-cost" data-year="2026">7200</td><td class="sc-hours" data-year="2026">30</td><td class="sc-cost-int" data-year="2026">1950</td></tr>
-			 									<tr><td>2027</td><td class="sc-tb" data-year="2027">5</td><td class="sc-cost" data-year="2027">12000</td><td class="sc-hours" data-year="2027">30</td><td class="sc-cost-int" data-year="2027">1950</td></tr>
-			 									<tr><td>2028</td><td class="sc-tb" data-year="2028">7</td><td class="sc-cost" data-year="2028">16800</td><td class="sc-hours" data-year="2028">20</td><td class="sc-cost-int" data-year="2028">1300</td></tr>
-			 									<tr><td>2029</td><td class="sc-tb" data-year="2029">10</td><td class="sc-cost" data-year="2029">24000</td><td class="sc-hours" data-year="2029">20</td><td class="sc-cost-int" data-year="2029">1300</td></tr>
-			 									</tbody>
-			 									<tfoot><tr><th>TOTAL</th><th class="sc-total-tb">27 TB</th><th id="sc-total-cost">$0</th><th class="sc-total-hours">130</th><th id="sc-total-int">$0</th></tr></tfoot>
-			 									</table>
-			 								</div>
-			 							</div>
-			 							<div class="col-md-4">
-			 								<h6>5yr Summary</h6>
-			 								<p><strong>5yrs Financial Profit Projection:</strong> <span id="proj-profit">$0</span></p>
-			 								<p><strong>5yrs Resource Utilization Forecast:</strong> <span id="proj-res-util">$0</span></p>
-			 								<p><strong>5yrs Total Profit Projection:</strong> <span id="proj-total-profit">$0</span></p>
-			 							</div>
-			 						</div>
-			 						<style>
-			 							#immediate-box.loss-red{background:#f8d7da;color:#721c24;border:1px solid #f5c6cb}
-			 							#immediate-box.loss-orange{background:#fff3cd;color:#856404;border:1px solid #ffeeba}
-			 							#immediate-box.warning-yellow{background:#fffbe6;color:#857b1f;border:1px solid #fff3bf}
-			 							#immediate-box.gain-green{background:#d4edda;color:#155724;border:1px solid #c3e6cb}
-			 						</style>
-			 						<script>
-			 						(function(){
-			 							function toMoney(v){ return '$' + Number(v || 0).toLocaleString(undefined,{minimumFractionDigits:2,maximumFractionDigits:2}); }
-			 							function num(v){ var n = Number(v); return isFinite(n)? n : 0; }
-			 							// services
-			 							var svcIncludes = document.querySelectorAll('.svc-include');
-			 							var svcPrices = document.querySelectorAll('.svc-price');
-			 							// resources
-			 							var resRates = document.querySelectorAll('.res-rate');
-			 							var resHours = document.querySelectorAll('.res-hours');
-			 							var resTotals = document.querySelectorAll('.res-total');
-			 							// projection inputs
-			 							var projFees = document.querySelectorAll('.proj-fee');
-			 							var projRevs = document.querySelectorAll('.proj-rev');
-			 							var scCosts = document.querySelectorAll('.sc-cost');
-			 							var scCostInt = document.querySelectorAll('.sc-cost-int');
-			 							function recalcImmediate(){
-			 								var svcTotal = 0;
-			 								for(var i=0;i<svcPrices.length;i++){ var p = num(svcPrices[i].value); if(svcIncludes[i].checked) svcTotal += p; }
-			 								document.getElementById('svc-total').textContent = toMoney(svcTotal);
-			 								// resources
-			 								var resTotal = 0;
-			 								for(var i=0;i<resRates.length;i++){ var role = resRates[i].getAttribute('data-role'); var rate = num(resRates[i].value); var hours = num(document.querySelector('.res-hours[data-role="'+role+'"]').value); var tot = rate * hours; resTotals[i].textContent = toMoney(tot); resTotal += tot; }
-			 								document.getElementById('res-total').textContent = toMoney(resTotal);
-			 								// immediate summary
-			 								document.getElementById('immediate-offset').textContent = toMoney(svcTotal);
-			 								document.getElementById('immediate-res').textContent = toMoney(resTotal);
-			 								var net = svcTotal - resTotal;
-			 								document.getElementById('immediate-net').textContent = toMoney(net);
-			 								var box = document.getElementById('immediate-box'); box.className = '';
-			 								if(net < 0) box.classList.add('loss-red');
-			 								else if(net < 20000) box.classList.add('loss-orange');
-			 								else if(net < 50000) box.classList.add('warning-yellow');
-			 								else box.classList.add('gain-green');
-			 							}
-			 							function recalcProjection(){
-			 								var totalRev = 0;
-			 								for(var i=0;i<projFees.length;i++){ var v = num(projFees[i].value); totalRev += v; projRevs[i].textContent = toMoney(v); }
-			 								document.getElementById('proj-total-rev').textContent = toMoney(totalRev);
-			 								// storage costs total
-			 								var totalSc = 0; for(var i=0;i<scCosts.length;i++){ totalSc += num(scCosts[i].textContent || scCosts[i].getAttribute('data-year') && num(scCosts[i].textContent)); }
-			 								// simpler: sum from elements by data-year attribute
-			 								var scTotal = 0; document.querySelectorAll('.sc-cost').forEach(function(el){ scTotal += num(el.textContent || el.innerText); });
-			 								document.getElementById('sc-total-cost').textContent = toMoney(scTotal);
-			 								// internal support cost total
-			 								var scIntTotal = 0; document.querySelectorAll('.sc-cost-int').forEach(function(el){ scIntTotal += num(el.textContent || el.innerText); });
-			 								document.getElementById('sc-total-int').textContent = toMoney(scIntTotal);
-			 								// resource util forecast (storage + internal support)
-			 								var resUtil = scTotal + scIntTotal;
-			 								document.getElementById('proj-res-util').textContent = toMoney(resUtil);
-			 								// 5yr profit = totalRev - resUtil
-			 								var profit5 = totalRev - resUtil;
-			 								document.getElementById('proj-profit').textContent = toMoney(totalRev);
-			 								document.getElementById('proj-total-profit').textContent = toMoney(profit5);
-			 							}
-			 							// attach listeners
-			 							document.querySelectorAll('.svc-price, .svc-include, .res-rate, .res-hours').forEach(function(el){ el.addEventListener('input', function(){ recalcImmediate(); }); el.addEventListener('change', function(){ recalcImmediate(); }); });
-			 							document.querySelectorAll('.proj-fee').forEach(function(el){ el.addEventListener('input', recalcProjection); el.addEventListener('change', recalcProjection); });
-			 							// initial compute
-			 							recalcImmediate();
-			 							recalcProjection();
-			 						})();
-			 						</script>
-							</section>
-
-							<!-- Appendices: templates & mapping -->
-							<section class="mt-4">
-								<h5>Appendix A — Template & artifact quick links (examples)</h5>
-								<ul>
-									<li>Project Charter template (Project-Charter.docx)</li>
-									<li>AE Title Setup Checklist (AE_Title_Checklist.xlsx)</li>
-									<li>Integration Checklist (Integration_Checklist.xlsx)</li>
-									<li>RAID Log template (RAID_Log.xlsx)</li>
-									<li>UAT signoff form (UAT_Signoff.pdf)</li>
-								</ul>
-
-								<!-- Downloadable zip of templates (added) -->
-								<p class="mt-2">
-									<a href="assets/pm-templates.zip" class="btn btn-outline-primary" download="pm-templates.zip">Download PM templates (ZIP)</a>
-									<small class="d-block text-muted mt-1">Includes Project_Charter.md, RAID_Log.csv, Integration_Checklist.csv, AE_Title_Checklist.csv, UAT_Signoff.md</small>
-								</p>
-								<h5>Appendix B — Tools mapping (project activities → tools)</h5>
-								<table class="table table-sm table-bordered">
-									<thead><tr><th>Activity</th><th>Tool(s)</th></tr></thead>
-									<tbody>
-									<tr><td>Stakeholder comms and documents</td><td>Confluence, MS Teams, Outlook</td></tr>
-									<tr><td>Task & defect tracking</td><td>Jira / Azure DevOps</td></tr>
-									<tr><td>Design diagrams</td><td>Lucidchart</td></tr>
-									<tr><td>Integration pipelines</td><td>Azure DevOps, RadFlow config, Git</td></tr>
-									<tr><td>Monitoring & KPIs</td><td>Grafana, CloudWatch, CloudTrail</td></tr>
-									</tbody>
-								</table>
-							</section>
-						</div>
-					</section>
-
 				<!-- Technical architecture and data flow -->
-				<section class="inner-section has-lighter-bg has-sm-padding">
+				<!-- <section class="inner-section has-lighter-bg has-sm-padding">
 					<div class="container">
 						<h3 class="section-title text-center">Technical Architecture & Data Flow</h3>
 						<p class="text-center">A concise description of how imaging and clinical data move through the SynthAI ecosystem, how we generate and manage DICOM metadata, and how integrations (Mirth Connect, AWS, Synthesis Archive) work together.</p>
@@ -1290,18 +1251,18 @@
 									<li>Regular encryption and security audits to ensure HIPAA / GDPR compliance.</li>
 								</ul>
 							</div>
-
-													<div class="row mt-4">
-							<div class="col-md-12 text-center">
-								<a href="mailto:hello@vivian.example?subject=Interest%20in%20SynthAI%20projects" class="btn btn-primary">Contact about collaboration</a>
-							</div>
 						</div>						
 						</div>
 					</div>
-				</section>
-
+				</section> -->
+<section><div class="row mt-4">
+							<div class="col-md-12 text-center">
+								<a href="mailto:hello@vivian.example?subject=Interest%20in%20SynthAI%20projects" class="btn btn-primary">Contact about collaboration</a>
+							</div>
+</section>
+				
 								<!-- Technology overview -->
-				<section class="inner-section">
+                <section class="inner-section tab-section tab-ai">
 					<div class="container">
 						<h3 class="section-title text-center">Technology Stack</h3>
 						<div class="row mt-4 justify-content-center">

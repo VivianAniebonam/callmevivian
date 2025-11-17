@@ -1,0 +1,81 @@
+<section class="tab-page tech-page">
+  <div class="container">
+    <h3>Technical Architecture &amp; Data Flow</h3>
+
+    <section class="tech-overview">
+      <h4>Overview</h4>
+      <p>Incoming clinical messages and imaging arrive from hospitals and clinics in HL7, XML, JSON and DICOM. Mirth Connect acts as the interface engine to normalize and route messages. Imaging files are stored in AWS (S3) for scalable storage and retained in the Synthesis Archive for operational access and long-term retention. Metadata is stored in a transactional database (PostgreSQL) enabling fast search and retrieval. SynthFlow is used to author DICOM tag templates, map incoming metadata to DICOM fields, and apply client-specific configurations. SynthAI consumes imaging + metadata to generate prioritization and diagnostic guidance for radiologists.</p>
+    </section>
+
+    <section class="dicom-tags">
+      <h4>DICOM &amp; DICOM Tags — How this works</h4>
+      <p>DICOM (Digital Imaging and Communications in Medicine) is both a file format and a network protocol used to store, transmit and retrieve medical images and associated metadata. Every DICOM file contains a header of metadata encoded as tags and a pixel data element that contains the image.</p>
+
+      <h5>Key points about DICOM tags</h5>
+      <ul>
+        <li>Each tag is represented as a 16-bit group and 16-bit element pair, e.g. (0010,0010) is Patient Name.</li>
+        <li>Tags carry a Value Representation (VR) that defines the data type (e.g., PN, DA, UI).</li>
+        <li>Essential tags for indexing and retrieval include Study Instance UID (0020,000D), Series Instance UID (0020,000E), SOP Instance UID (0008,0018), Modality (0008,0060), Study Date (0008,0020) and Patient ID (0010,0020).</li>
+        <li>Pixel data lives in tag (7FE0,0010) and is usually large, so metadata is indexed separately to make searching fast.</li>
+      </ul>
+
+      <p>In SynthFlow we define tag templates and mapping rules that translate incoming HL7/XML/JSON fields into target DICOM tags. Typical mappings include patient demographics, accession numbers, study descriptions and ordering physician info. SynthFlow also supports:</p>
+      <ul>
+        <li>Tag templating and conditional rules (set or override tags based on client rules).</li>
+        <li>Anonymization and de-identification profiles for research or privacy-safe sharing.</li>
+        <li>Tag enrichment — adding derived tags (e.g., priority code) to support triage.</li>
+        <li>DICOMweb and WADO endpoints configuration for easy browser-based retrieval.</li>
+      </ul>
+    </section>
+
+    <section class="integration-stack">
+      <h4>Integration stack (Mirth Connect, AWS, Synthesis Archive)</h4>
+
+      <h5>Mirth Connect</h5>
+      <p>Mirth Connect acts as the integration engine. Channels ingest HL7, XML, JSON and DICOM (via connectors/plugins), perform transformations, validation and routing. Typical Mirth responsibilities include:</p>
+      <ul>
+        <li>Parse ADT/ORM/ORU HL7 messages and extract metadata.</li>
+        <li>Perform message transforms (e.g., map HL7 fields into a DICOM tag mapping request for SynthFlow).</li>
+        <li>Trigger retrieval or storage actions (C-FIND, C-MOVE, DICOMweb PUT) to move images into AWS or the Synthesis Archive.</li>
+      </ul>
+
+      <h5>AWS Storage</h5>
+      <p>Imaging objects (DICOM) are stored in S3 with lifecycle policies. Metadata indexes and thumbnails are stored in PostgreSQL for quick queries. S3 provides scalable, durable storage and can be configured for cross-region replication and access logging.</p>
+
+      <h5>Synthesis Archive</h5>
+      <p>The Synthesis Archive provides a searchable, regulatory-ready archive with role-based access, audit trails and integration endpoints (DICOM, DICOMweb, WADO). The archive supports retrieval via DICOM C-GET/C-MOVE or DICOMweb GET and serves as the operational access layer for clinicians.</p>
+
+      <p>Together these components enable reliable ingestion, transformation, storage and retrieval at scale while preserving clinical metadata and auditability.</p>
+    </section>
+
+    <section class="synthai">
+      <h4>SynthAI &amp; Diagnostic Support</h4>
+      <p>SynthAI augments radiologist workflows by ingesting imaging and metadata, running inference models, and surfacing prioritized cases and visual cues (heatmaps, bounding boxes) that point to potential abnormalities. Typical outputs include:</p>
+      <ul>
+        <li>Priority score (for triage)</li>
+        <li>Structured suggestions and confidence scores</li>
+        <li>Annotated images or overlay layers viewable in the PWA</li>
+      </ul>
+      <p>Models run in the backend with appropriate logging and versioning; outputs are stored as structured metadata and linked to DICOM instances so radiologists can review original images and AI annotations side-by-side.</p>
+    </section>
+
+    <section class="standards">
+      <h4>Standards &amp; Message Types</h4>
+      <ul>
+        <li><strong>HL7:</strong> ADT (patient updates), ORM (orders) and ORU (results) messages are parsed to enrich imaging metadata and trigger workflows.</li>
+        <li><strong>XML / JSON:</strong> Modern APIs and vendor-specific payloads are parsed and normalized by Mirth before mapping to DICOM or metadata records.</li>
+        <li><strong>DICOM / DICOMweb:</strong> Image storage and retrieval; DICOMweb (WADO-RS) enables browser-friendly retrieval of DICOM images and metadata.</li>
+      </ul>
+    </section>
+
+    <section class="security">
+      <h4>Security, Privacy &amp; Compliance</h4>
+      <ul>
+        <li>Encryption at rest (S3 SSE) and in transit (TLS) for all network communications.</li>
+        <li>Role-based access control and audit logging (who accessed what and when).</li>
+        <li>Support for de-identification/anonymization profiles where required for research.</li>
+        <li>Regular encryption and security audits to ensure HIPAA / GDPR compliance.</li>
+      </ul>
+    </section>
+  </div>
+</section>

@@ -1,0 +1,181 @@
+<!--
+title: Project Management Implementation — XYZ Health Network
+description: End-to-end project delivery narrative (Initiation → Closure)
+author: Vivian Aniebonam
+updated: 2025-11-15
+-->
+<section class="tab-page pm-page">
+  <div class="container">
+    <h3>Project Management Implementation — XYZ Health Network (A–Z)</h3>
+
+    <section class="pm-meta">
+      <p><strong>Project Title:</strong> XYZ Health Network — DICOM-Only PACS Integration</p>
+      <p><strong>Project Manager:</strong> Vivian Aniebonam</p>
+      <p><strong>Client:</strong> XYZ Health Network</p>
+      <p><strong>Start Date:</strong> 2025-02-10 &nbsp; | &nbsp; <strong>Target Go-Live:</strong> 2025-04-20</p>
+      <p><strong>Scope (short):</strong> Integrate DICOM-only image flows from participating facilities into Synthesis Health RadFlow with storage on Amazon S3; configure AE Titles & secure transfer; enable central retrieval for clinicians.</p>
+    </section>
+
+    <section class="pm-phases">
+      <h4>Project phases</h4>
+      <ol>
+        <li>Initiation</li>
+        <li>Planning</li>
+        <li>Execution</li>
+        <li>Testing</li>
+        <li>Go-Live</li>
+        <li>Closure</li>
+      </ol>
+
+      <h5>1. Initiation</h5>
+      <p><strong>Objective:</strong> Confirm scope, secure sponsorship, produce Project Charter and high-level plan, identify key stakeholders and establish governance. Primary sponsor: Provincial Imaging Services team.</p>
+      <h6>Activities performed</h6>
+      <ul>
+        <li>Project kick-off meeting with stakeholders (Clinical Leads, IT Network, PACS ops, Security).</li>
+        <li>Stakeholder analysis and Stakeholder Register (owner, interest, influence, comms).</li>
+        <li>Project Charter (scope, objectives, constraints, assumptions, success criteria).</li>
+        <li>Initial RAID Log skeleton and initial entries.</li>
+        <li>Collected sample DICOM files and AE Title details from three pilot sites.</li>
+        <li>Validated network prerequisites (VPN endpoints, firewall rules, DICOM port ranges).</li>
+      </ul>
+      <h6>Artifacts produced</h6>
+      <ul>
+        <li>Project Charter (MS Word)</li>
+        <li>Stakeholder Register (Excel)</li>
+        <li>RAID Log (Confluence / Excel)</li>
+        <li>AE Title Setup Checklist</li>
+        <li>High-level Acceptance Criteria</li>
+      </ul>
+      <p><strong>Tools & owners:</strong> Project Manager (Vivian) — Confluence, Jira, MS Teams, Lucidchart.</p>
+
+      <h5>2. Planning</h5>
+      <p><strong>Objective:</strong> Produce an execution-ready plan: schedule, environment definitions, security plan, integration checklist, testing & cutover plans.</p>
+      <h6>Key planning activities</h6>
+      <ul>
+        <li>Environment & network planning — AE Titles, VPN/firewall coordination, S3 naming/retention.</li>
+        <li>Integration design — map SOP Classes and transfer syntaxes; SynthFlow mapping templates.</li>
+        <li>Security & compliance — SSE-KMS, TLS, IAM roles, logging & audit requirements.</li>
+        <li>Schedule & resourcing — 2-week sprints, resource allocation, steering committee dates.</li>
+        <li>Testing strategy — unit, integration, performance, UAT plan.</li>
+        <li>Cutover & rollback planning — cutover runbook and rollback criteria.</li>
+      </ul>
+      <h6>Artifacts produced</h6>
+      <ul>
+        <li>Project schedule / Gantt (Excel)</li>
+        <li>Integration Checklist, AE Title Setup Checklist</li>
+        <li>Network runbook & firewall ticket templates</li>
+        <li>SynthFlow mapping templates (YAML snippets)</li>
+        <li>Security plan & SOPs</li>
+      </ul>
+
+      <h6>Recommended folder structure</h6>
+      <pre>
+Project-{XYZHealthNetwork}-DICOM-Integration/
+├─ 01_Initiation/
+│  ├─ Project_Charter.docx
+│  └─ Stakeholder_Register.xlsx
+├─ 02_Planning/
+│  ├─ Integration_Checklist.xlsx
+│  ├─ AE_Title_Setup_Checklist.xlsx
+│  └─ Network_Runbook.md
+├─ 03_Execution/
+│  └─ Implementation_notes/
+├─ 04_Testing/
+│  ├─ UAT_Plan.docx
+│  └─ Error_Tracker.xlsx
+├─ 05_Go-Live/
+│  └─ Cutover_Runbook.md
+└─ 06_Closure/
+   └─ Lessons_Learned.docx
+      </pre>
+
+      <h5>3. Execution</h5>
+      <p><strong>Objective:</strong> Implement integrations, configure RadFlow, create storage buckets, and perform initial connectivity and ingest tests for pilot sites.</p>
+      <h6>Tasks completed</h6>
+      <ul>
+        <li>Configured AWS S3 buckets, lifecycle policies, and KMS encryption.</li>
+        <li>Provisioned RadFlow endpoints and DICOM validation rules; deployed SynthFlow mappings.</li>
+        <li>AE Title registration and C-ECHO tests; documented in Integration Checklist.</li>
+        <li>Instrumented monitoring (S3 access logs, CloudTrail) and dashboards (Grafana/Prometheus).</li>
+        <li>Completed CI/CD pipelines for microservice and configuration deployment (Azure DevOps).</li>
+        <li>Weekly clinical demos and feedback captured as Jira tasks.</li>
+      </ul>
+
+      <h5>4. Testing</h5>
+      <p><strong>Objective:</strong> Validate functional correctness, performance, security and clinical acceptance.</p>
+      <h6>Test types & approach</h6>
+      <ul>
+        <li>Unit / component tests for RadFlow rules and microservices.</li>
+        <li>Integration tests: DICOM send → RadFlow → S3 → retrieve via DICOMweb / WADO.</li>
+        <li>Performance tests: throughput and concurrency (simulate parallel C-STOREs).</li>
+        <li>Security tests: TLS verification, IAM checks, audit logs review.</li>
+        <li>UAT: clinical acceptance with anonymized cases and checklists.</li>
+      </ul>
+      <h6>Defect management</h6>
+      <p>All defects logged in Jira with: ID, Summary, Severity, Affected Site, Steps, Assigned To, Status, Fix Version.</p>
+      <h6>Acceptance criteria (sample)</h6>
+      <ul>
+        <li>AE C-ECHO and C-STORE success rate >=99% across 1,000 sample studies.</li>
+        <li>Clinical signoff for retrieval and viewing with expected metadata mapping.</li>
+        <li>No critical findings from security scans; audit logs preserved.</li>
+      </ul>
+
+      <h5>5. Go-Live</h5>
+      <p><strong>Objective:</strong> Execute cutover runbook, validate readiness, move to production using staged pilot approach.</p>
+      <h6>Go-Live checklist (selected)</h6>
+      <ul>
+        <li>Final AE Title confirmation and last-mile network checks.</li>
+        <li>Execute cutover: switch senders to RadFlow endpoints; monitor C-STORE.</li>
+        <li>Enable monitoring dashboards and alerting.</li>
+        <li>Support roster & Hypercare (24/7 first 72 hours as required).</li>
+        <li>Log issues in Jira and prioritize fixes during Hypercare.</li>
+      </ul>
+      <p><strong>Communication:</strong> Go-Live announcement with runbook/dashboard links; scheduled check-ins (30 min then hourly/shift-based), steering updates at 24 hours and 7 days.</p>
+
+      <h5>6. Closure</h5>
+      <p><strong>Objective:</strong> Formalize acceptance, handover to BAU, capture lessons learned, close finances.</p>
+      <h6>Closure tasks</h6>
+      <ul>
+        <li>Obtain Client Test Signoff and Sponsor Acceptance.</li>
+        <li>Handover runbooks, SOPs and contact lists to BAU.</li>
+        <li>Lessons Learned workshop and Final Status Report.</li>
+        <li>Archive project artifacts into 06_Closure and set retention policy.</li>
+      </ul>
+
+      <h5>7. Financial Analysis (post-closure)</h5>
+      <p>Final cost reconciliation, ROI/TCO update, and post-implementation support schedule prepared after receiving actuals.</p>
+
+      <h6>Service Price List (summary)</h6>
+      <ul>
+        <li>Archive Historical Files: 50,000 CAD</li>
+        <li>DICOM-Only PACS Transfer: 80,000 CAD</li>
+        <li>HL7 Integration: 90,000 CAD</li>
+        <li>Custom Technical Workflow: 15,000 CAD</li>
+        <li>VPN / Secure Infrastructure: 5,000 CAD</li>
+        <li>AE Title Setup & Validation: 4,000 CAD</li>
+        <li>Cloud Storage Configuration: 6,000 CAD</li>
+        <li>Radiologist Consultation (2 wks): 20,000 CAD</li>
+      </ul>
+      <p><strong>Total Off-Set Price:</strong> $140,000.00</p>
+
+      <h6>Resource Costs (summary)</h6>
+      <ul>
+        <li>Project Manager — 90 CAD/hr, 320 hrs — $28,800</li>
+        <li>Integration Engineer — 80 CAD/hr, 280 hrs — $22,400</li>
+        <li>Technical Architect — 95 CAD/hr, 200 hrs — $19,000</li>
+        <li>QA Tester — 70 CAD/hr, 150 hrs — $10,500</li>
+        <li>Support Specialist (1-Month Hypercare) — 65 CAD/hr, 100 hrs — $6,500</li>
+      </ul>
+      <p><strong>Immediate Project Gain / (Loss):</strong> $52,800.00</p>
+
+      <h6>5-Year Financial Projection (summary)</h6>
+      <p>Estimated total revenue over 2025–2029: $182,000.00. Estimated 5yr storage & support cost: $64,800. Total 5yr profit projection: $108,750.00.</p>
+
+      <h6>Appendices</h6>
+      <ul>
+        <li>Appendix A — Template & artifact quick links (Project_Charter, AE_Title_Checklist, Integration_Checklist, RAID_Log, UAT_Signoff)</li>
+        <li>Appendix B — Tools mapping (Confluence, Jira/Azure DevOps, Lucidchart, Azure DevOps pipelines, Grafana/CloudWatch/CloudTrail)</li>
+      </ul>
+    </section>
+  </div>
+</section>

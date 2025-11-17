@@ -1,0 +1,26 @@
+[
+  {
+    "key": "ai",
+    "file": "tabs/ai.html",
+    "title": "AI Project Development Leadership",
+    "description": "AI project leadership, lifecycle and deliverables",
+    "author": "Vivian Aniebonam",
+    "updated": "2025-11-15"
+  },
+  {
+    "key": "pm",
+    "file": "tabs/pm.html",
+    "title": "Project Management Implementation (A–Z)",
+    "description": "End-to-end project delivery narrative (Initiation → Closure)",
+    "author": "Vivian Aniebonam",
+    "updated": "2025-11-15"
+  },
+  {
+    "key": "tech",
+    "file": "tabs/tech.html",
+    "title": "Technical Architecture & Data Flow",
+    "description": "Integration stack, DICOM tags, SynthFlow and security guidance",
+    "author": "Vivian Aniebonam",
+    "updated": "2025-11-15"
+  }
+]
